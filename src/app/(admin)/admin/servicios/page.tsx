@@ -1,7 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
-import { Scissors, Plus } from 'lucide-react'
+import { Scissors } from 'lucide-react'
 import ServiceCard from './ServiceCard'
 import NewServiceForm from './NewServiceForm'
+import type { ServiceImage } from './ServiceImageGallery'
 
 const CATEGORY_LABELS: Record<string, string> = {
   manicure: 'Manicure', pedicure: 'Pedicure',
@@ -13,7 +14,7 @@ export default async function ServiciosPage() {
   const supabase = await createClient()
   const { data: services } = await supabase
     .from('services')
-    .select('*')
+    .select('*, service_images(id, url, storage_path, display_order)')
     .order('category')
     .order('name')
 
@@ -28,12 +29,12 @@ export default async function ServiciosPage() {
   const totalActive = services?.filter(s => s?.is_active).length ?? 0
 
   return (
-    <div className="p-8 space-y-8">
+    <div className="p-4 md:p-8 space-y-8">
       <div className="flex items-end justify-between">
         <div>
           <div className="flex items-center gap-3 mb-1">
             <Scissors size={22} className="text-[var(--color-primary-dark)]" />
-            <h1 className="font-display text-3xl font-bold text-[var(--color-navy)] tracking-tight">Servicios</h1>
+            <h1 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-navy)] tracking-tight">Servicios</h1>
           </div>
           <p className="text-sm font-medium text-[var(--color-ink-secondary)] ml-9">
             {totalActive} servicio{totalActive !== 1 ? 's' : ''} activo{totalActive !== 1 ? 's' : ''}
@@ -52,9 +53,11 @@ export default async function ServiciosPage() {
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-              {items?.map((svc) => svc && (
-                <ServiceCard key={svc.id} svc={svc} />
-              ))}
+              {items?.map((svc) => {
+                if (!svc) return null
+                const images = (svc.service_images as ServiceImage[] | null) ?? []
+                return <ServiceCard key={svc.id} svc={svc} images={images} />
+              })}
             </div>
           </div>
         ))}

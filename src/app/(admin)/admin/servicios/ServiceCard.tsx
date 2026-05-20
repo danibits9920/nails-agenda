@@ -4,6 +4,7 @@ import { Clock, Pencil, X, Check, Loader2 } from 'lucide-react'
 import { formatCLP } from '@/lib/utils'
 import { upsertService } from '@/app/actions/services'
 import ToggleActive from './ToggleActive'
+import ServiceImageGallery, { type ServiceImage } from './ServiceImageGallery'
 
 const CATEGORIES = [
   { value: 'manicure', label: 'Manicure' },
@@ -26,7 +27,7 @@ type Service = {
 
 const inputClass = 'w-full px-3 py-2 rounded-lg border border-[var(--color-border)] bg-white text-sm text-[var(--color-navy)] focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/25 transition-all shadow-sm'
 
-export default function ServiceCard({ svc }: { svc: Service }) {
+export default function ServiceCard({ svc, images }: { svc: Service; images: ServiceImage[] }) {
   const [editing, setEditing] = useState(false)
   const [error, setError]     = useState<string | null>(null)
   const [isPending, start]    = useTransition()
@@ -66,15 +67,21 @@ export default function ServiceCard({ svc }: { svc: Service }) {
               <ToggleActive id={svc.id} isActive={svc.is_active} />
             </div>
           </div>
+
           {svc.description && (
-            <p className="text-xs text-[var(--color-ink-secondary)] mb-4 line-clamp-2 leading-relaxed">{svc.description}</p>
+            <p className="text-xs text-[var(--color-ink-secondary)] mb-3 line-clamp-2 leading-relaxed">
+              {svc.description}
+            </p>
           )}
+
           <div className="flex items-center justify-between pt-2.5 border-t border-[var(--color-border-soft)]">
             <span className="flex items-center gap-1.5 text-xs font-bold text-[var(--color-ink-secondary)]">
               <Clock size={12} className="text-[var(--color-primary-dark)]" /> {svc.duration_minutes} min
             </span>
             <span className="text-sm font-bold text-[var(--color-dorado-dark)]">{formatCLP(svc.price)}</span>
           </div>
+
+          <ServiceImageGallery serviceId={svc.id} images={images} />
         </div>
       )}
 
@@ -94,7 +101,6 @@ export default function ServiceCard({ svc }: { svc: Service }) {
             </button>
           </div>
 
-          {/* Nombre */}
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Nombre *</label>
             <input
@@ -105,7 +111,6 @@ export default function ServiceCard({ svc }: { svc: Service }) {
             />
           </div>
 
-          {/* Descripción */}
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Descripción</label>
             <textarea
@@ -116,7 +121,6 @@ export default function ServiceCard({ svc }: { svc: Service }) {
             />
           </div>
 
-          {/* Categoría */}
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Categoría *</label>
             <select name="category" defaultValue={svc.category} className={inputClass}>
@@ -126,7 +130,6 @@ export default function ServiceCard({ svc }: { svc: Service }) {
             </select>
           </div>
 
-          {/* Precio + Duración */}
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
               <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Precio (CLP) *</label>
@@ -147,7 +150,7 @@ export default function ServiceCard({ svc }: { svc: Service }) {
           </div>
 
           {error && (
-            <p className="text-xs text-[var(--color-error)] bg-[var(--color-error-bg)] px-3 py-2 rounded-lg">{error}</p>
+            <p className="text-xs text-[var(--color-error,#dc2626)] bg-red-50 px-3 py-2 rounded-lg">{error}</p>
           )}
 
           <div className="flex gap-2 pt-1">

@@ -45,6 +45,35 @@ export type Database = {
         }
         Relationships: []
       }
+      service_images: {
+        Row: {
+          id:            string
+          service_id:    string
+          storage_path:  string
+          url:           string
+          display_order: number
+          created_at:    string
+        }
+        Insert: {
+          id?:            string
+          service_id:     string
+          storage_path:   string
+          url:            string
+          display_order?: number
+          created_at?:    string
+        }
+        Update: {
+          id?:            string
+          service_id?:    string
+          storage_path?:  string
+          url?:           string
+          display_order?: number
+          created_at?:    string
+        }
+        Relationships: [
+          { foreignKeyName: "service_images_service_id_fkey"; columns: ["service_id"]; isOneToOne: false; referencedRelation: "services"; referencedColumns: ["id"] }
+        ]
+      }
       appointments: {
         Row: {
           client_id: string | null
