@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Calendar, ClipboardList,
-  Users, Scissors, CreditCard, BarChart3, LogOut,
+  Users, Scissors, CreditCard, BarChart3, Clock, LogOut,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { logout } from '@/app/actions/auth'
@@ -14,6 +14,7 @@ const navItems = [
   { href: '/admin/citas',      label: 'Citas',      icon: ClipboardList   },
   { href: '/admin/clientes',   label: 'Clientes',   icon: Users           },
   { href: '/admin/servicios',  label: 'Servicios',  icon: Scissors        },
+  { href: '/admin/horario',    label: 'Horario',    icon: Clock           },
   { href: '/admin/pagos',      label: 'Pagos',      icon: CreditCard      },
   { href: '/admin/reportes',   label: 'Reportes',   icon: BarChart3       },
 ]
