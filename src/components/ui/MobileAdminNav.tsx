@@ -5,18 +5,18 @@ import { Calendar, Users, Scissors, Settings2, LayoutDashboard } from 'lucide-re
 import { cn } from '@/lib/utils'
 
 const bottomItems = [
-  { href: '/admin/calendario', label: 'Agenda',    icon: Calendar        },
-  { href: '/admin/citas',      label: 'Citas',     icon: LayoutDashboard },
-  { href: '/admin/clientes',   label: 'Clientes',  icon: Users           },
-  { href: '/admin/servicios',  label: 'Servicios', icon: Scissors        },
-  { href: '/admin/horario',    label: 'Ajustes',   icon: Settings2       },
+  { href: '/admin/calendario', label: 'Agenda', icon: Calendar },
+  { href: '/admin/citas', label: 'Citas', icon: LayoutDashboard },
+  { href: '/admin/clientes', label: 'Clientes', icon: Users },
+  { href: '/admin/servicios', label: 'Servicios', icon: Scissors },
+  { href: '/admin/horario', label: 'Ajustes', icon: Settings2 },
 ]
 
 export function MobileTopBar() {
   return (
     <header className="md:hidden flex items-center justify-between px-4 py-3 bg-[var(--color-navy)] text-white shrink-0 safe-top">
       <h1 className="font-display text-base font-semibold leading-tight tracking-tight">
-        💅 Nails Art Yurany
+        Nails Art Yurany
       </h1>
       <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">
         Y
