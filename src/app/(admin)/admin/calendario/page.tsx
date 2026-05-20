@@ -18,7 +18,7 @@ export default async function CalendarioPage({ searchParams }: { searchParams: P
 
   const { data: appointments } = await supabase
     .from('appointments')
-    .select('id, date, start_time, end_time, status, clients(name), services(name)')
+    .select('id, date, start_time, end_time, status, clients(name), services(name, description)')
     .gte('date', weekDates[0]!)
     .lte('date', weekDates[6]!)
     .not('status', 'in', '("cancelled","no_show")')

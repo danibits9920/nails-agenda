@@ -23,14 +23,11 @@ export default function AdminSidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="flex flex-col w-60 min-h-screen bg-[var(--color-cream)] border-r border-[var(--color-border)] shrink-0">
+    <aside className="hidden md:flex flex-col w-60 min-h-screen bg-[var(--color-cream)] border-r border-[var(--color-border)] shrink-0">
 
       {/* Marca */}
       <div className="px-6 py-6 border-b border-[var(--color-border)]">
-        <p className="text-[10px] font-semibold tracking-widest text-[var(--color-ink-muted)] uppercase">
-          Panel Admin
-        </p>
-        <h1 className="font-display text-lg font-semibold text-[var(--color-navy)] leading-tight mt-0.5">
+        <h1 className="font-display text-lg font-semibold text-[var(--color-navy)] leading-tight">
           Nails Art Yurany
         </h1>
       </div>
