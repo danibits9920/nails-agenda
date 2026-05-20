@@ -39,13 +39,27 @@
   --color-info:       #64B5F6;
   --color-info-bg:    #EFF6FF;
 
-  /* ── Estado de cita ───────────────────────────────────────── */
-  --color-status-pending:     #FFB74D;
-  --color-status-confirmed:   #64B5F6;
-  --color-status-in-progress: #D4BCEC;
-  --color-status-completed:   #81C784;
-  --color-status-cancelled:   #BDBDBD;
-  --color-status-no-show:     #E57373;
+  /* ── Estado de cita (Stitch Design System) ────────────────── */
+  --color-status-pending-bg:     #FFF3CD;
+  --color-status-pending-text:   #856404;
+  --color-status-confirmed-bg:   #EADDF7;
+  --color-status-confirmed-text: #6F42C1;
+  --color-status-progress-bg:    #FCEAEF;
+  --color-status-progress-text:  #EDAAB5;
+  --color-status-completed-bg:   #D4EDDA;
+  --color-status-completed-text: #155724;
+  --color-status-cancelled-bg:   #F8D7DA;
+  --color-status-cancelled-text: #721C24;
+  --color-status-noshow-bg:      #E2E3E5;
+  --color-status-noshow-text:    #383D41;
+
+  /* Para compatibilidad */
+  --color-status-pending:     #856404;
+  --color-status-confirmed:   #6F42C1;
+  --color-status-in-progress: #EDAAB5;
+  --color-status-completed:   #155724;
+  --color-status-cancelled:   #721C24;
+  --color-status-no-show:     #383D41;
 
   /* ── Tipografía ───────────────────────────────────────────── */
   --font-display: var(--font-playfair);
@@ -53,15 +67,22 @@
 
   /* ── Radios ───────────────────────────────────────────────── */
   --radius-xs:   4px;
-  --radius-sm:   6px;
-  --radius-md:   10px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
   --radius-lg:   16px;
   --radius-xl:   24px;
   --radius-pill: 9999px;
 
-  /* ── Sombras (solo bordes — estrategia borders-only) ──────── */
-  --shadow-card:   0 1px 3px rgba(26,32,64,0.06);
-  --shadow-raised: 0 4px 12px rgba(26,32,64,0.08);
+  /* ── M3 Tonal Surfaces ────────────────────────────────────── */
+  --color-surface-container-low:     #FEF5F7;
+  --color-surface-container:         #FDF0F3;
+  --color-surface-container-high:    #FCEAED;
+  --color-surface-container-highest: #F9E1E5;
+
+  /* ── Sombras (M3 elevation levels) ───────────────────────── */
+  --shadow-card:    0 1px 2px rgba(26,32,64,0.06), 0 1px 3px rgba(26,32,64,0.04);
+  --shadow-raised:  0 2px 6px rgba(26,32,64,0.08), 0 1px 2px rgba(26,32,64,0.06);
+  --shadow-overlay: 0 8px 24px rgba(26,32,64,0.10), 0 2px 6px rgba(26,32,64,0.06);
 }
 
 /* ── Base ─────────────────────────────────────────────────────── */

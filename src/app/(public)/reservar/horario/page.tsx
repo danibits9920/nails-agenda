@@ -29,13 +29,18 @@ export default async function HorarioPage({ searchParams }: { searchParams: Prom
   }
 
   return (
-    <div className="min-h-screen bg-[var(--color-cream)]">
+    <div className="min-h-screen bg-[var(--color-cream)] selection:bg-[var(--color-primary-light)]">
       <StepperHeader current={2} />
-      <div className="max-w-2xl mx-auto px-6 py-10">
+      <div className="max-w-2xl mx-auto px-5 py-8">
         <div className="mb-8">
-          <p className="text-sm text-[var(--color-ink-tertiary)] mb-1">{service.name}</p>
-          <h1 className="font-display text-2xl font-semibold text-[var(--color-navy)]">¿Cuándo te acomoda?</h1>
-          <p className="text-sm text-[var(--color-ink-tertiary)] mt-1">Selecciona el día y luego elige un horario disponible.</p>
+          <span className="inline-block px-3 py-1 bg-[var(--color-surface-container-low)] border border-[var(--color-border)] rounded-full text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--color-primary-dark)] mb-3">
+            Paso 2 de 4
+          </span>
+          <h1 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-navy)] tracking-tight mb-3">¿Cuándo te acomoda?</h1>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--color-primary-light)]/15 border border-[var(--color-primary)]/30 rounded-full text-xs font-semibold text-[var(--color-primary-dark)] mb-3">
+            {service.name}
+          </div>
+          <p className="text-sm text-[var(--color-ink-secondary)] font-medium">Selecciona el día y luego elige tu hora.</p>
         </div>
 
         <HorarioSelector

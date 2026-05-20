@@ -21,32 +21,35 @@ export default async function DatosPage({ searchParams }: {
   if (!service) notFound()
 
   return (
-    <div className="min-h-screen bg-[var(--color-cream)]">
+    <div className="min-h-screen bg-[var(--color-cream)] selection:bg-[var(--color-primary-light)]">
       <StepperHeader current={3} />
-      <div className="max-w-2xl mx-auto px-6 py-10">
 
-        {/* Resumen de la cita */}
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-dorado)]/30 p-5 mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-ink-muted)] mb-3">Tu cita</p>
+      <div className="max-w-2xl mx-auto px-5 py-8">
+        {/* Resumen */}
+        <div className="bg-gradient-to-r from-[var(--color-primary-light)]/20 to-[var(--color-lavanda)]/10 rounded-2xl border border-[var(--color-primary)]/20 p-5 mb-8 shadow-[var(--shadow-card)]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)] mb-3">Tu cita</p>
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="font-display font-semibold text-[var(--color-navy)] text-lg">{service.name}</p>
-              <div className="flex items-center gap-3 mt-2">
-                <span className="flex items-center gap-1.5 text-sm text-[var(--color-ink-secondary)]">
-                  <CalendarDays size={14} /> {formatDate(fecha)}
+              <p className="font-display font-bold text-[var(--color-navy)] text-base tracking-tight">{service.name}</p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-2">
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-ink-secondary)]">
+                  <CalendarDays size={12} className="text-[var(--color-primary-dark)]" /> {formatDate(fecha)}
                 </span>
-                <span className="flex items-center gap-1.5 text-sm text-[var(--color-ink-secondary)]">
-                  <Clock size={14} /> {formatTime(start)}
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-ink-secondary)]">
+                  <Clock size={12} className="text-[var(--color-primary-dark)]" /> {formatTime(start)}
                 </span>
               </div>
             </div>
-            <p className="font-bold text-xl text-[var(--color-dorado)] shrink-0">{formatCLP(service.price)}</p>
+            <p className="font-bold text-lg text-[var(--color-dorado-dark)] shrink-0">{formatCLP(service.price)}</p>
           </div>
         </div>
 
         <div className="mb-6">
-          <h1 className="font-display text-2xl font-semibold text-[var(--color-navy)]">Tus datos</h1>
-          <p className="text-sm text-[var(--color-ink-tertiary)] mt-1">Ingresa tu información para confirmar la reserva.</p>
+          <span className="inline-block px-3 py-1 bg-[var(--color-surface-container-low)] border border-[var(--color-border)] rounded-full text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--color-primary-dark)] mb-3">
+            Paso 3 de 4
+          </span>
+          <h1 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-navy)] tracking-tight">Tus datos</h1>
+          <p className="text-sm text-[var(--color-ink-secondary)] mt-1 font-medium">Ingresa tu información para confirmar la reserva.</p>
         </div>
 
         <DatosForm serviceId={serviceId} fecha={fecha} start={start} end={end} />

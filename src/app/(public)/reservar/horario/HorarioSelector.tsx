@@ -58,44 +58,46 @@ export default function HorarioSelector({
     )
   }
 
-  // Calendario
   const firstDay = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), 1)
   const lastDay  = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 0)
-  const startOffset = firstDay.getDay() // 0=Dom
+  const startOffset = firstDay.getDay()
   const daysInMonth = lastDay.getDate()
 
   const isPrevDisabled = viewMonth <= new Date(today.getFullYear(), today.getMonth(), 1)
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       {/* Calendario */}
-      <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] p-5">
-        {/* Header del mes */}
-        <div className="flex items-center justify-between mb-4">
+      <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-5 shadow-[var(--shadow-card)]">
+        {/* Header mes */}
+        <div className="flex items-center justify-between mb-5">
           <button
             onClick={prevMonth}
             disabled={isPrevDisabled}
-            className="p-1.5 rounded-[var(--radius-sm)] hover:bg-[var(--color-surface-raised)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container-low)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
-            <ChevronLeft size={18} className="text-[var(--color-ink-secondary)]" />
+            <ChevronLeft size={16} strokeWidth={2} className="text-[var(--color-ink-secondary)]" />
           </button>
-          <span className="font-display font-semibold text-[var(--color-navy)]">
+          <span className="font-display font-semibold text-[var(--color-navy)] text-sm">
             {MONTHS_ES[viewMonth.getMonth()]} {viewMonth.getFullYear()}
           </span>
-          <button onClick={nextMonth} className="p-1.5 rounded-[var(--radius-sm)] hover:bg-[var(--color-surface-raised)] transition-colors">
-            <ChevronRight size={18} className="text-[var(--color-ink-secondary)]" />
+          <button
+            onClick={nextMonth}
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container-low)] transition-colors"
+          >
+            <ChevronRight size={16} strokeWidth={2} className="text-[var(--color-ink-secondary)]" />
           </button>
         </div>
 
-        {/* Días de la semana */}
-        <div className="grid grid-cols-7 mb-1">
+        {/* Días semana */}
+        <div className="grid grid-cols-7 mb-2">
           {DAYS_ES.map(d => (
-            <div key={d} className="text-center text-[11px] font-semibold text-[var(--color-ink-muted)] py-1">{d}</div>
+            <div key={d} className="text-center text-[10px] font-bold text-[var(--color-ink-muted)] py-1 tracking-wide">{d}</div>
           ))}
         </div>
 
-        {/* Días */}
-        <div className="grid grid-cols-7 gap-0.5">
+        {/* Grid días */}
+        <div className="grid grid-cols-7 gap-y-1 gap-x-0.5">
           {Array.from({ length: startOffset }).map((_, i) => <div key={`e${i}`} />)}
           {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((day) => {
             const date = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), day)
@@ -109,12 +111,20 @@ export default function HorarioSelector({
                 disabled={isPast || isPending}
                 onClick={() => selectDate(date)}
                 className={[
-                  'h-9 w-full rounded-[var(--radius-sm)] text-sm font-medium transition-colors',
-                  isPast     ? 'text-[var(--color-ink-muted)] cursor-not-allowed opacity-40' : '',
-                  isSelected ? 'bg-[var(--color-navy)] text-white' : '',
-                  isToday && !isSelected ? 'border border-[var(--color-dorado)] text-[var(--color-navy)]' : '',
-                  !isPast && !isSelected ? 'hover:bg-[var(--color-surface-raised)] text-[var(--color-navy)]' : '',
-                ].join(' ')}
+                  'h-9 w-9 mx-auto rounded-full text-xs font-semibold transition-all duration-150 flex items-center justify-center',
+                  isPast
+                    ? 'text-[var(--color-ink-muted)] cursor-not-allowed opacity-35'
+                    : '',
+                  isSelected
+                    ? 'bg-[var(--color-navy)] text-white shadow-sm scale-110 ring-4 ring-[var(--color-navy)]/10'
+                    : '',
+                  isToday && !isSelected
+                    ? 'border-2 border-[var(--color-primary-dark)] text-[var(--color-navy)] font-bold'
+                    : '',
+                  !isPast && !isSelected
+                    ? 'hover:bg-[var(--color-surface-container-low)] text-[var(--color-navy)] hover:border hover:border-[var(--color-border)]'
+                    : '',
+                ].filter(Boolean).join(' ')}
               >
                 {day}
               </button>
@@ -123,26 +133,27 @@ export default function HorarioSelector({
         </div>
       </div>
 
-      {/* Slots de horario */}
+      {/* Slots */}
       {selectedFecha && (
-        <div>
-          <p className="text-sm font-semibold text-[var(--color-navy)] mb-3">
+        <div className="animate-in fade-in duration-300">
+          <p className="text-sm font-semibold text-[var(--color-navy)] mb-3 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
             Horarios disponibles
           </p>
           {isPending ? (
-            <p className="text-sm text-[var(--color-ink-muted)]">Cargando horarios…</p>
+            <p className="text-sm text-[var(--color-ink-muted)] animate-pulse py-4 text-center">Cargando horarios…</p>
           ) : slots.length === 0 ? (
-            <div className="bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border)] p-6 text-center">
-              <p className="text-sm text-[var(--color-ink-muted)]">No hay horarios disponibles para este día.</p>
-              <p className="text-xs text-[var(--color-ink-muted)] mt-1">Prueba otro día.</p>
+            <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-8 text-center shadow-[var(--shadow-card)]">
+              <p className="text-sm font-semibold text-[var(--color-navy)]">No hay horarios disponibles para este día.</p>
+              <p className="text-xs text-[var(--color-ink-secondary)] mt-1">Prueba seleccionando otra fecha.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
               {slots.map((slot) => (
                 <button
                   key={slot.slot_start}
                   onClick={() => selectSlot(slot)}
-                  className="py-2.5 px-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] text-sm font-medium text-[var(--color-navy)] hover:border-[var(--color-dorado)] hover:bg-[var(--color-surface-raised)] transition-colors text-center"
+                  className="py-3 px-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl text-sm font-bold text-[var(--color-navy)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-light)]/15 hover:scale-105 active:scale-95 transition-all duration-150 text-center shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-raised)]"
                 >
                   {slot.slot_start.slice(0, 5)}
                 </button>
