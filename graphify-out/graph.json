@@ -1,0 +1,5377 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package_json",
+      "community": 2,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "agenda_package_name",
+      "community": 2,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "agenda_package_version",
+      "community": 2,
+      "norm_label": "version"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "agenda_package_private",
+      "community": 2,
+      "norm_label": "private"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "agenda_package_scripts",
+      "community": 2,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "agenda_package_scripts_dev",
+      "community": 2,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "id": "agenda_package_scripts_build",
+      "community": 2,
+      "norm_label": "build"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "agenda_package_scripts_start",
+      "community": 2,
+      "norm_label": "start"
+    },
+    {
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "agenda_package_scripts_lint",
+      "community": 2,
+      "norm_label": "lint"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "id": "agenda_package_dependencies",
+      "community": 2,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "@supabase/ssr",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "id": "agenda_package_dependencies_supabase_ssr",
+      "community": 2,
+      "norm_label": "@supabase/ssr"
+    },
+    {
+      "label": "@supabase/supabase-js",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "id": "agenda_package_dependencies_supabase_supabase_js",
+      "community": 2,
+      "norm_label": "@supabase/supabase-js"
+    },
+    {
+      "label": "clsx",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "id": "agenda_package_dependencies_clsx",
+      "community": 1,
+      "norm_label": "clsx"
+    },
+    {
+      "label": "lucide-react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "id": "agenda_package_dependencies_lucide_react",
+      "community": 2,
+      "norm_label": "lucide-react"
+    },
+    {
+      "label": "next",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "id": "agenda_package_dependencies_next",
+      "community": 2,
+      "norm_label": "next"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "id": "agenda_package_dependencies_react",
+      "community": 2,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "id": "agenda_package_dependencies_react_dom",
+      "community": 2,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "resend",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "id": "agenda_package_dependencies_resend",
+      "community": 2,
+      "norm_label": "resend"
+    },
+    {
+      "label": "tailwind-merge",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "id": "agenda_package_dependencies_tailwind_merge",
+      "community": 2,
+      "norm_label": "tailwind-merge"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "id": "agenda_package_devdependencies",
+      "community": 2,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@tailwindcss/postcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "id": "agenda_package_devdependencies_tailwindcss_postcss",
+      "community": 2,
+      "norm_label": "@tailwindcss/postcss"
+    },
+    {
+      "label": "@types/node",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "id": "agenda_package_devdependencies_types_node",
+      "community": 2,
+      "norm_label": "@types/node"
+    },
+    {
+      "label": "@types/react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "id": "agenda_package_devdependencies_types_react",
+      "community": 2,
+      "norm_label": "@types/react"
+    },
+    {
+      "label": "@types/react-dom",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "id": "agenda_package_devdependencies_types_react_dom",
+      "community": 2,
+      "norm_label": "@types/react-dom"
+    },
+    {
+      "label": "eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "id": "agenda_package_devdependencies_eslint",
+      "community": 2,
+      "norm_label": "eslint"
+    },
+    {
+      "label": "eslint-config-next",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "id": "agenda_package_devdependencies_eslint_config_next",
+      "community": 2,
+      "norm_label": "eslint-config-next"
+    },
+    {
+      "label": "tailwindcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "id": "agenda_package_devdependencies_tailwindcss",
+      "community": 2,
+      "norm_label": "tailwindcss"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "id": "agenda_package_devdependencies_typescript",
+      "community": 2,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "next.config.ts",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L1",
+      "id": "next_config_ts",
+      "community": 17,
+      "norm_label": "next.config.ts"
+    },
+    {
+      "label": "nextConfig",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L3",
+      "id": "agenda_next_config_nextconfig",
+      "community": 17,
+      "norm_label": "nextconfig"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L1",
+      "id": "tsconfig_json",
+      "community": 4,
+      "norm_label": "tsconfig.json"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L2",
+      "id": "agenda_tsconfig_compileroptions",
+      "community": 4,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "target",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "id": "agenda_tsconfig_compileroptions_target",
+      "community": 4,
+      "norm_label": "target"
+    },
+    {
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "id": "agenda_tsconfig_compileroptions_lib",
+      "community": 4,
+      "norm_label": "lib"
+    },
+    {
+      "label": "allowJs",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L5",
+      "id": "agenda_tsconfig_compileroptions_allowjs",
+      "community": 4,
+      "norm_label": "allowjs"
+    },
+    {
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L6",
+      "id": "agenda_tsconfig_compileroptions_skiplibcheck",
+      "community": 4,
+      "norm_label": "skiplibcheck"
+    },
+    {
+      "label": "strict",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L7",
+      "id": "agenda_tsconfig_compileroptions_strict",
+      "community": 4,
+      "norm_label": "strict"
+    },
+    {
+      "label": "noEmit",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L8",
+      "id": "agenda_tsconfig_compileroptions_noemit",
+      "community": 4,
+      "norm_label": "noemit"
+    },
+    {
+      "label": "esModuleInterop",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L9",
+      "id": "agenda_tsconfig_compileroptions_esmoduleinterop",
+      "community": 4,
+      "norm_label": "esmoduleinterop"
+    },
+    {
+      "label": "module",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L10",
+      "id": "agenda_tsconfig_compileroptions_module",
+      "community": 4,
+      "norm_label": "module"
+    },
+    {
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L11",
+      "id": "agenda_tsconfig_compileroptions_moduleresolution",
+      "community": 4,
+      "norm_label": "moduleresolution"
+    },
+    {
+      "label": "resolveJsonModule",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L12",
+      "id": "agenda_tsconfig_compileroptions_resolvejsonmodule",
+      "community": 4,
+      "norm_label": "resolvejsonmodule"
+    },
+    {
+      "label": "isolatedModules",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L13",
+      "id": "agenda_tsconfig_compileroptions_isolatedmodules",
+      "community": 4,
+      "norm_label": "isolatedmodules"
+    },
+    {
+      "label": "jsx",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L14",
+      "id": "agenda_tsconfig_compileroptions_jsx",
+      "community": 4,
+      "norm_label": "jsx"
+    },
+    {
+      "label": "incremental",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L15",
+      "id": "agenda_tsconfig_compileroptions_incremental",
+      "community": 4,
+      "norm_label": "incremental"
+    },
+    {
+      "label": "plugins",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L16",
+      "id": "agenda_tsconfig_compileroptions_plugins",
+      "community": 4,
+      "norm_label": "plugins"
+    },
+    {
+      "label": "paths",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L21",
+      "id": "agenda_tsconfig_compileroptions_paths",
+      "community": 4,
+      "norm_label": "paths"
+    },
+    {
+      "label": "@/*",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L22",
+      "id": "agenda_tsconfig_paths",
+      "community": 4,
+      "norm_label": "@/*"
+    },
+    {
+      "label": "include",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L25",
+      "id": "agenda_tsconfig_include",
+      "community": 4,
+      "norm_label": "include"
+    },
+    {
+      "label": "exclude",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L33",
+      "id": "agenda_tsconfig_exclude",
+      "community": 4,
+      "norm_label": "exclude"
+    },
+    {
+      "label": "postcss.config.mjs",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "id": "postcss_config_mjs",
+      "community": 15,
+      "norm_label": "postcss.config.mjs"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "id": "agenda_postcss_config_config",
+      "community": 15,
+      "norm_label": "config"
+    },
+    {
+      "label": ".mcp.json",
+      "file_type": "code",
+      "source_file": ".mcp.json",
+      "source_location": "L1",
+      "id": "mcp_json",
+      "community": 9,
+      "norm_label": ".mcp.json"
+    },
+    {
+      "label": "mcpServers",
+      "file_type": "code",
+      "source_file": ".mcp.json",
+      "source_location": "L2",
+      "id": "agenda_mcp_mcpservers",
+      "community": 9,
+      "norm_label": "mcpservers"
+    },
+    {
+      "label": "supabase",
+      "file_type": "code",
+      "source_file": ".mcp.json",
+      "source_location": "L3",
+      "id": "agenda_mcp_mcpservers_supabase",
+      "community": 9,
+      "norm_label": "supabase"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": ".mcp.json",
+      "source_location": "L4",
+      "id": "agenda_mcp_supabase_type",
+      "community": 9,
+      "norm_label": "type"
+    },
+    {
+      "label": "url",
+      "file_type": "code",
+      "source_file": ".mcp.json",
+      "source_location": "L5",
+      "id": "agenda_mcp_supabase_url",
+      "community": 9,
+      "norm_label": "url"
+    },
+    {
+      "label": "eslint.config.mjs",
+      "file_type": "code",
+      "source_file": "eslint.config.mjs",
+      "source_location": "L1",
+      "id": "eslint_config_mjs",
+      "community": 16,
+      "norm_label": "eslint.config.mjs"
+    },
+    {
+      "label": "eslintConfig",
+      "file_type": "code",
+      "source_file": "eslint.config.mjs",
+      "source_location": "L5",
+      "id": "agenda_eslint_config_eslintconfig",
+      "community": 16,
+      "norm_label": "eslintconfig"
+    },
+    {
+      "label": "middleware.ts",
+      "file_type": "code",
+      "source_file": "src/middleware.ts",
+      "source_location": "L1",
+      "id": "src_middleware_ts",
+      "community": 14,
+      "norm_label": "middleware.ts"
+    },
+    {
+      "label": "middleware()",
+      "file_type": "code",
+      "source_file": "src/middleware.ts",
+      "source_location": "L4",
+      "id": "src_middleware_middleware",
+      "community": 14,
+      "norm_label": "middleware()"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "src/middleware.ts",
+      "source_location": "L42",
+      "id": "src_middleware_config",
+      "community": 14,
+      "norm_label": "config"
+    },
+    {
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L1",
+      "id": "src_lib_utils_ts",
+      "community": 1,
+      "norm_label": "utils.ts"
+    },
+    {
+      "label": "cn()",
+      "file_type": "code",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L4",
+      "id": "lib_utils_cn",
+      "community": 1,
+      "norm_label": "cn()"
+    },
+    {
+      "label": "formatCLP()",
+      "file_type": "code",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L8",
+      "id": "lib_utils_formatclp",
+      "community": 1,
+      "norm_label": "formatclp()"
+    },
+    {
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L16",
+      "id": "lib_utils_formatdate",
+      "community": 1,
+      "norm_label": "formatdate()"
+    },
+    {
+      "label": "formatTime()",
+      "file_type": "code",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L24",
+      "id": "lib_utils_formattime",
+      "community": 1,
+      "norm_label": "formattime()"
+    },
+    {
+      "label": "templates.ts",
+      "file_type": "code",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L1",
+      "id": "src_lib_resend_templates_ts",
+      "community": 5,
+      "norm_label": "templates.ts"
+    },
+    {
+      "label": "base()",
+      "file_type": "code",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L3",
+      "id": "resend_templates_base",
+      "community": 5,
+      "norm_label": "base()"
+    },
+    {
+      "label": "detailRow()",
+      "file_type": "code",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L37",
+      "id": "resend_templates_detailrow",
+      "community": 5,
+      "norm_label": "detailrow()"
+    },
+    {
+      "label": "templateConfirmacion()",
+      "file_type": "code",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L50",
+      "id": "resend_templates_templateconfirmacion",
+      "community": 5,
+      "norm_label": "templateconfirmacion()"
+    },
+    {
+      "label": "templateRecordatorio()",
+      "file_type": "code",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L84",
+      "id": "resend_templates_templaterecordatorio",
+      "community": 5,
+      "norm_label": "templaterecordatorio()"
+    },
+    {
+      "label": "templatePagoVerificado()",
+      "file_type": "code",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L107",
+      "id": "resend_templates_templatepagoverificado",
+      "community": 5,
+      "norm_label": "templatepagoverificado()"
+    },
+    {
+      "label": "emails.ts",
+      "file_type": "code",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L1",
+      "id": "src_lib_resend_emails_ts",
+      "community": 5,
+      "norm_label": "emails.ts"
+    },
+    {
+      "label": "sendConfirmacion()",
+      "file_type": "code",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L5",
+      "id": "resend_emails_sendconfirmacion",
+      "community": 1,
+      "norm_label": "sendconfirmacion()"
+    },
+    {
+      "label": "sendRecordatorio()",
+      "file_type": "code",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L31",
+      "id": "resend_emails_sendrecordatorio",
+      "community": 5,
+      "norm_label": "sendrecordatorio()"
+    },
+    {
+      "label": "sendPagoVerificado()",
+      "file_type": "code",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L53",
+      "id": "resend_emails_sendpagoverificado",
+      "community": 1,
+      "norm_label": "sendpagoverificado()"
+    },
+    {
+      "label": "client.ts",
+      "file_type": "code",
+      "source_file": "src/lib/resend/client.ts",
+      "source_location": "L1",
+      "id": "src_lib_resend_client_ts",
+      "community": 5,
+      "norm_label": "client.ts"
+    },
+    {
+      "label": "resend",
+      "file_type": "code",
+      "source_file": "src/lib/resend/client.ts",
+      "source_location": "L3",
+      "id": "resend_client_resend",
+      "community": 5,
+      "norm_label": "resend"
+    },
+    {
+      "label": "server.ts",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/server.ts",
+      "source_location": "L1",
+      "id": "src_lib_supabase_server_ts",
+      "community": 0,
+      "norm_label": "server.ts"
+    },
+    {
+      "label": "createClient()",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/server.ts",
+      "source_location": "L5",
+      "id": "supabase_server_createclient",
+      "community": 0,
+      "norm_label": "createclient()"
+    },
+    {
+      "label": "admin.ts",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/admin.ts",
+      "source_location": "L1",
+      "id": "src_lib_supabase_admin_ts",
+      "community": 7,
+      "norm_label": "admin.ts"
+    },
+    {
+      "label": "createAdminClient()",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/admin.ts",
+      "source_location": "L5",
+      "id": "supabase_admin_createadminclient",
+      "community": 7,
+      "norm_label": "createadminclient()"
+    },
+    {
+      "label": "client.ts",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L1",
+      "id": "src_lib_supabase_client_ts",
+      "community": 3,
+      "norm_label": "client.ts"
+    },
+    {
+      "label": "createClient()",
+      "file_type": "code",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L4",
+      "id": "supabase_client_createclient",
+      "community": 3,
+      "norm_label": "createclient()"
+    },
+    {
+      "label": "database.ts",
+      "file_type": "code",
+      "source_file": "src/types/database.ts",
+      "source_location": "L1",
+      "id": "src_types_database_ts",
+      "community": 3,
+      "norm_label": "database.ts"
+    },
+    {
+      "label": "Json",
+      "file_type": "code",
+      "source_file": "src/types/database.ts",
+      "source_location": "L4",
+      "id": "types_database_json",
+      "community": 3,
+      "norm_label": "json"
+    },
+    {
+      "label": "Database",
+      "file_type": "code",
+      "source_file": "src/types/database.ts",
+      "source_location": "L12",
+      "id": "types_database_database",
+      "community": 3,
+      "norm_label": "database"
+    },
+    {
+      "label": "AppointmentStatus",
+      "file_type": "code",
+      "source_file": "src/types/database.ts",
+      "source_location": "L205",
+      "id": "types_database_appointmentstatus",
+      "community": 3,
+      "norm_label": "appointmentstatus"
+    },
+    {
+      "label": "PaymentStatus",
+      "file_type": "code",
+      "source_file": "src/types/database.ts",
+      "source_location": "L209",
+      "id": "types_database_paymentstatus",
+      "community": 3,
+      "norm_label": "paymentstatus"
+    },
+    {
+      "label": "PaymentMethod",
+      "file_type": "code",
+      "source_file": "src/types/database.ts",
+      "source_location": "L210",
+      "id": "types_database_paymentmethod",
+      "community": 3,
+      "norm_label": "paymentmethod"
+    },
+    {
+      "label": "PaymentVerificationStatus",
+      "file_type": "code",
+      "source_file": "src/types/database.ts",
+      "source_location": "L211",
+      "id": "types_database_paymentverificationstatus",
+      "community": 3,
+      "norm_label": "paymentverificationstatus"
+    },
+    {
+      "label": "ServiceCategory",
+      "file_type": "code",
+      "source_file": "src/types/database.ts",
+      "source_location": "L212",
+      "id": "types_database_servicecategory",
+      "community": 3,
+      "norm_label": "servicecategory"
+    },
+    {
+      "label": "StepperHeader.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/StepperHeader.tsx",
+      "source_location": "L1",
+      "id": "src_components_ui_stepperheader_tsx",
+      "community": 0,
+      "norm_label": "stepperheader.tsx"
+    },
+    {
+      "label": "STEPS",
+      "file_type": "code",
+      "source_file": "src/components/ui/StepperHeader.tsx",
+      "source_location": "L5",
+      "id": "ui_stepperheader_steps",
+      "community": 0,
+      "norm_label": "steps"
+    },
+    {
+      "label": "StepperHeader()",
+      "file_type": "code",
+      "source_file": "src/components/ui/StepperHeader.tsx",
+      "source_location": "L12",
+      "id": "ui_stepperheader_stepperheader",
+      "community": 0,
+      "norm_label": "stepperheader()"
+    },
+    {
+      "label": "AdminSidebar.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L1",
+      "id": "src_components_ui_adminsidebar_tsx",
+      "community": 6,
+      "norm_label": "adminsidebar.tsx"
+    },
+    {
+      "label": "navItems",
+      "file_type": "code",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L11",
+      "id": "ui_adminsidebar_navitems",
+      "community": 6,
+      "norm_label": "navitems"
+    },
+    {
+      "label": "AdminSidebar()",
+      "file_type": "code",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L21",
+      "id": "ui_adminsidebar_adminsidebar",
+      "community": 6,
+      "norm_label": "adminsidebar()"
+    },
+    {
+      "label": "Badge.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L1",
+      "id": "src_components_ui_badge_tsx",
+      "community": 1,
+      "norm_label": "badge.tsx"
+    },
+    {
+      "label": "appointmentConfig",
+      "file_type": "code",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L4",
+      "id": "ui_badge_appointmentconfig",
+      "community": 1,
+      "norm_label": "appointmentconfig"
+    },
+    {
+      "label": "paymentConfig",
+      "file_type": "code",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L13",
+      "id": "ui_badge_paymentconfig",
+      "community": 1,
+      "norm_label": "paymentconfig"
+    },
+    {
+      "label": "AppointmentBadge()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L21",
+      "id": "ui_badge_appointmentbadge",
+      "community": 1,
+      "norm_label": "appointmentbadge()"
+    },
+    {
+      "label": "PaymentBadge()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L26",
+      "id": "ui_badge_paymentbadge",
+      "community": 1,
+      "norm_label": "paymentbadge()"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L1",
+      "id": "src_app_layout_tsx",
+      "community": 10,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "playfair",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L5",
+      "id": "app_layout_playfair",
+      "community": 10,
+      "norm_label": "playfair"
+    },
+    {
+      "label": "inter",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L11",
+      "id": "app_layout_inter",
+      "community": 10,
+      "norm_label": "inter"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L17",
+      "id": "app_layout_metadata",
+      "community": 10,
+      "norm_label": "metadata"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L23",
+      "id": "app_layout_rootlayout",
+      "community": 10,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/layout.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_layout_tsx",
+      "community": 6,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "AdminLayout()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/layout.tsx",
+      "source_location": "L3",
+      "id": "admin_layout_adminlayout",
+      "community": 6,
+      "norm_label": "adminlayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_pagos_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "PagosPage()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L6",
+      "id": "pagos_page_pagospage",
+      "community": 1,
+      "norm_label": "pagospage()"
+    },
+    {
+      "label": "PaymentActions.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/pagos/PaymentActions.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_pagos_paymentactions_tsx",
+      "community": 5,
+      "norm_label": "paymentactions.tsx"
+    },
+    {
+      "label": "PaymentActions()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/pagos/PaymentActions.tsx",
+      "source_location": "L6",
+      "id": "pagos_paymentactions_paymentactions",
+      "community": 5,
+      "norm_label": "paymentactions()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_servicios_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "CATEGORY_LABELS",
+      "file_type": "code",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L6",
+      "id": "servicios_page_category_labels",
+      "community": 0,
+      "norm_label": "category_labels"
+    },
+    {
+      "label": "ServiciosPage()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L12",
+      "id": "servicios_page_serviciospage",
+      "community": 0,
+      "norm_label": "serviciospage()"
+    },
+    {
+      "label": "ToggleActive.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/servicios/ToggleActive.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_servicios_toggleactive_tsx",
+      "community": 0,
+      "norm_label": "toggleactive.tsx"
+    },
+    {
+      "label": "ToggleActive()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/servicios/ToggleActive.tsx",
+      "source_location": "L5",
+      "id": "servicios_toggleactive_toggleactive",
+      "community": 0,
+      "norm_label": "toggleactive()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_reportes_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ReportesPage()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L4",
+      "id": "reportes_page_reportespage",
+      "community": 0,
+      "norm_label": "reportespage()"
+    },
+    {
+      "label": "RevenueCard()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L127",
+      "id": "reportes_page_revenuecard",
+      "community": 0,
+      "norm_label": "revenuecard()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_dashboard_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "DashboardPage()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L8",
+      "id": "dashboard_page_dashboardpage",
+      "community": 1,
+      "norm_label": "dashboardpage()"
+    },
+    {
+      "label": "StatCard()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L105",
+      "id": "dashboard_page_statcard",
+      "community": 1,
+      "norm_label": "statcard()"
+    },
+    {
+      "label": "StatusChanger.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_citas_statuschanger_tsx",
+      "community": 3,
+      "norm_label": "statuschanger.tsx"
+    },
+    {
+      "label": "options",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L6",
+      "id": "citas_statuschanger_options",
+      "community": 3,
+      "norm_label": "options"
+    },
+    {
+      "label": "StatusChanger()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L15",
+      "id": "citas_statuschanger_statuschanger",
+      "community": 3,
+      "norm_label": "statuschanger()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_citas_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "SearchParams",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L8",
+      "id": "citas_page_searchparams",
+      "community": 1,
+      "norm_label": "searchparams"
+    },
+    {
+      "label": "CitasPage()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L10",
+      "id": "citas_page_citaspage",
+      "community": 1,
+      "norm_label": "citaspage()"
+    },
+    {
+      "label": "FilterLink()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L99",
+      "id": "citas_page_filterlink",
+      "community": 1,
+      "norm_label": "filterlink()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/calendario/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_calendario_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "CalendarioPage()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/calendario/page.tsx",
+      "source_location": "L4",
+      "id": "calendario_page_calendariopage",
+      "community": 0,
+      "norm_label": "calendariopage()"
+    },
+    {
+      "label": "CalendarWeek.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "community": 3,
+      "norm_label": "calendarweek.tsx"
+    },
+    {
+      "label": "STATUS_BG",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L6",
+      "id": "calendario_calendarweek_status_bg",
+      "community": 3,
+      "norm_label": "status_bg"
+    },
+    {
+      "label": "HOURS",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L15",
+      "id": "calendario_calendarweek_hours",
+      "community": 3,
+      "norm_label": "hours"
+    },
+    {
+      "label": "DAYS_ES",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L16",
+      "id": "calendario_calendarweek_days_es",
+      "community": 3,
+      "norm_label": "days_es"
+    },
+    {
+      "label": "Apt",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L18",
+      "id": "calendario_calendarweek_apt",
+      "community": 3,
+      "norm_label": "apt"
+    },
+    {
+      "label": "CalendarWeek()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L28",
+      "id": "calendario_calendarweek_calendarweek",
+      "community": 3,
+      "norm_label": "calendarweek()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/clientes/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_clientes_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ClientesPage()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/clientes/page.tsx",
+      "source_location": "L6",
+      "id": "clientes_page_clientespage",
+      "community": 0,
+      "norm_label": "clientespage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_admin_admin_clientes_id_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ClienteProfilePage()",
+      "file_type": "code",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L9",
+      "id": "id_page_clienteprofilepage",
+      "community": 1,
+      "norm_label": "clienteprofilepage()"
+    },
+    {
+      "label": "services.ts",
+      "file_type": "code",
+      "source_file": "src/app/actions/services.ts",
+      "source_location": "L1",
+      "id": "src_app_actions_services_ts",
+      "community": 0,
+      "norm_label": "services.ts"
+    },
+    {
+      "label": "toggleServiceActive()",
+      "file_type": "code",
+      "source_file": "src/app/actions/services.ts",
+      "source_location": "L5",
+      "id": "actions_services_toggleserviceactive",
+      "community": 0,
+      "norm_label": "toggleserviceactive()"
+    },
+    {
+      "label": "upsertService()",
+      "file_type": "code",
+      "source_file": "src/app/actions/services.ts",
+      "source_location": "L16",
+      "id": "actions_services_upsertservice",
+      "community": 0,
+      "norm_label": "upsertservice()"
+    },
+    {
+      "label": "auth.ts",
+      "file_type": "code",
+      "source_file": "src/app/actions/auth.ts",
+      "source_location": "L1",
+      "id": "src_app_actions_auth_ts",
+      "community": 6,
+      "norm_label": "auth.ts"
+    },
+    {
+      "label": "login()",
+      "file_type": "code",
+      "source_file": "src/app/actions/auth.ts",
+      "source_location": "L6",
+      "id": "actions_auth_login",
+      "community": 6,
+      "norm_label": "login()"
+    },
+    {
+      "label": "logout()",
+      "file_type": "code",
+      "source_file": "src/app/actions/auth.ts",
+      "source_location": "L23",
+      "id": "actions_auth_logout",
+      "community": 6,
+      "norm_label": "logout()"
+    },
+    {
+      "label": "reservas.ts",
+      "file_type": "code",
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L1",
+      "id": "src_app_actions_reservas_ts",
+      "community": 7,
+      "norm_label": "reservas.ts"
+    },
+    {
+      "label": "crearReserva()",
+      "file_type": "code",
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L6",
+      "id": "actions_reservas_crearreserva",
+      "community": 7,
+      "norm_label": "crearreserva()"
+    },
+    {
+      "label": "appointments.ts",
+      "file_type": "code",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L1",
+      "id": "src_app_actions_appointments_ts",
+      "community": 3,
+      "norm_label": "appointments.ts"
+    },
+    {
+      "label": "updateAppointmentStatus()",
+      "file_type": "code",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L6",
+      "id": "actions_appointments_updateappointmentstatus",
+      "community": 3,
+      "norm_label": "updateappointmentstatus()"
+    },
+    {
+      "label": "updatePaymentStatus()",
+      "file_type": "code",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L18",
+      "id": "actions_appointments_updatepaymentstatus",
+      "community": 3,
+      "norm_label": "updatepaymentstatus()"
+    },
+    {
+      "label": "payments.ts",
+      "file_type": "code",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L1",
+      "id": "src_app_actions_payments_ts",
+      "community": 5,
+      "norm_label": "payments.ts"
+    },
+    {
+      "label": "verifyPayment()",
+      "file_type": "code",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L6",
+      "id": "actions_payments_verifypayment",
+      "community": 5,
+      "norm_label": "verifypayment()"
+    },
+    {
+      "label": "rejectPayment()",
+      "file_type": "code",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L41",
+      "id": "actions_payments_rejectpayment",
+      "community": 5,
+      "norm_label": "rejectpayment()"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/layout.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_layout_tsx",
+      "community": 21,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "PublicLayout()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/layout.tsx",
+      "source_location": "L1",
+      "id": "public_layout_publiclayout",
+      "community": 21,
+      "norm_label": "publiclayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "LandingPage()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/page.tsx",
+      "source_location": "L6",
+      "id": "public_page_landingpage",
+      "community": 0,
+      "norm_label": "landingpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_reservar_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "CATEGORY_LABELS",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L7",
+      "id": "reservar_page_category_labels",
+      "community": 0,
+      "norm_label": "category_labels"
+    },
+    {
+      "label": "ReservarPage()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L13",
+      "id": "reservar_page_reservarpage",
+      "community": 0,
+      "norm_label": "reservarpage()"
+    },
+    {
+      "label": "DatosForm.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/datos/DatosForm.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_reservar_datos_datosform_tsx",
+      "community": 7,
+      "norm_label": "datosform.tsx"
+    },
+    {
+      "label": "PAY_OPTIONS",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/datos/DatosForm.tsx",
+      "source_location": "L5",
+      "id": "datos_datosform_pay_options",
+      "community": 7,
+      "norm_label": "pay_options"
+    },
+    {
+      "label": "DatosForm()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/datos/DatosForm.tsx",
+      "source_location": "L10",
+      "id": "datos_datosform_datosform",
+      "community": 7,
+      "norm_label": "datosform()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_reservar_datos_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "DatosPage()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L8",
+      "id": "datos_page_datospage",
+      "community": 1,
+      "norm_label": "datospage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_reservar_confirmacion_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ConfirmacionPage()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L7",
+      "id": "confirmacion_page_confirmacionpage",
+      "community": 1,
+      "norm_label": "confirmacionpage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/pago/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_reservar_pago_page_tsx",
+      "community": 22,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "PagoPage()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/pago/page.tsx",
+      "source_location": "L1",
+      "id": "pago_page_pagopage",
+      "community": 22,
+      "norm_label": "pagopage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/horario/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_reservar_horario_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "HorarioPage()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/horario/page.tsx",
+      "source_location": "L6",
+      "id": "horario_page_horariopage",
+      "community": 0,
+      "norm_label": "horariopage()"
+    },
+    {
+      "label": "HorarioSelector.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_reservar_horario_horarioselector_tsx",
+      "community": 11,
+      "norm_label": "horarioselector.tsx"
+    },
+    {
+      "label": "DAYS_ES",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L6",
+      "id": "horario_horarioselector_days_es",
+      "community": 11,
+      "norm_label": "days_es"
+    },
+    {
+      "label": "MONTHS_ES",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L7",
+      "id": "horario_horarioselector_months_es",
+      "community": 11,
+      "norm_label": "months_es"
+    },
+    {
+      "label": "toLocalISO()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L9",
+      "id": "horario_horarioselector_tolocaliso",
+      "community": 11,
+      "norm_label": "tolocaliso()"
+    },
+    {
+      "label": "HorarioSelector()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L16",
+      "id": "horario_horarioselector_horarioselector",
+      "community": 11,
+      "norm_label": "horarioselector()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_public_servicios_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "ServiciosPublicosPage()",
+      "file_type": "code",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L12",
+      "id": "servicios_page_serviciospublicospage",
+      "community": 0,
+      "norm_label": "serviciospublicospage()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/login/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_login_page_tsx",
+      "community": 6,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "LoginPage()",
+      "file_type": "code",
+      "source_file": "src/app/login/page.tsx",
+      "source_location": "L5",
+      "id": "login_page_loginpage",
+      "community": 6,
+      "norm_label": "loginpage()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/pagos/route.ts",
+      "source_location": "L1",
+      "id": "src_app_api_pagos_route_ts",
+      "community": 18,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/pagos/route.ts",
+      "source_location": "L3",
+      "id": "pagos_route_post",
+      "community": 18,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/notificaciones/route.ts",
+      "source_location": "L1",
+      "id": "src_app_api_notificaciones_route_ts",
+      "community": 19,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/notificaciones/route.ts",
+      "source_location": "L3",
+      "id": "notificaciones_route_post",
+      "community": 19,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/reservas/route.ts",
+      "source_location": "L1",
+      "id": "src_app_api_reservas_route_ts",
+      "community": 20,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/reservas/route.ts",
+      "source_location": "L3",
+      "id": "reservas_route_post",
+      "community": 20,
+      "norm_label": "post()"
+    },
+    {
+      "label": "settings.local.json",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L1",
+      "id": "claude_settings_local_json",
+      "community": 13,
+      "norm_label": "settings.local.json"
+    },
+    {
+      "label": "enabledMcpjsonServers",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L2",
+      "id": "claude_settings_local_enabledmcpjsonservers",
+      "community": 13,
+      "norm_label": "enabledmcpjsonservers"
+    },
+    {
+      "label": "enableAllProjectMcpServers",
+      "file_type": "code",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L5",
+      "id": "claude_settings_local_enableallprojectmcpservers",
+      "community": 13,
+      "norm_label": "enableallprojectmcpservers"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L1",
+      "id": "supabase_functions_recordatorio_citas_index_ts",
+      "community": 12,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "tomorrowChile()",
+      "file_type": "code",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L8",
+      "id": "recordatorio_citas_index_tomorrowchile",
+      "community": 12,
+      "norm_label": "tomorrowchile()"
+    },
+    {
+      "label": "htmlRecordatorio()",
+      "file_type": "code",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L17",
+      "id": "recordatorio_citas_index_htmlrecordatorio",
+      "community": 12,
+      "norm_label": "htmlrecordatorio()"
+    },
+    {
+      "label": "tomorrow",
+      "file_type": "code",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L74",
+      "id": "recordatorio_citas_index_tomorrow",
+      "community": 12,
+      "norm_label": "tomorrow"
+    },
+    {
+      "label": "Row",
+      "file_type": "code",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L92",
+      "id": "recordatorio_citas_index_row",
+      "community": 12,
+      "norm_label": "row"
+    },
+    {
+      "label": "Next.js Agenda Project",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_nextjs_project",
+      "community": 8,
+      "norm_label": "next.js agenda project"
+    },
+    {
+      "label": "Next.js Framework",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 1",
+      "source_url": "https://nextjs.org",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_nextjs_framework",
+      "community": 8,
+      "norm_label": "next.js framework"
+    },
+    {
+      "label": "Vercel Deployment Platform",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 33",
+      "source_url": "https://vercel.com",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_vercel_deployment",
+      "community": 8,
+      "norm_label": "vercel deployment platform"
+    },
+    {
+      "label": "pnpm Workspace Configuration",
+      "file_type": "document",
+      "source_file": "pnpm-workspace.yaml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pnpm_workspace",
+      "community": 8,
+      "norm_label": "pnpm workspace configuration"
+    },
+    {
+      "label": "Vercel Logo",
+      "file_type": "image",
+      "source_file": "public/vercel.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "svg_vercel",
+      "community": 8,
+      "norm_label": "vercel logo"
+    },
+    {
+      "label": "Next.js Wordmark Logo",
+      "file_type": "image",
+      "source_file": "public/next.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "svg_next",
+      "community": 8,
+      "norm_label": "next.js wordmark logo"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "agenda_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "agenda_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "agenda_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "agenda_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "agenda_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "agenda_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agenda_package_scripts",
+      "target": "agenda_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "agenda_package_scripts",
+      "target": "agenda_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "agenda_package_scripts",
+      "target": "agenda_package_scripts_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "agenda_package_scripts",
+      "target": "agenda_package_scripts_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_supabase_ssr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_supabase_supabase_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_clsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_lucide_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_next",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_resend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "agenda_package_dependencies",
+      "target": "agenda_package_dependencies_tailwind_merge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "lib_utils_cn",
+      "target": "agenda_package_dependencies_clsx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "agenda_package_devdependencies",
+      "target": "agenda_package_devdependencies_tailwindcss_postcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "agenda_package_devdependencies",
+      "target": "agenda_package_devdependencies_types_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "agenda_package_devdependencies",
+      "target": "agenda_package_devdependencies_types_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "agenda_package_devdependencies",
+      "target": "agenda_package_devdependencies_types_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "agenda_package_devdependencies",
+      "target": "agenda_package_devdependencies_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "agenda_package_devdependencies",
+      "target": "agenda_package_devdependencies_eslint_config_next",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "agenda_package_devdependencies",
+      "target": "agenda_package_devdependencies_tailwindcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "agenda_package_devdependencies",
+      "target": "agenda_package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "next.config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "next_config_ts",
+      "target": "agenda_next_config_nextconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tsconfig_json",
+      "target": "agenda_tsconfig_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "tsconfig_json",
+      "target": "agenda_tsconfig_include",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "tsconfig_json",
+      "target": "agenda_tsconfig_exclude",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_lib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_allowjs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_skiplibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_strict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_noemit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_esmoduleinterop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_module",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_moduleresolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_resolvejsonmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_isolatedmodules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_incremental",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_plugins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions",
+      "target": "agenda_tsconfig_compileroptions_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "agenda_tsconfig_compileroptions_paths",
+      "target": "agenda_tsconfig_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "postcss_config_mjs",
+      "target": "agenda_postcss_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".mcp.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "mcp_json",
+      "target": "agenda_mcp_mcpservers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".mcp.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "agenda_mcp_mcpservers",
+      "target": "agenda_mcp_mcpservers_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".mcp.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "agenda_mcp_mcpservers_supabase",
+      "target": "agenda_mcp_supabase_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".mcp.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "agenda_mcp_mcpservers_supabase",
+      "target": "agenda_mcp_supabase_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "eslint.config.mjs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "eslint_config_mjs",
+      "target": "agenda_eslint_config_eslintconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/middleware.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_middleware_ts",
+      "target": "src_middleware_middleware",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/middleware.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_middleware_ts",
+      "target": "src_middleware_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_lib_utils_ts",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_lib_utils_ts",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_lib_utils_ts",
+      "target": "lib_utils_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/utils.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_lib_utils_ts",
+      "target": "lib_utils_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/StepperHeader.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_components_ui_stepperheader_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_components_ui_adminsidebar_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_components_ui_badge_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_reportes_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_confirmacion_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_servicios_page_tsx",
+      "target": "src_lib_utils_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/StepperHeader.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_components_ui_stepperheader_tsx",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_components_ui_adminsidebar_tsx",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_components_ui_badge_tsx",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "ui_badge_appointmentbadge",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "ui_badge_paymentbadge",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_reportes_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_confirmacion_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_servicios_page_tsx",
+      "target": "lib_utils_formatclp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "resend_emails_sendconfirmacion",
+      "target": "lib_utils_formatclp"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "resend_emails_sendpagoverificado",
+      "target": "lib_utils_formatclp"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "reportes_page_reportespage",
+      "target": "lib_utils_formatclp"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "dashboard_page_dashboardpage",
+      "target": "lib_utils_formatclp"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "id_page_clienteprofilepage",
+      "target": "lib_utils_formatclp"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "datos_page_datospage",
+      "target": "lib_utils_formatclp"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "confirmacion_page_confirmacionpage",
+      "target": "lib_utils_formatclp"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "lib_utils_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "lib_utils_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "lib_utils_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_page_tsx",
+      "target": "lib_utils_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "lib_utils_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "lib_utils_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_confirmacion_page_tsx",
+      "target": "lib_utils_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "resend_emails_sendconfirmacion",
+      "target": "lib_utils_formatdate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "resend_emails_sendrecordatorio",
+      "target": "lib_utils_formatdate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "resend_emails_sendpagoverificado",
+      "target": "lib_utils_formatdate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "datos_page_datospage",
+      "target": "lib_utils_formatdate"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "confirmacion_page_confirmacionpage",
+      "target": "lib_utils_formatdate"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "lib_utils_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "lib_utils_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "lib_utils_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "lib_utils_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "lib_utils_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_confirmacion_page_tsx",
+      "target": "lib_utils_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "resend_emails_sendconfirmacion",
+      "target": "lib_utils_formattime"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "resend_emails_sendrecordatorio",
+      "target": "lib_utils_formattime"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "resend_emails_sendpagoverificado",
+      "target": "lib_utils_formattime"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "datos_page_datospage",
+      "target": "lib_utils_formattime"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "confirmacion_page_confirmacionpage",
+      "target": "lib_utils_formattime"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_resend_templates_ts",
+      "target": "resend_templates_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "src_lib_resend_templates_ts",
+      "target": "resend_templates_detailrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "src_lib_resend_templates_ts",
+      "target": "resend_templates_templateconfirmacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "src_lib_resend_templates_ts",
+      "target": "resend_templates_templaterecordatorio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "src_lib_resend_templates_ts",
+      "target": "resend_templates_templatepagoverificado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "src_lib_resend_templates_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "resend_templates_templateconfirmacion",
+      "target": "resend_templates_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "resend_templates_templaterecordatorio",
+      "target": "resend_templates_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "resend_templates_templatepagoverificado",
+      "target": "resend_templates_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "resend_templates_templateconfirmacion",
+      "target": "resend_templates_detailrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "resend_templates_templaterecordatorio",
+      "target": "resend_templates_detailrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/templates.ts",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "resend_templates_templatepagoverificado",
+      "target": "resend_templates_detailrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "resend_templates_templateconfirmacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "resend_emails_sendconfirmacion",
+      "target": "resend_templates_templateconfirmacion"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "resend_templates_templaterecordatorio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "resend_emails_sendrecordatorio",
+      "target": "resend_templates_templaterecordatorio"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "resend_templates_templatepagoverificado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "resend_emails_sendpagoverificado",
+      "target": "resend_templates_templatepagoverificado"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "src_lib_resend_client_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "resend_client_resend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "resend_emails_sendconfirmacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "resend_emails_sendrecordatorio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/emails.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "src_lib_resend_emails_ts",
+      "target": "resend_emails_sendpagoverificado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_actions_reservas_ts",
+      "target": "src_lib_resend_emails_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_actions_payments_ts",
+      "target": "src_lib_resend_emails_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_actions_reservas_ts",
+      "target": "resend_emails_sendconfirmacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "actions_reservas_crearreserva",
+      "target": "resend_emails_sendconfirmacion"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_actions_payments_ts",
+      "target": "resend_emails_sendpagoverificado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "actions_payments_verifypayment",
+      "target": "resend_emails_sendpagoverificado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/resend/client.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_resend_client_ts",
+      "target": "resend_client_resend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/server.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_supabase_server_ts",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/server.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_lib_supabase_server_ts",
+      "target": "types_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/server.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_lib_supabase_server_ts",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_reportes_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/services.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_services_ts",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/auth.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_auth_ts",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_appointments_ts",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_payments_ts",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_confirmacion_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_servicios_page_tsx",
+      "target": "src_lib_supabase_server_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_reportes_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/services.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_services_ts",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/auth.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_auth_ts",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_appointments_ts",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_payments_ts",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_confirmacion_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_servicios_page_tsx",
+      "target": "supabase_server_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/admin.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_supabase_admin_ts",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/admin.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_supabase_admin_ts",
+      "target": "types_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/admin.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_lib_supabase_admin_ts",
+      "target": "supabase_admin_createadminclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_reservas_ts",
+      "target": "src_lib_supabase_admin_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_actions_reservas_ts",
+      "target": "supabase_admin_createadminclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "actions_reservas_crearreserva",
+      "target": "supabase_admin_createadminclient"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_supabase_client_ts",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_lib_supabase_client_ts",
+      "target": "types_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/supabase/client.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_lib_supabase_client_ts",
+      "target": "supabase_client_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/database.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_types_database_ts",
+      "target": "types_database_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/database.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_types_database_ts",
+      "target": "types_database_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/database.ts",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "src_types_database_ts",
+      "target": "types_database_appointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/database.ts",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "src_types_database_ts",
+      "target": "types_database_paymentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/database.ts",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "src_types_database_ts",
+      "target": "types_database_paymentmethod",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/database.ts",
+      "source_location": "L211",
+      "weight": 1.0,
+      "source": "src_types_database_ts",
+      "target": "types_database_paymentverificationstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/types/database.ts",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "src_types_database_ts",
+      "target": "types_database_servicecategory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_components_ui_badge_tsx",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_statuschanger_tsx",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_actions_appointments_ts",
+      "target": "src_types_database_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_components_ui_badge_tsx",
+      "target": "types_database_appointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "types_database_appointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_statuschanger_tsx",
+      "target": "types_database_appointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "types_database_appointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "target": "types_database_appointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "types_database_appointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_actions_appointments_ts",
+      "target": "types_database_appointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/StepperHeader.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_components_ui_stepperheader_tsx",
+      "target": "ui_stepperheader_steps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/StepperHeader.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_components_ui_stepperheader_tsx",
+      "target": "ui_stepperheader_stepperheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_page_tsx",
+      "target": "src_components_ui_stepperheader_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "src_components_ui_stepperheader_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_page_tsx",
+      "target": "src_components_ui_stepperheader_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_components_ui_adminsidebar_tsx",
+      "target": "src_app_actions_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_components_ui_adminsidebar_tsx",
+      "target": "actions_auth_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_components_ui_adminsidebar_tsx",
+      "target": "ui_adminsidebar_navitems",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/AdminSidebar.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_components_ui_adminsidebar_tsx",
+      "target": "ui_adminsidebar_adminsidebar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/layout.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_admin_layout_tsx",
+      "target": "src_components_ui_adminsidebar_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_components_ui_badge_tsx",
+      "target": "ui_badge_appointmentconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_components_ui_badge_tsx",
+      "target": "ui_badge_paymentconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_components_ui_badge_tsx",
+      "target": "ui_badge_appointmentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Badge.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_components_ui_badge_tsx",
+      "target": "ui_badge_paymentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "src_components_ui_badge_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "src_components_ui_badge_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "src_components_ui_badge_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "src_components_ui_badge_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "ui_badge_appointmentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "ui_badge_appointmentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "ui_badge_appointmentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "ui_badge_paymentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "ui_badge_paymentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "ui_badge_paymentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "ui_badge_paymentbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_layout_tsx",
+      "target": "app_layout_playfair",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_app_layout_tsx",
+      "target": "app_layout_inter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_app_layout_tsx",
+      "target": "app_layout_metadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_app_layout_tsx",
+      "target": "app_layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/layout.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_admin_layout_tsx",
+      "target": "admin_layout_adminlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "src_app_admin_admin_pagos_paymentactions_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_page_tsx",
+      "target": "pagos_page_pagospage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/PaymentActions.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_paymentactions_tsx",
+      "target": "src_app_actions_payments_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/PaymentActions.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_paymentactions_tsx",
+      "target": "actions_payments_verifypayment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/PaymentActions.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_paymentactions_tsx",
+      "target": "actions_payments_rejectpayment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/pagos/PaymentActions.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_pagos_paymentactions_tsx",
+      "target": "pagos_paymentactions_paymentactions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_page_tsx",
+      "target": "src_app_admin_admin_servicios_toggleactive_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_page_tsx",
+      "target": "servicios_page_category_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_page_tsx",
+      "target": "servicios_page_serviciospage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_public_servicios_page_tsx",
+      "target": "servicios_page_category_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/ToggleActive.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_toggleactive_tsx",
+      "target": "src_app_actions_services_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/ToggleActive.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_toggleactive_tsx",
+      "target": "actions_services_toggleserviceactive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/servicios/ToggleActive.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_servicios_toggleactive_tsx",
+      "target": "servicios_toggleactive_toggleactive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_reportes_page_tsx",
+      "target": "reportes_page_reportespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/reportes/page.tsx",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_reportes_page_tsx",
+      "target": "reportes_page_revenuecard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "dashboard_page_dashboardpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/dashboard/page.tsx",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_dashboard_page_tsx",
+      "target": "dashboard_page_statcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_statuschanger_tsx",
+      "target": "src_app_actions_appointments_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_statuschanger_tsx",
+      "target": "actions_appointments_updateappointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_statuschanger_tsx",
+      "target": "citas_statuschanger_options",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/StatusChanger.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_statuschanger_tsx",
+      "target": "citas_statuschanger_statuschanger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "src_app_admin_admin_citas_statuschanger_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "citas_page_searchparams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "citas_page_citaspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/citas/page.tsx",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_citas_page_tsx",
+      "target": "citas_page_filterlink",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_page_tsx",
+      "target": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_page_tsx",
+      "target": "calendario_page_calendariopage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "target": "calendario_calendarweek_status_bg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "target": "calendario_calendarweek_hours",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "target": "calendario_calendarweek_days_es",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "target": "calendario_calendarweek_apt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/calendario/CalendarWeek.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_calendario_calendarweek_tsx",
+      "target": "calendario_calendarweek_calendarweek",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_page_tsx",
+      "target": "clientes_page_clientespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(admin)/admin/clientes/[id]/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_app_admin_admin_clientes_id_page_tsx",
+      "target": "id_page_clienteprofilepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/services.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_actions_services_ts",
+      "target": "actions_services_toggleserviceactive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/services.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_app_actions_services_ts",
+      "target": "actions_services_upsertservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/auth.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_actions_auth_ts",
+      "target": "actions_auth_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/auth.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_app_actions_auth_ts",
+      "target": "actions_auth_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/login/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_login_page_tsx",
+      "target": "src_app_actions_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/login/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_login_page_tsx",
+      "target": "actions_auth_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/reservas.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_actions_reservas_ts",
+      "target": "actions_reservas_crearreserva",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/DatosForm.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_datosform_tsx",
+      "target": "src_app_actions_reservas_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/DatosForm.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_datosform_tsx",
+      "target": "actions_reservas_crearreserva",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_actions_appointments_ts",
+      "target": "actions_appointments_updateappointmentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/appointments.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "src_app_actions_appointments_ts",
+      "target": "actions_appointments_updatepaymentstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_actions_payments_ts",
+      "target": "actions_payments_verifypayment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/actions/payments.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "src_app_actions_payments_ts",
+      "target": "actions_payments_rejectpayment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/layout.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_layout_tsx",
+      "target": "public_layout_publiclayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_public_page_tsx",
+      "target": "public_page_landingpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_page_tsx",
+      "target": "reservar_page_category_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/page.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_page_tsx",
+      "target": "reservar_page_reservarpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/DatosForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_datosform_tsx",
+      "target": "datos_datosform_pay_options",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/DatosForm.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_datosform_tsx",
+      "target": "datos_datosform_datosform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "src_app_public_reservar_datos_datosform_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/datos/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_datos_page_tsx",
+      "target": "datos_page_datospage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/confirmacion/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_confirmacion_page_tsx",
+      "target": "confirmacion_page_confirmacionpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/pago/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_pago_page_tsx",
+      "target": "pago_page_pagopage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_page_tsx",
+      "target": "src_app_public_reservar_horario_horarioselector_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_page_tsx",
+      "target": "horario_page_horariopage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_horarioselector_tsx",
+      "target": "horario_horarioselector_days_es",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_horarioselector_tsx",
+      "target": "horario_horarioselector_months_es",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_horarioselector_tsx",
+      "target": "horario_horarioselector_tolocaliso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/reservar/horario/HorarioSelector.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_app_public_reservar_horario_horarioselector_tsx",
+      "target": "horario_horarioselector_horarioselector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/(public)/servicios/page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_app_public_servicios_page_tsx",
+      "target": "servicios_page_serviciospublicospage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/login/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_app_login_page_tsx",
+      "target": "login_page_loginpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/pagos/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_api_pagos_route_ts",
+      "target": "pagos_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/notificaciones/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_api_notificaciones_route_ts",
+      "target": "notificaciones_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/reservas/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app_api_reservas_route_ts",
+      "target": "reservas_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "claude_settings_local_json",
+      "target": "claude_settings_local_enabledmcpjsonservers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/settings.local.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "claude_settings_local_json",
+      "target": "claude_settings_local_enableallprojectmcpservers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "supabase_functions_recordatorio_citas_index_ts",
+      "target": "recordatorio_citas_index_tomorrowchile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "supabase_functions_recordatorio_citas_index_ts",
+      "target": "recordatorio_citas_index_htmlrecordatorio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "supabase_functions_recordatorio_citas_index_ts",
+      "target": "recordatorio_citas_index_tomorrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/recordatorio-citas/index.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "supabase_functions_recordatorio_citas_index_ts",
+      "target": "recordatorio_citas_index_row",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 1",
+      "weight": 1.0,
+      "source": "readme_nextjs_project",
+      "target": "readme_nextjs_framework"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 33",
+      "weight": 0.9,
+      "source": "readme_nextjs_project",
+      "target": "readme_vercel_deployment"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "pnpm-workspace.yaml",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "readme_nextjs_project",
+      "target": "pnpm_workspace"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "public/next.svg",
+      "source_location": null,
+      "weight": 0.95,
+      "source": "readme_nextjs_framework",
+      "target": "svg_next"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "public/vercel.svg",
+      "source_location": null,
+      "weight": 0.95,
+      "source": "readme_vercel_deployment",
+      "target": "svg_vercel"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "c73f391db15bb96137c8a1231b94c26e527525f1"
+}

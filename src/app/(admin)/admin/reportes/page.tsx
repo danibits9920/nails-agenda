@@ -56,26 +56,26 @@ export default async function ReportesPage() {
   }
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <h1 className="font-display text-2xl font-semibold text-[var(--color-navy)]">Reportes</h1>
-        <p className="text-sm text-[var(--color-ink-tertiary)] mt-0.5">{now.toLocaleDateString('es-CL', { month: 'long', year: 'numeric' })}</p>
+    <div className="p-8 space-y-8">
+      <div>
+        <h1 className="font-display text-4.5xl font-bold text-[var(--color-navy)] tracking-tight">Reportes</h1>
+        <p className="text-sm font-semibold text-[var(--color-ink-secondary)] mt-1 capitalize">{now.toLocaleDateString('es-CL', { month: 'long', year: 'numeric' })}</p>
       </div>
 
       {/* Ingresos */}
-      <div className="grid grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-2 gap-6">
         <RevenueCard label="Ingresos del mes" value={formatCLP(monthRevenue)} />
         <RevenueCard label={`Ingresos ${now.getFullYear()}`} value={formatCLP(yearRevenue)} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Citas por estado */}
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] p-6">
-          <h2 className="font-display text-base font-semibold text-[var(--color-navy)] mb-4">Citas por estado</h2>
-          <div className="space-y-2.5">
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] p-6 shadow-sm">
+          <h2 className="font-display text-lg font-bold text-[var(--color-navy)] mb-5 tracking-tight">Citas por estado</h2>
+          <div className="space-y-4">
             {Object.entries(statusCount).map(([status, count]) => (
               <div key={status} className="flex items-center gap-3">
-                <span className="text-xs font-medium text-[var(--color-ink-secondary)] w-24 shrink-0">
+                <span className="text-xs font-bold text-[var(--color-ink-secondary)] w-28 shrink-0">
                   {statusLabels[status] ?? status}
                 </span>
                 <div className="flex-1 h-2 rounded-full bg-[var(--color-surface-overlay)]">
@@ -87,33 +87,33 @@ export default async function ReportesPage() {
                     }}
                   />
                 </div>
-                <span className="text-xs font-semibold text-[var(--color-navy)] w-6 text-right shrink-0">{count}</span>
+                <span className="text-xs font-bold text-[var(--color-navy)] w-6 text-right shrink-0">{count}</span>
               </div>
             ))}
           </div>
-          <p className="text-xs text-[var(--color-ink-muted)] mt-4">
-            Tasa de no-shows: <strong>{noShowRate}%</strong>
+          <p className="text-xs font-bold text-[var(--color-ink-secondary)] mt-5 pt-4 border-t border-[var(--color-border-soft)]">
+            Tasa de inasistencias (no-shows): <span className="text-[var(--color-error)] text-sm font-bold ml-1">{noShowRate}%</span>
           </p>
         </div>
 
         {/* Servicios más solicitados */}
-        <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] p-6">
-          <h2 className="font-display text-base font-semibold text-[var(--color-navy)] mb-4">Servicios más solicitados</h2>
+        <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] p-6 shadow-sm">
+          <h2 className="font-display text-lg font-bold text-[var(--color-navy)] mb-5 tracking-tight">Servicios más solicitados</h2>
           {!topServicesList.length ? (
-            <p className="text-sm text-[var(--color-ink-muted)]">Sin datos suficientes.</p>
+            <p className="text-sm font-medium text-center text-[var(--color-ink-muted)] py-12">Sin datos suficientes.</p>
           ) : (
-            <div className="space-y-2.5">
+            <div className="space-y-4">
               {topServicesList.map((svc, i) => (
                 <div key={svc.name} className="flex items-center gap-3">
-                  <span className="text-xs font-bold text-[var(--color-ink-muted)] w-4 shrink-0">{i + 1}</span>
-                  <span className="text-xs text-[var(--color-ink-secondary)] flex-1 truncate">{svc.name}</span>
+                  <span className="text-xs font-bold text-[var(--color-ink-secondary)] w-4 shrink-0">{i + 1}</span>
+                  <span className="text-xs font-bold text-[var(--color-ink-secondary)] flex-1 truncate">{svc.name}</span>
                   <div className="w-24 h-2 rounded-full bg-[var(--color-surface-overlay)]">
                     <div
                       className="h-2 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-lavanda)]"
                       style={{ width: `${(svc.count / maxCount) * 100}%` }}
                     />
                   </div>
-                  <span className="text-xs font-semibold text-[var(--color-navy)] w-5 text-right shrink-0">{svc.count}</span>
+                  <span className="text-xs font-bold text-[var(--color-navy)] w-5 text-right shrink-0">{svc.count}</span>
                 </div>
               ))}
             </div>
@@ -126,9 +126,9 @@ export default async function ReportesPage() {
 
 function RevenueCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] p-6">
-      <p className="text-xs font-semibold uppercase tracking-wider text-[var(--color-ink-muted)] mb-2">{label}</p>
-      <p className="font-display text-3xl font-semibold text-[var(--color-navy)]">{value}</p>
+    <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] p-6 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
+      <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--color-ink-secondary)] mb-3">{label}</p>
+      <p className="font-display text-3.5xl font-bold text-[var(--color-navy)] tracking-tight">{value}</p>
     </div>
   )
 }

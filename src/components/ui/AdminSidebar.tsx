@@ -45,13 +45,13 @@ export default function AdminSidebar() {
               className={cn(
                 'flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-medium border-l-[3px] transition-colors',
                 active
-                  ? 'border-[var(--color-dorado)] bg-[var(--color-surface-raised)] text-[var(--color-navy)]'
+                  ? 'border-[var(--color-primary)] bg-[var(--color-surface-raised)] text-[var(--color-navy)]'
                   : 'border-transparent text-[var(--color-ink-secondary)] hover:bg-[var(--color-surface-raised)] hover:text-[var(--color-navy)]'
               )}
             >
               <Icon
                 size={17}
-                className={active ? 'text-[var(--color-dorado)]' : 'opacity-60'}
+                className={active ? 'text-[var(--color-primary-dark)]' : 'opacity-60'}
               />
               {label}
             </Link>
