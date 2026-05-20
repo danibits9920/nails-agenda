@@ -15,6 +15,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      business_hours: {
+        Row: {
+          id:            string
+          day_of_week:   number
+          start_time_1:  string
+          end_time_1:    string
+          start_time_2:  string | null
+          end_time_2:    string | null
+          is_active:     boolean
+        }
+        Insert: {
+          id?:           string
+          day_of_week:   number
+          start_time_1?: string
+          end_time_1?:   string
+          start_time_2?: string | null
+          end_time_2?:   string | null
+          is_active?:    boolean
+        }
+        Update: {
+          id?:           string
+          day_of_week?:  number
+          start_time_1?: string
+          end_time_1?:   string
+          start_time_2?: string | null
+          end_time_2?:   string | null
+          is_active?:    boolean
+        }
+        Relationships: []
+      }
       appointments: {
         Row: {
           client_id: string | null

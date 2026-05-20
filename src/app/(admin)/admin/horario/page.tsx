@@ -15,14 +15,13 @@ const DEFAULT_HOURS = DAY_NAMES.map((_, i) => ({
 
 export default async function HorarioAdminPage() {
   const supabase = await createClient()
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { data: rows } = await (supabase as any)
+  const { data: rows } = await supabase
     .from('business_hours')
     .select('day_of_week, start_time_1, end_time_1, start_time_2, end_time_2, is_active')
     .order('day_of_week')
 
   const schedules = DEFAULT_HOURS.map((def) => {
-    const saved = rows?.find((r: any) => r.day_of_week === def.day_of_week)
+    const saved = rows?.find(r => r.day_of_week === def.day_of_week)
     if (!saved) return def
     return {
       day_of_week:  saved.day_of_week,

@@ -19,8 +19,7 @@ export async function saveBusinessHours(schedules: DaySchedule[]) {
     start_time_2: s.start_time_2 || null,
     end_time_2:   s.end_time_2   || null,
   }))
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { error } = await (supabase as any)
+  const { error } = await supabase
     .from('business_hours')
     .upsert(cleaned, { onConflict: 'day_of_week' })
   if (error) return { error: error.message }
