@@ -7,9 +7,9 @@ const DAY_NAMES = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Vierne
 const DEFAULT_HOURS = DAY_NAMES.map((_, i) => ({
   day_of_week:  i,
   start_time_1: '08:00',
-  end_time_1:   '12:00',
-  start_time_2: i === 0 ? null : '14:00',
-  end_time_2:   i === 0 ? null : '18:00',
+  end_time_1:   '17:00',
+  start_time_2: null,
+  end_time_2:   null,
   is_active:    i !== 0,
 }))
 
