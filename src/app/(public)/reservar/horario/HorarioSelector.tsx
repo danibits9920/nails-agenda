@@ -6,6 +6,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 const DAYS_ES = ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá']
 const MONTHS_ES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 
+function to12h(time: string) {
+  const [h, m] = time.split(':').map(Number)
+  const period = h! >= 12 ? 'PM' : 'AM'
+  const hour   = h! % 12 || 12
+  return `${hour}:${String(m).padStart(2, '0')} ${period}`
+}
+
 function toLocalISO(date: Date) {
   const y = date.getFullYear()
   const m = String(date.getMonth() + 1).padStart(2, '0')
@@ -155,7 +162,7 @@ export default function HorarioSelector({
                   onClick={() => selectSlot(slot)}
                   className="py-3 px-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl text-sm font-bold text-[var(--color-navy)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-light)]/15 hover:scale-105 active:scale-95 transition-all duration-150 text-center shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-raised)]"
                 >
-                  {slot.slot_start.slice(0, 5)}
+                  {to12h(slot.slot_start)}
                 </button>
               ))}
             </div>
