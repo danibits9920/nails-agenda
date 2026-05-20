@@ -81,7 +81,7 @@ export default function ServiceImageGallery({ serviceId, images }: Props) {
         {sorted.map(img => (
           <div
             key={img.id}
-            className="relative group aspect-square rounded-xl overflow-hidden bg-[var(--color-surface-container-low)]"
+            className="relative aspect-square rounded-xl overflow-hidden bg-[var(--color-surface-container-low)]"
           >
             <Image
               src={img.url}
@@ -94,7 +94,7 @@ export default function ServiceImageGallery({ serviceId, images }: Props) {
               onClick={() => handleDelete(img.id, img.storage_path)}
               disabled={isPending}
               aria-label="Eliminar imagen"
-              className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/55 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500 disabled:cursor-not-allowed"
+              className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-red-500 transition-colors disabled:cursor-not-allowed"
             >
               {deleting === img.id
                 ? <Loader2 size={9} className="animate-spin" />
