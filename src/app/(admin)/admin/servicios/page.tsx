@@ -12,11 +12,34 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 export default async function ServiciosPage() {
   const supabase = await createClient()
+
   const { data: services } = await supabase
     .from('services')
-    .select('*, service_images(id, url, storage_path, display_order)')
+    .select('*')
     .order('category')
     .order('name')
+
+  const serviceIds = services?.map(s => s.id) ?? []
+
+  const { data: allImages } = serviceIds.length
+    ? await supabase
+        .from('service_images')
+        .select('id, service_id, url, storage_path, display_order')
+        .in('service_id', serviceIds)
+        .order('display_order')
+    : { data: [] as (ServiceImage & { service_id: string })[] }
+
+  const imagesByService = (allImages ?? []).reduce<Record<string, ServiceImage[]>>((acc, img) => {
+    if (!img) return acc
+    if (!acc[img.service_id]) acc[img.service_id] = []
+    acc[img.service_id]!.push({
+      id:            img.id,
+      url:           img.url,
+      storage_path:  img.storage_path,
+      display_order: img.display_order,
+    })
+    return acc
+  }, {})
 
   const grouped = (services ?? []).reduce<Record<string, typeof services>>((acc, s) => {
     if (!s) return acc
@@ -55,7 +78,7 @@ export default async function ServiciosPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
               {items?.map((svc) => {
                 if (!svc) return null
-                const images = (svc.service_images as ServiceImage[] | null) ?? []
+                const images = imagesByService[svc.id] ?? []
                 return <ServiceCard key={svc.id} svc={svc} images={images} />
               })}
             </div>

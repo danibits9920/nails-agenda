@@ -21,12 +21,30 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 export default async function ServiciosPublicosPage() {
   const supabase = await createClient()
+
   const { data: services } = await supabase
     .from('services')
-    .select('id, name, description, category, duration_minutes, price, service_images(id, url, display_order)')
+    .select('id, name, description, category, duration_minutes, price')
     .eq('is_active', true)
     .order('category')
     .order('name')
+
+  const serviceIds = services?.map(s => s.id) ?? []
+
+  const { data: allImages } = serviceIds.length
+    ? await supabase
+        .from('service_images')
+        .select('id, service_id, url, display_order')
+        .in('service_id', serviceIds)
+        .order('display_order')
+    : { data: [] as { id: string; service_id: string; url: string; display_order: number }[] }
+
+  const imagesByService = (allImages ?? []).reduce<Record<string, { id: string; url: string; display_order: number }[]>>((acc, img) => {
+    if (!img) return acc
+    if (!acc[img.service_id]) acc[img.service_id] = []
+    acc[img.service_id]!.push({ id: img.id, url: img.url, display_order: img.display_order })
+    return acc
+  }, {})
 
   const grouped = (services ?? []).reduce<Record<string, typeof services>>((acc, s) => {
     if (!s) return acc
@@ -92,8 +110,7 @@ export default async function ServiciosPublicosPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {items?.map((svc) => {
                   if (!svc) return null
-                  const images = [...((svc.service_images as { id: string; url: string; display_order: number }[] | null) ?? [])]
-                    .sort((a, b) => a.display_order - b.display_order)
+                  const images = imagesByService[svc.id] ?? []
                   return (
                     <div
                       key={svc.id}
