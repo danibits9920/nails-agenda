@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand ────────────────────────────────────────────────── */
+  --color-primary:       #EDAAB5;
+  --color-primary-light: #F5C0C0;
+  --color-primary-dark:  #D98898;
+  --color-lavanda:       #D4BCEC;
+  --color-lavanda-dark:  #B89ED6;
+  --color-dorado:        #D4AF37;
+  --color-dorado-dark:   #B8960C;
+  --color-navy:          #1A2040;
+  --color-navy-light:    #2A3360;
+
+  /* ── Surfaces ─────────────────────────────────────────────── */
+  --color-cream:           #FFF8F8;
+  --color-surface:         #FFFFFF;
+  --color-surface-raised:  #FEF5F7;
+  --color-surface-overlay: #FDF0F3;
+
+  /* ── Text hierarchy ───────────────────────────────────────── */
+  --color-ink:           #1A2040;
+  --color-ink-secondary: #4A5270;
+  --color-ink-tertiary:  #8A91AD;
+  --color-ink-muted:     #B8BCCF;
+
+  /* ── Borders ──────────────────────────────────────────────── */
+  --color-border:         rgba(26,32,64,0.10);
+  --color-border-soft:    rgba(26,32,64,0.06);
+  --color-border-strong:  rgba(26,32,64,0.20);
+
+  /* ── Semantic ─────────────────────────────────────────────── */
+  --color-success:    #81C784;
+  --color-success-bg: #F1FAF1;
+  --color-warning:    #FFB74D;
+  --color-warning-bg: #FFF8F0;
+  --color-error:      #E57373;
+  --color-error-bg:   #FFF1F1;
+  --color-info:       #64B5F6;
+  --color-info-bg:    #EFF6FF;
+
+  /* ── Estado de cita ───────────────────────────────────────── */
+  --color-status-pending:     #FFB74D;
+  --color-status-confirmed:   #64B5F6;
+  --color-status-in-progress: #D4BCEC;
+  --color-status-completed:   #81C784;
+  --color-status-cancelled:   #BDBDBD;
+  --color-status-no-show:     #E57373;
+
+  /* ── Tipografía ───────────────────────────────────────────── */
+  --font-display: var(--font-playfair);
+  --font-body:    var(--font-inter);
+
+  /* ── Radios ───────────────────────────────────────────────── */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 9999px;
+
+  /* ── Sombras (solo bordes — estrategia borders-only) ──────── */
+  --shadow-card:   0 1px 3px rgba(26,32,64,0.06);
+  --shadow-raised: 0 4px 12px rgba(26,32,64,0.08);
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Tipografía display ────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* ── Scrollbar discreta ────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--color-border-strong); border-radius: 3px; }
