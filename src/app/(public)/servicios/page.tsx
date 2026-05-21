@@ -4,12 +4,6 @@ import Link from 'next/link'
 import { Clock, ArrowLeft } from 'lucide-react'
 import ServiceImageCarousel from './ServiceImageCarousel'
 
-const CATEGORY_LABELS: Record<string, string> = {
-  manicure: 'Manicure', pedicure: 'Pedicure',
-  nail_art: 'Nail Art', gel: 'Gel',
-  acrilico: 'Acrílico', otros: 'Otros',
-}
-
 const CATEGORY_COLORS: Record<string, string> = {
   manicure: 'bg-[var(--color-primary-light)]/40 text-[var(--color-primary-dark)]',
   pedicure: 'bg-[var(--color-lavanda)]/30 text-purple-700',
@@ -22,12 +16,20 @@ const CATEGORY_COLORS: Record<string, string> = {
 export default async function ServiciosPublicosPage() {
   const supabase = await createClient()
 
-  const { data: services } = await supabase
-    .from('services')
-    .select('id, name, description, category, duration_minutes, price')
-    .eq('is_active', true)
-    .order('category')
-    .order('name')
+  const [{ data: services }, { data: rawCategories }] = await Promise.all([
+    supabase.from('services')
+      .select('id, name, description, category, duration_minutes, price')
+      .eq('is_active', true)
+      .order('category')
+      .order('name'),
+    supabase.from('service_categories')
+      .select('slug, label')
+      .order('display_order'),
+  ])
+
+  const CATEGORY_LABELS = (rawCategories ?? []).reduce<Record<string, string>>((acc, c) => {
+    acc[c.slug] = c.label; return acc
+  }, {})
 
   const serviceIds = services?.map(s => s.id) ?? []
 

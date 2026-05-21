@@ -45,6 +45,30 @@ export type Database = {
         }
         Relationships: []
       }
+      service_categories: {
+        Row: {
+          id:            string
+          slug:          string
+          label:         string
+          display_order: number
+          created_at:    string
+        }
+        Insert: {
+          id?:            string
+          slug:           string
+          label:          string
+          display_order?: number
+          created_at?:    string
+        }
+        Update: {
+          id?:            string
+          slug?:          string
+          label?:         string
+          display_order?: number
+          created_at?:    string
+        }
+        Relationships: []
+      }
       service_images: {
         Row: {
           id:            string

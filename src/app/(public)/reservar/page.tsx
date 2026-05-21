@@ -6,12 +6,18 @@ export default async function ReservarPage({ searchParams }: { searchParams: Pro
   const { service: selectedId } = await searchParams
   const supabase = await createClient()
 
-  const { data: services } = await supabase
-    .from('services')
-    .select('id, name, description, category, duration_minutes, price')
-    .eq('is_active', true)
-    .order('category')
-    .order('name')
+  const [{ data: services }, { data: rawCategories }] = await Promise.all([
+    supabase.from('services')
+      .select('id, name, description, category, duration_minutes, price')
+      .eq('is_active', true)
+      .order('category')
+      .order('name'),
+    supabase.from('service_categories')
+      .select('slug, label')
+      .order('display_order'),
+  ])
+
+  const categories = rawCategories ?? []
 
   return (
     <div className="min-h-screen bg-[var(--color-cream)] selection:bg-[var(--color-primary-light)]">
@@ -30,7 +36,7 @@ export default async function ReservarPage({ searchParams }: { searchParams: Pro
           </p>
         </div>
 
-        <ServiceSelector services={services ?? []} initialSelectedId={selectedId} />
+        <ServiceSelector services={services ?? []} initialSelectedId={selectedId} categories={categories} />
       </div>
     </div>
   )

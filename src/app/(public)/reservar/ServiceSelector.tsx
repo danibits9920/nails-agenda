@@ -5,11 +5,7 @@ import { formatCLP } from '@/lib/utils'
 import { Clock } from 'lucide-react'
 import Link from 'next/link'
 
-const CATEGORY_LABELS: Record<string, string> = {
-  manicure: 'Manicure', pedicure: 'Pedicure',
-  nail_art: 'Nail Art', gel: 'Gel',
-  acrilico: 'Acrílico', otros: 'Otros',
-}
+type Category = { slug: string; label: string }
 
 type Service = {
   id: string
@@ -23,12 +19,18 @@ type Service = {
 export default function ServiceSelector({
   services,
   initialSelectedId,
+  categories,
 }: {
   services: Service[]
   initialSelectedId?: string
+  categories: Category[]
 }) {
   const router = useRouter()
   const [selectedId, setSelectedId] = useState<string | null>(initialSelectedId ?? null)
+
+  const categoryMap = categories.reduce<Record<string, string>>((acc, c) => {
+    acc[c.slug] = c.label; return acc
+  }, {})
 
   const grouped = services.reduce<Record<string, Service[]>>((acc, s) => {
     if (!acc[s.category]) acc[s.category] = []
@@ -49,7 +51,7 @@ export default function ServiceSelector({
             <div className="flex items-center gap-2 mb-3">
               <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
               <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)]">
-                {CATEGORY_LABELS[category] ?? category}
+                {categoryMap[category] ?? category}
               </h2>
             </div>
 

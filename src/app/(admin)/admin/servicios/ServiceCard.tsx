@@ -5,15 +5,7 @@ import { formatCLP } from '@/lib/utils'
 import { upsertService } from '@/app/actions/services'
 import ToggleActive from './ToggleActive'
 import ServiceImageGallery, { type ServiceImage } from './ServiceImageGallery'
-
-const CATEGORIES = [
-  { value: 'manicure', label: 'Manicure' },
-  { value: 'pedicure', label: 'Pedicure' },
-  { value: 'gel',      label: 'Gel'      },
-  { value: 'acrilico', label: 'Acrílico' },
-  { value: 'nail_art', label: 'Nail Art' },
-  { value: 'otros',    label: 'Otros'    },
-]
+import type { Category } from './CategoryManager'
 
 type Service = {
   id: string
@@ -27,7 +19,7 @@ type Service = {
 
 const inputClass = 'w-full px-3 py-2 rounded-lg border border-[var(--color-border)] bg-white text-sm text-[var(--color-navy)] focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/25 transition-all shadow-sm'
 
-export default function ServiceCard({ svc, images }: { svc: Service; images: ServiceImage[] }) {
+export default function ServiceCard({ svc, images, categories }: { svc: Service; images: ServiceImage[]; categories: Category[] }) {
   const [editing, setEditing] = useState(false)
   const [error, setError]     = useState<string | null>(null)
   const [isPending, start]    = useTransition()
@@ -124,8 +116,8 @@ export default function ServiceCard({ svc, images }: { svc: Service; images: Ser
           <div className="space-y-1">
             <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Categoría *</label>
             <select name="category" defaultValue={svc.category} className={inputClass}>
-              {CATEGORIES.map(c => (
-                <option key={c.value} value={c.value}>{c.label}</option>
+              {categories.map(c => (
+                <option key={c.slug} value={c.slug}>{c.label}</option>
               ))}
             </select>
           </div>

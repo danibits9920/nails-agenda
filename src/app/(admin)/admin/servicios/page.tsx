@@ -2,57 +2,44 @@ import { createClient } from '@/lib/supabase/server'
 import { Scissors } from 'lucide-react'
 import ServiceCard from './ServiceCard'
 import NewServiceForm from './NewServiceForm'
+import CategoryManager from './CategoryManager'
 import type { ServiceImage } from './ServiceImageGallery'
-
-const CATEGORY_LABELS: Record<string, string> = {
-  manicure: 'Manicure', pedicure: 'Pedicure',
-  nail_art: 'Nail Art', gel: 'Gel',
-  acrilico: 'Acrílico', otros: 'Otros',
-}
+import type { Category } from './CategoryManager'
 
 export default async function ServiciosPage() {
   const supabase = await createClient()
 
-  const { data: services } = await supabase
-    .from('services')
-    .select('*')
-    .order('category')
-    .order('name')
+  const [{ data: services }, { data: rawCategories }, { data: allImages }] = await Promise.all([
+    supabase.from('services').select('*').order('category').order('name'),
+    supabase.from('service_categories').select('id, slug, label, display_order').order('display_order'),
+    supabase.from('service_images').select('id, service_id, url, storage_path, display_order').order('display_order'),
+  ])
 
-  const serviceIds = services?.map(s => s.id) ?? []
+  const categories: Category[] = rawCategories ?? []
 
-  const { data: allImages } = serviceIds.length
-    ? await supabase
-        .from('service_images')
-        .select('id, service_id, url, storage_path, display_order')
-        .in('service_id', serviceIds)
-        .order('display_order')
-    : { data: [] as (ServiceImage & { service_id: string })[] }
+  const categoryMap = categories.reduce<Record<string, string>>((acc, c) => {
+    acc[c.slug] = c.label
+    return acc
+  }, {})
 
   const imagesByService = (allImages ?? []).reduce<Record<string, ServiceImage[]>>((acc, img) => {
     if (!img) return acc
     if (!acc[img.service_id]) acc[img.service_id] = []
-    acc[img.service_id]!.push({
-      id:            img.id,
-      url:           img.url,
-      storage_path:  img.storage_path,
-      display_order: img.display_order,
-    })
+    acc[img.service_id]!.push({ id: img.id, url: img.url, storage_path: img.storage_path, display_order: img.display_order })
     return acc
   }, {})
 
   const grouped = (services ?? []).reduce<Record<string, typeof services>>((acc, s) => {
     if (!s) return acc
-    const cat = s.category
-    if (!acc[cat]) acc[cat] = []
-    acc[cat]!.push(s)
+    if (!acc[s.category]) acc[s.category] = []
+    acc[s.category]!.push(s)
     return acc
   }, {})
 
   const totalActive = services?.filter(s => s?.is_active).length ?? 0
 
   return (
-    <div className="p-4 md:p-8 space-y-8">
+    <div className="p-4 md:p-8 space-y-6">
       <div className="flex items-end justify-between">
         <div>
           <div className="flex items-center gap-3 mb-1">
@@ -66,20 +53,28 @@ export default async function ServiciosPage() {
         <NewServiceForm />
       </div>
 
+      <CategoryManager categories={categories} />
+
       <div className="space-y-8">
         {Object.entries(grouped).map(([category, items]) => (
           <div key={category} className="space-y-3">
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
               <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)]">
-                {CATEGORY_LABELS[category] ?? category}
+                {categoryMap[category] ?? category}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
               {items?.map((svc) => {
                 if (!svc) return null
-                const images = imagesByService[svc.id] ?? []
-                return <ServiceCard key={svc.id} svc={svc} images={images} />
+                return (
+                  <ServiceCard
+                    key={svc.id}
+                    svc={svc}
+                    images={imagesByService[svc.id] ?? []}
+                    categories={categories}
+                  />
+                )
               })}
             </div>
           </div>
