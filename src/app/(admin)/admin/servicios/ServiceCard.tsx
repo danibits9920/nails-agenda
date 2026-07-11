@@ -3,6 +3,7 @@ import { useState, useTransition } from 'react'
 import { Clock, Pencil, X, Check, Loader2 } from 'lucide-react'
 import { formatCLP } from '@/lib/utils'
 import { upsertService } from '@/app/actions/services'
+import { toast } from 'sonner'
 import ToggleActive from './ToggleActive'
 import ServiceImageGallery, { type ServiceImage } from './ServiceImageGallery'
 import type { Category } from './CategoryManager'
@@ -21,15 +22,13 @@ const inputClass = 'w-full px-3 py-2 rounded-lg border border-[var(--color-borde
 
 export default function ServiceCard({ svc, images, categories }: { svc: Service; images: ServiceImage[]; categories: Category[] }) {
   const [editing, setEditing] = useState(false)
-  const [error, setError]     = useState<string | null>(null)
   const [isPending, start]    = useTransition()
 
   function handleSave(formData: FormData) {
-    setError(null)
     start(async () => {
       const result = await upsertService(formData)
-      if (result?.error) setError(result.error)
-      else setEditing(false)
+      if (result?.error) toast.error(result.error)
+      else { toast.success('Servicio guardado'); setEditing(false) }
     })
   }
 
@@ -51,8 +50,9 @@ export default function ServiceCard({ svc, images, categories }: { svc: Service;
             <div className="flex items-center gap-1.5 shrink-0">
               <button
                 onClick={() => setEditing(true)}
-                className="p-1.5 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] hover:bg-[var(--color-surface-container-low)] transition-colors"
+                aria-label="Editar servicio"
                 title="Editar"
+                className="p-2 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] hover:bg-[var(--color-surface-container-low)] transition-colors"
               >
                 <Pencil size={14} />
               </button>
@@ -86,8 +86,9 @@ export default function ServiceCard({ svc, images, categories }: { svc: Service;
             <p className="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary-dark)]">Editando servicio</p>
             <button
               type="button"
-              onClick={() => { setEditing(false); setError(null) }}
-              className="p-1 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] hover:bg-[var(--color-surface-container-low)] transition-colors"
+              onClick={() => { setEditing(false) }}
+              aria-label="Cancelar edición"
+              className="p-2 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] hover:bg-[var(--color-surface-container-low)] transition-colors"
             >
               <X size={15} />
             </button>
@@ -141,10 +142,6 @@ export default function ServiceCard({ svc, images, categories }: { svc: Service;
             </div>
           </div>
 
-          {error && (
-            <p className="text-xs text-[var(--color-error,#dc2626)] bg-red-50 px-3 py-2 rounded-lg">{error}</p>
-          )}
-
           <div className="flex gap-2 pt-1">
             <button
               type="submit"
@@ -156,7 +153,7 @@ export default function ServiceCard({ svc, images, categories }: { svc: Service;
             </button>
             <button
               type="button"
-              onClick={() => { setEditing(false); setError(null) }}
+              onClick={() => { setEditing(false) }}
               className="px-4 py-2 text-xs font-semibold text-[var(--color-ink-secondary)] hover:text-[var(--color-navy)] rounded-full hover:bg-[var(--color-surface-container-low)] transition-colors"
             >
               Cancelar

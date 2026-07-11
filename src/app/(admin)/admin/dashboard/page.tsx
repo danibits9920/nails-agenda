@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
-import { AppointmentBadge, PaymentBadge } from '@/components/ui/Badge'
+import { AppointmentBadge, PaymentBadge } from '@/components/ui/status-badges'
 import { formatCLP, formatTime } from '@/lib/utils'
 import { Calendar, Clock, CreditCard, Users } from 'lucide-react'
 import Link from 'next/link'
@@ -64,7 +64,7 @@ export default async function DashboardPage() {
       <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] overflow-hidden shadow-sm">
         <div className="px-6 py-5 border-b border-[var(--color-border)] flex items-center justify-between">
           <h2 className="font-display text-lg font-bold text-[var(--color-navy)] tracking-tight">Citas de hoy</h2>
-          <Link href="/admin/citas" className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-navy)] transition-colors">
+          <Link href={`/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}/citas`} className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-navy)] transition-colors">
             Ver todas →
           </Link>
         </div>

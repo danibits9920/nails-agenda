@@ -2,9 +2,11 @@ import { createClient } from '@/lib/supabase/server'
 import { formatDate } from '@/lib/utils'
 import { Users } from 'lucide-react'
 import Link from 'next/link'
+import { Input } from '@/components/ui/input'
 
 export default async function ClientesPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {
   const { q } = await searchParams
+  const A = `/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}`
   const supabase = await createClient()
 
   let query = supabase
@@ -28,11 +30,11 @@ export default async function ClientesPage({ searchParams }: { searchParams: Pro
 
       {/* Búsqueda */}
       <form className="max-w-sm">
-        <input
+        <Input
           name="q"
           defaultValue={q}
           placeholder="Buscar por nombre…"
-          className="w-full px-4 py-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/20 transition-all shadow-sm"
+          className="h-10 bg-[var(--color-surface)]"
         />
       </form>
 
@@ -47,7 +49,7 @@ export default async function ClientesPage({ searchParams }: { searchParams: Pro
             {clients.map((client) => (
               <Link
                 key={client.id}
-                href={`/admin/clientes/${client.id}`}
+                href={`${A}/clientes/${client.id}`}
                 className="flex items-center gap-3 md:gap-4 px-4 md:px-6 py-3.5 md:py-4 hover:bg-[var(--color-surface-raised)] transition-all group"
               >
                 {/* Avatar */}

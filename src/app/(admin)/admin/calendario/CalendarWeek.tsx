@@ -1,7 +1,9 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { ChevronLeft, ChevronRight, Clock } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Clock, CalendarX2 } from 'lucide-react'
 import type { AppointmentStatus } from '@/types/database'
+
+const A = `/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}`
 
 // Colores según design system Stitch — Nails Art Yurany
 const STATUS_CARD: Record<AppointmentStatus, string> = {
@@ -77,13 +79,13 @@ export default function CalendarWeek({
   function navigateWeek(delta: number) {
     const d = new Date(anchorDate + 'T12:00:00')
     d.setDate(d.getDate() + delta * 7)
-    router.push(`/admin/calendario?fecha=${d.toISOString().split('T')[0]}`)
+    router.push(`${A}/calendario?fecha=${d.toISOString().split('T')[0]}`)
   }
 
   function navigateDay(delta: number) {
     const d = new Date(anchorDate + 'T12:00:00')
     d.setDate(d.getDate() + delta)
-    router.push(`/admin/calendario?fecha=${d.toISOString().split('T')[0]}`)
+    router.push(`${A}/calendario?fecha=${d.toISOString().split('T')[0]}`)
   }
 
   // El día seleccionado en mobile es el anchorDate
@@ -103,7 +105,8 @@ export default function CalendarWeek({
         <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)] bg-white">
           <button
             onClick={() => navigateDay(-1)}
-            className="p-2 rounded-xl border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
+            aria-label="Día anterior"
+            className="p-3 rounded-xl border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
           >
             <ChevronLeft size={18} className="text-[var(--color-navy)]" />
           </button>
@@ -117,7 +120,8 @@ export default function CalendarWeek({
           </div>
           <button
             onClick={() => navigateDay(1)}
-            className="p-2 rounded-xl border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
+            aria-label="Día siguiente"
+            className="p-3 rounded-xl border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
           >
             <ChevronRight size={18} className="text-[var(--color-navy)]" />
           </button>
@@ -127,8 +131,8 @@ export default function CalendarWeek({
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
           {dayAptsMobile.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-center">
-              <div className="w-14 h-14 rounded-full bg-[var(--color-surface-container-low)] flex items-center justify-center mb-3 text-2xl">
-                📅
+              <div className="w-14 h-14 rounded-full bg-[var(--color-surface-container-low)] flex items-center justify-center mb-3">
+                <CalendarX2 size={24} className="text-[var(--color-ink-muted)]" />
               </div>
               <p className="text-sm font-bold text-[var(--color-ink-secondary)]">Sin citas este día</p>
               <p className="text-xs text-[var(--color-ink-muted)] mt-1">No hay citas agendadas</p>
@@ -192,7 +196,7 @@ export default function CalendarWeek({
               return (
                 <button
                   key={date}
-                  onClick={() => router.push(`/admin/calendario?fecha=${date}`)}
+                  onClick={() => router.push(`${A}/calendario?fecha=${date}`)}
                   className={[
                     'flex flex-col items-center py-1.5 rounded-xl transition-all',
                     isSelected
@@ -226,6 +230,7 @@ export default function CalendarWeek({
         <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--color-border)]">
           <button
             onClick={() => navigateWeek(-1)}
+            aria-label="Semana anterior"
             className="p-2 rounded-[var(--radius-md)] border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
           >
             <ChevronLeft size={18} className="text-[var(--color-navy)]" />
@@ -237,6 +242,7 @@ export default function CalendarWeek({
           </span>
           <button
             onClick={() => navigateWeek(1)}
+            aria-label="Semana siguiente"
             className="p-2 rounded-[var(--radius-md)] border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
           >
             <ChevronRight size={18} className="text-[var(--color-navy)]" />

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { X, Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { uploadServiceImage, deleteServiceImage } from '@/app/actions/services'
+import { toast } from 'sonner'
 
 export type ServiceImage = {
   id:           string
@@ -22,7 +23,6 @@ const MAX = 8
 export default function ServiceImageGallery({ serviceId, images }: Props) {
   const router                  = useRouter()
   const [isPending, start]      = useTransition()
-  const [error, setError]       = useState<string | null>(null)
   const [deleting, setDeleting] = useState<string | null>(null)
   const fileRef                 = useRef<HTMLInputElement>(null)
 
@@ -32,7 +32,7 @@ export default function ServiceImageGallery({ serviceId, images }: Props) {
     e.target.value = ''
 
     if (images.length >= MAX) {
-      setError(`Máximo ${MAX} fotos por servicio`)
+      toast.error(`Máximo ${MAX} fotos por servicio`)
       return
     }
 
@@ -40,9 +40,8 @@ export default function ServiceImageGallery({ serviceId, images }: Props) {
     fd.append('file', file)
 
     start(async () => {
-      setError(null)
       const result = await uploadServiceImage(serviceId, fd)
-      if (result.error) setError(result.error)
+      if (result.error) toast.error(result.error)
       else router.refresh()
     })
   }
@@ -50,10 +49,9 @@ export default function ServiceImageGallery({ serviceId, images }: Props) {
   function handleDelete(id: string, storagePath: string) {
     setDeleting(id)
     start(async () => {
-      setError(null)
       const result = await deleteServiceImage(id, storagePath)
       setDeleting(null)
-      if (result.error) setError(result.error)
+      if (result.error) toast.error(result.error)
       else router.refresh()
     })
   }
@@ -70,12 +68,6 @@ export default function ServiceImageGallery({ serviceId, images }: Props) {
           {images.length}/{MAX}
         </p>
       </div>
-
-      {error && (
-        <p className="text-xs text-[var(--color-error,#dc2626)] bg-red-50 px-3 py-2 rounded-lg">
-          {error}
-        </p>
-      )}
 
       <div className="grid grid-cols-4 gap-2">
         {sorted.map(img => (

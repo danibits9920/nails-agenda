@@ -16,8 +16,9 @@ export async function login(
 
   if (error) return { error: 'Email o contraseña incorrectos.' }
 
-  revalidatePath('/admin', 'layout')
-  redirect('/admin/dashboard')
+  const adminBase = `/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}`
+  revalidatePath(adminBase, 'layout')
+  redirect(`${adminBase}/dashboard`)
 }
 
 export async function logout() {

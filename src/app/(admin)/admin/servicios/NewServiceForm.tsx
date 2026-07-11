@@ -2,6 +2,7 @@
 import { useState, useTransition } from 'react'
 import { Plus, X, Check, Loader2 } from 'lucide-react'
 import { upsertService } from '@/app/actions/services'
+import { toast } from 'sonner'
 
 const CATEGORIES = [
   { value: 'manicure', label: 'Manicure' },
@@ -15,16 +16,14 @@ const CATEGORIES = [
 const inputClass = 'w-full px-3 py-2 rounded-lg border border-[var(--color-border)] bg-white text-sm text-[var(--color-navy)] focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/25 transition-all shadow-sm'
 
 export default function NewServiceForm() {
-  const [open, setOpen]     = useState(false)
-  const [error, setError]   = useState<string | null>(null)
-  const [isPending, start]  = useTransition()
+  const [open, setOpen]    = useState(false)
+  const [isPending, start] = useTransition()
 
   function handleSave(formData: FormData) {
-    setError(null)
     start(async () => {
       const result = await upsertService(formData)
-      if (result?.error) setError(result.error)
-      else setOpen(false)
+      if (result?.error) toast.error(result.error)
+      else { toast.success('Servicio creado'); setOpen(false) }
     })
   }
 
@@ -45,8 +44,9 @@ export default function NewServiceForm() {
         <div className="flex items-center justify-between mb-5">
           <h2 className="font-display text-xl font-bold text-[var(--color-navy)] tracking-tight">Nuevo servicio</h2>
           <button
-            onClick={() => { setOpen(false); setError(null) }}
-            className="p-1.5 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] hover:bg-[var(--color-surface-container-low)] transition-colors"
+            onClick={() => { setOpen(false) }}
+            aria-label="Cerrar"
+            className="p-2 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] hover:bg-[var(--color-surface-container-low)] transition-colors"
           >
             <X size={16} />
           </button>
@@ -78,10 +78,6 @@ export default function NewServiceForm() {
             </div>
           </div>
 
-          {error && (
-            <p className="text-xs text-[var(--color-error)] bg-[var(--color-error-bg)] px-3 py-2 rounded-lg">{error}</p>
-          )}
-
           <div className="flex gap-2 pt-2">
             <button
               type="submit"
@@ -93,7 +89,7 @@ export default function NewServiceForm() {
             </button>
             <button
               type="button"
-              onClick={() => { setOpen(false); setError(null) }}
+              onClick={() => { setOpen(false) }}
               className="px-4 py-2.5 text-sm font-semibold text-[var(--color-ink-secondary)] hover:text-[var(--color-navy)] rounded-full hover:bg-[var(--color-surface-container-low)] transition-colors"
             >
               Cancelar

@@ -1,14 +1,20 @@
 'use client'
 import { toggleServiceActive } from '@/app/actions/services'
 import { useTransition } from 'react'
+import { toast } from 'sonner'
 
 export default function ToggleActive({ id, isActive }: { id: string; isActive: boolean }) {
   const [pending, startTransition] = useTransition()
   return (
     <button
       disabled={pending}
-      onClick={() => startTransition(() => { toggleServiceActive(id, !isActive) })}
+      onClick={() => startTransition(async () => {
+        const result = await toggleServiceActive(id, !isActive)
+        if (result?.error) toast.error(result.error)
+        else toast.success(isActive ? 'Servicio desactivado' : 'Servicio activado')
+      })}
       title={isActive ? 'Desactivar' : 'Activar'}
+      aria-label={isActive ? 'Desactivar servicio' : 'Activar servicio'}
       className={[
         'relative shrink-0 w-11 h-6 rounded-full transition-colors duration-200',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--color-dorado)]/50',

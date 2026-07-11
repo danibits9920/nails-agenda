@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
-import { AppointmentBadge, PaymentBadge } from '@/components/ui/Badge'
+import { AppointmentBadge, PaymentBadge } from '@/components/ui/status-badges'
 import { formatCLP, formatDate, formatTime } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -40,7 +40,7 @@ export default async function ClienteProfilePage({ params }: { params: Promise<{
 
   return (
     <div className="p-8 max-w-4xl space-y-8">
-      <Link href="/admin/clientes" className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-ink-secondary)] hover:text-[var(--color-primary-dark)] transition-colors">
+      <Link href={`/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}/clientes`} className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-ink-secondary)] hover:text-[var(--color-primary-dark)] transition-colors">
         <ArrowLeft size={16} /> Volver a clientes
       </Link>
 

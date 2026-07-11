@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
-import { AppointmentBadge, PaymentBadge } from '@/components/ui/Badge'
+import { AppointmentBadge, PaymentBadge } from '@/components/ui/status-badges'
 import { formatCLP, formatDate, formatTime } from '@/lib/utils'
 import Link from 'next/link'
 import type { AppointmentStatus } from '@/types/database'
@@ -23,6 +23,7 @@ export default async function CitasPage({ searchParams }: { searchParams: Promis
 
   const { data: appointments } = await query
 
+  const A = `/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}`
   const statuses: AppointmentStatus[] = ['pending', 'confirmed', 'in_progress', 'completed', 'cancelled', 'no_show']
   const statusLabels: Record<string, string> = {
     pending: 'Pendiente', confirmed: 'Confirmada', in_progress: 'En curso',
@@ -40,9 +41,9 @@ export default async function CitasPage({ searchParams }: { searchParams: Promis
 
       {/* Filtros — scroll horizontal en mobile */}
       <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap scrollbar-none">
-        <FilterLink href="/admin/citas" active={!params.status} label="Todas" />
+        <FilterLink href={`${A}/citas`} active={!params.status} label="Todas" />
         {statuses.map(s => (
-          <FilterLink key={s} href={`/admin/citas?status=${s}`} active={params.status === s} label={statusLabels[s] || s} />
+          <FilterLink key={s} href={`${A}/citas?status=${s}`} active={params.status === s} label={statusLabels[s] || s} />
         ))}
       </div>
 
@@ -72,7 +73,7 @@ export default async function CitasPage({ searchParams }: { searchParams: Promis
                     <div className="flex-1 min-w-0">
                       <p className="font-bold text-[var(--color-ink)] truncate">
                         {client
-                          ? <Link href={`/admin/clientes/${client.id}`} className="hover:text-[var(--color-primary-dark)] transition-colors">{client.name}</Link>
+                          ? <Link href={`${A}/clientes/${client.id}`} className="hover:text-[var(--color-primary-dark)] transition-colors">{client.name}</Link>
                           : '—'}
                       </p>
                       <p className="text-xs text-[var(--color-ink-secondary)] font-semibold mt-0.5 truncate">

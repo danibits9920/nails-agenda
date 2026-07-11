@@ -2,6 +2,9 @@
 import { useState, useTransition } from 'react'
 import { saveBusinessHours, type DaySchedule } from '@/app/actions/schedule'
 import { CheckCircle2, Loader2, Plus, X } from 'lucide-react'
+import { toast } from 'sonner'
+import { Switch } from '@/components/ui/switch'
+import { Button } from '@/components/ui/button'
 
 const DAY_NAMES = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 
@@ -20,12 +23,12 @@ export default function HorarioForm({ schedules: initial }: { schedules: DaySche
     setError(null)
     startTransition(async () => {
       const result = await saveBusinessHours(schedules)
-      if (result.error) setError(result.error)
-      else setSaved(true)
+      if (result.error) { setError(result.error); toast.error(result.error) }
+      else { setSaved(true); toast.success('Horario guardado') }
     })
   }
 
-  const timeCls = 'w-[5.5rem] px-2 py-2 rounded-lg border border-[var(--color-border)] bg-white text-sm text-[var(--color-navy)] font-semibold text-center focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/25 transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm'
+  const timeCls = 'w-[5.5rem] px-2 py-2.5 rounded-lg border border-[var(--color-border)] bg-white text-sm text-[var(--color-navy)] font-semibold text-center focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/25 transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm'
 
   return (
     <div>
@@ -69,7 +72,8 @@ export default function HorarioForm({ schedules: initial }: { schedules: DaySche
                   <input type="time" value={s.end_time_2 ?? ''} disabled={!s.is_active} className={timeCls}
                     onChange={e => update(s.day_of_week, { end_time_2: e.target.value })} />
                   <button type="button" disabled={!s.is_active} onClick={() => update(s.day_of_week, { start_time_2: null, end_time_2: null })}
-                    className="p-1 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-error)] hover:bg-red-50 transition-colors disabled:opacity-30">
+                    aria-label="Quitar turno 2"
+                    className="p-2 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-error)] hover:bg-red-50 transition-colors disabled:opacity-30">
                     <X size={13} />
                   </button>
                 </>
@@ -82,9 +86,8 @@ export default function HorarioForm({ schedules: initial }: { schedules: DaySche
               )}
             </div>
 
-            {/* Toggle */}
             <div className="flex justify-center">
-              <Toggle active={s.is_active} onChange={v => update(s.day_of_week, { is_active: v })} />
+              <Switch checked={s.is_active} onCheckedChange={(checked) => update(s.day_of_week, { is_active: checked })} />
             </div>
           </div>
         ))}
@@ -99,7 +102,7 @@ export default function HorarioForm({ schedules: initial }: { schedules: DaySche
               <p className={['font-bold', s.is_active ? 'text-[var(--color-navy)]' : 'text-[var(--color-ink-secondary)]'].join(' ')}>
                 {DAY_NAMES[s.day_of_week]}
               </p>
-              <Toggle active={s.is_active} onChange={v => update(s.day_of_week, { is_active: v })} />
+              <Switch checked={s.is_active} onCheckedChange={(checked) => update(s.day_of_week, { is_active: checked })} />
             </div>
 
             {/* Turno 1 */}
@@ -123,7 +126,8 @@ export default function HorarioForm({ schedules: initial }: { schedules: DaySche
                   onChange={e => update(s.day_of_week, { end_time_2: e.target.value })} />
                 <button type="button" disabled={!s.is_active}
                   onClick={() => update(s.day_of_week, { start_time_2: null, end_time_2: null })}
-                  className="p-1 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-error)] transition-colors disabled:opacity-30">
+                  aria-label="Quitar turno 2"
+                  className="p-2 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-error)] transition-colors disabled:opacity-30">
                   <X size={13} />
                 </button>
               </div>
@@ -148,24 +152,16 @@ export default function HorarioForm({ schedules: initial }: { schedules: DaySche
             </p>
           )}
         </div>
-        <button onClick={handleSave} disabled={isPending}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[var(--color-navy)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-navy-light)] disabled:opacity-50 transition-all shadow-sm">
+        <Button
+          onClick={handleSave}
+          disabled={isPending}
+          className="rounded-full px-5 py-2.5 h-auto bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)]"
+        >
           {isPending && <Loader2 size={14} className="animate-spin" />}
           {isPending ? 'Guardando…' : 'Guardar'}
-        </button>
+        </Button>
       </div>
     </div>
   )
 }
 
-function Toggle({ active, onChange }: { active: boolean; onChange: (v: boolean) => void }) {
-  return (
-    <button type="button" onClick={() => onChange(!active)}
-      className={['relative w-11 h-6 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/40',
-        active ? 'bg-[var(--color-primary-dark)]' : 'bg-[var(--color-border-strong)]'].join(' ')}
-      aria-label={active ? 'Desactivar' : 'Activar'}>
-      <span className={['absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200',
-        active ? 'translate-x-5' : 'translate-x-0'].join(' ')} />
-    </button>
-  )
-}

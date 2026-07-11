@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { formatCLP, formatDate } from '@/lib/utils'
-import { PaymentBadge } from '@/components/ui/Badge'
+import { PaymentBadge } from '@/components/ui/status-badges'
 import PaymentActions from './PaymentActions'
 
 export default async function PagosPage() {

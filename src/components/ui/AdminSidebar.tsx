@@ -3,20 +3,22 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Calendar, ClipboardList,
-  Users, Scissors, CreditCard, BarChart3, Clock, LogOut,
+  Users, Scissors, CreditCard, BarChart3, Clock, LogOut, Settings, Sparkles,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { logout } from '@/app/actions/auth'
+import { ADMIN_BASE } from '@/lib/admin-path'
 
 const navItems = [
-  { href: '/admin/dashboard',  label: 'Dashboard',  icon: LayoutDashboard },
-  { href: '/admin/calendario', label: 'Calendario', icon: Calendar        },
-  { href: '/admin/citas',      label: 'Citas',      icon: ClipboardList   },
-  { href: '/admin/clientes',   label: 'Clientes',   icon: Users           },
-  { href: '/admin/servicios',  label: 'Servicios',  icon: Scissors        },
-  { href: '/admin/horario',    label: 'Horario',    icon: Clock           },
-  { href: '/admin/pagos',      label: 'Pagos',      icon: CreditCard      },
-  { href: '/admin/reportes',   label: 'Reportes',   icon: BarChart3       },
+  { href: `${ADMIN_BASE}/dashboard`,     label: 'Dashboard',     icon: LayoutDashboard },
+  { href: `${ADMIN_BASE}/calendario`,    label: 'Calendario',    icon: Calendar        },
+  { href: `${ADMIN_BASE}/citas`,         label: 'Citas',         icon: ClipboardList   },
+  { href: `${ADMIN_BASE}/clientes`,      label: 'Clientes',      icon: Users           },
+  { href: `${ADMIN_BASE}/servicios`,     label: 'Servicios',     icon: Scissors        },
+  { href: `${ADMIN_BASE}/horario`,       label: 'Horario',       icon: Clock           },
+  { href: `${ADMIN_BASE}/pagos`,         label: 'Pagos',         icon: CreditCard      },
+  { href: `${ADMIN_BASE}/reportes`,      label: 'Reportes',      icon: BarChart3       },
+  { href: `${ADMIN_BASE}/configuracion`, label: 'Configuración', icon: Settings        },
 ]
 
 export default function AdminSidebar() {
@@ -26,10 +28,18 @@ export default function AdminSidebar() {
     <aside className="hidden md:flex flex-col w-60 min-h-screen bg-[var(--color-cream)] border-r border-[var(--color-border)] shrink-0">
 
       {/* Marca */}
-      <div className="px-6 py-6 border-b border-[var(--color-border)]">
-        <h1 className="font-display text-lg font-semibold text-[var(--color-navy)] leading-tight">
-          Nails Art Yurany
-        </h1>
+      <div className="px-5 py-5 border-b border-[var(--color-border)]">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-lavanda)] shadow-sm flex items-center justify-center shrink-0">
+            <Sparkles size={13} className="text-white" />
+          </div>
+          <div>
+            <h1 className="font-display text-sm font-bold text-[var(--color-navy)] leading-tight tracking-tight">
+              Nails Art Yurany
+            </h1>
+            <p className="text-[10px] font-semibold text-[var(--color-primary-dark)] tracking-wide">Panel de gestión</p>
+          </div>
+        </div>
       </div>
 
       {/* Nav */}

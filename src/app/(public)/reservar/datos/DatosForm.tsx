@@ -1,13 +1,15 @@
 'use client'
 import { crearReserva } from '@/app/actions/reservas'
 import { useActionState, useState } from 'react'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@/components/ui/button'
 
 const PAY_OPTIONS = [
   { value: 'presencial', label: 'Pago presencial',        desc: 'Pagas directamente el día de tu cita.' },
   { value: 'transfer',   label: 'Transferencia bancaria', desc: 'Te enviamos los datos para transferir.' },
 ]
-
-const inputClass = 'w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-white text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/25 transition-all shadow-sm'
 
 export default function DatosForm({
   serviceId, fecha, start, end,
@@ -25,51 +27,54 @@ export default function DatosForm({
 
       {/* Nombre */}
       <div className="space-y-1.5">
-        <label className="block text-sm font-semibold text-[var(--color-ink-secondary)]" htmlFor="name">
+        <Label htmlFor="name" className="font-semibold text-[var(--color-ink-secondary)]">
           Nombre completo <span className="text-[var(--color-error)]">*</span>
-        </label>
-        <input
+        </Label>
+        <Input
           id="name" name="name" type="text" required
+          autoComplete="name"
           placeholder="Tu nombre"
-          className={inputClass}
+          className="h-11 bg-white"
         />
       </div>
 
       {/* Email */}
       <div className="space-y-1.5">
-        <label className="block text-sm font-semibold text-[var(--color-ink-secondary)]" htmlFor="email">
+        <Label htmlFor="email" className="font-semibold text-[var(--color-ink-secondary)]">
           Email{' '}
           <span className="text-[var(--color-ink-muted)] font-normal text-xs">(para la confirmación)</span>
-        </label>
-        <input
+        </Label>
+        <Input
           id="email" name="email" type="email"
+          autoComplete="email"
           placeholder="tu@email.com"
-          className={inputClass}
+          className="h-11 bg-white"
         />
       </div>
 
       {/* Teléfono */}
       <div className="space-y-1.5">
-        <label className="block text-sm font-semibold text-[var(--color-ink-secondary)]" htmlFor="phone">
+        <Label htmlFor="phone" className="font-semibold text-[var(--color-ink-secondary)]">
           Teléfono / WhatsApp
-        </label>
-        <input
+        </Label>
+        <Input
           id="phone" name="phone" type="tel"
+          autoComplete="tel"
           placeholder="+56 9 XXXX XXXX"
-          className={inputClass}
+          className="h-11 bg-white"
         />
       </div>
 
       {/* Notas */}
       <div className="space-y-1.5">
-        <label className="block text-sm font-semibold text-[var(--color-ink-secondary)]" htmlFor="notes">
+        <Label htmlFor="notes" className="font-semibold text-[var(--color-ink-secondary)]">
           Notas{' '}
           <span className="text-[var(--color-ink-muted)] font-normal text-xs">(diseño, color, alergias…)</span>
-        </label>
-        <textarea
+        </Label>
+        <Textarea
           id="notes" name="notes" rows={3}
           placeholder="Ej: quiero flores en el dedo anular, alergia al acrílico…"
-          className={`${inputClass} resize-none`}
+          className="bg-white resize-none"
         />
       </div>
 
@@ -114,13 +119,13 @@ export default function DatosForm({
         </div>
       )}
 
-      <button
+      <Button
         type="submit"
         disabled={pending}
-        className="w-full py-3.5 bg-[var(--color-navy)] text-white text-[15px] font-semibold rounded-full hover:bg-[var(--color-navy-light)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-2 shadow-md hover:shadow-lg"
+        className="w-full h-12 mt-2 rounded-full bg-[var(--color-navy)] text-white text-[15px] hover:bg-[var(--color-navy-light)] hover:-translate-y-0.5 active:translate-y-0 shadow-md hover:shadow-lg"
       >
         {pending ? 'Confirmando…' : 'Confirmar reserva →'}
-      </button>
+      </Button>
     </form>
   )
 }

@@ -1,6 +1,10 @@
 'use client'
 import { useActionState } from 'react'
 import { login } from '@/app/actions/auth'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
+import { Loader2 } from 'lucide-react'
 
 export default function LoginPage() {
   const [state, action, pending] = useActionState(login, null)
@@ -27,25 +31,25 @@ export default function LoginPage() {
           <form action={action} className="space-y-5">
 
             <div className="space-y-1.5">
-              <label htmlFor="email" className="block text-sm font-medium text-[var(--color-ink-secondary)]">
+              <Label htmlFor="email" className="text-[var(--color-ink-secondary)]">
                 Email
-              </label>
-              <input
+              </Label>
+              <Input
                 id="email" name="email" type="email"
                 required autoComplete="email"
                 placeholder="admin@ejemplo.cl"
-                className="w-full px-4 py-2.5 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] text-sm text-[var(--color-ink)] placeholder-[var(--color-ink-muted)] focus:outline-none focus:border-[var(--color-dorado)] focus:ring-2 focus:ring-[var(--color-dorado)]/20 transition-colors"
+                className="h-11 bg-[var(--color-surface-raised)]"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label htmlFor="password" className="block text-sm font-medium text-[var(--color-ink-secondary)]">
+              <Label htmlFor="password" className="text-[var(--color-ink-secondary)]">
                 Contraseña
-              </label>
-              <input
+              </Label>
+              <Input
                 id="password" name="password" type="password"
                 required autoComplete="current-password"
-                className="w-full px-4 py-2.5 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-raised)] text-sm text-[var(--color-ink)] focus:outline-none focus:border-[var(--color-dorado)] focus:ring-2 focus:ring-[var(--color-dorado)]/20 transition-colors"
+                className="h-11 bg-[var(--color-surface-raised)]"
               />
             </div>
 
@@ -55,13 +59,14 @@ export default function LoginPage() {
               </p>
             )}
 
-            <button
+            <Button
               type="submit"
               disabled={pending}
-              className="w-full py-2.5 px-4 bg-[var(--color-navy)] text-white text-sm font-semibold rounded-[var(--radius-md)] hover:bg-[var(--color-navy-light)] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed transition-all mt-1"
+              className="w-full h-11 mt-1 rounded-[var(--radius-md)] bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-light)]"
             >
+              {pending && <Loader2 size={14} className="animate-spin" />}
               {pending ? 'Ingresando…' : 'Ingresar'}
-            </button>
+            </Button>
 
           </form>
         </div>
