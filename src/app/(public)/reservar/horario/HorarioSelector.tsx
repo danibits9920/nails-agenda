@@ -79,20 +79,24 @@ export default function HorarioSelector({
         {/* Header mes */}
         <div className="flex items-center justify-between mb-5">
           <button
+            type="button"
             onClick={prevMonth}
             disabled={isPrevDisabled}
+            aria-label="Mes anterior"
             className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container-low)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
-            <ChevronLeft size={16} strokeWidth={2} className="text-[var(--color-ink-secondary)]" />
+            <ChevronLeft size={16} strokeWidth={2} aria-hidden className="text-[var(--color-ink-secondary)]" />
           </button>
-          <span className="font-display font-semibold text-[var(--color-navy)] text-sm">
+          <span aria-live="polite" className="font-display font-semibold text-[var(--color-navy)] text-sm">
             {MONTHS_ES[viewMonth.getMonth()]} {viewMonth.getFullYear()}
           </span>
           <button
+            type="button"
             onClick={nextMonth}
+            aria-label="Mes siguiente"
             className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--color-surface-container-low)] transition-colors"
           >
-            <ChevronRight size={16} strokeWidth={2} className="text-[var(--color-ink-secondary)]" />
+            <ChevronRight size={16} strokeWidth={2} aria-hidden className="text-[var(--color-ink-secondary)]" />
           </button>
         </div>
 
@@ -115,8 +119,12 @@ export default function HorarioSelector({
             return (
               <button
                 key={day}
+                type="button"
                 disabled={isPast || isPending}
                 onClick={() => selectDate(date)}
+                aria-label={`${day} de ${MONTHS_ES[viewMonth.getMonth()]} de ${viewMonth.getFullYear()}${isToday ? ', hoy' : ''}`}
+                aria-current={isToday ? 'date' : undefined}
+                aria-pressed={isSelected}
                 className={[
                   'h-9 w-9 mx-auto rounded-full text-xs font-semibold transition-all duration-150 flex items-center justify-center',
                   isPast

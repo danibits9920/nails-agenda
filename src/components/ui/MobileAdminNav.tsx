@@ -34,13 +34,14 @@ export function MobileTopBar() {
 export function MobileBottomNav() {
   const pathname = usePathname()
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-t border-[var(--color-border-soft)] flex items-stretch pb-safe">
+    <nav aria-label="Navegación del panel" className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-t border-[var(--color-border-soft)] flex items-stretch pb-safe">
       {bottomItems.map(({ href, label, icon: Icon }) => {
         const active = pathname === href || pathname.startsWith(href + '/')
         return (
           <Link
             key={href}
             href={href}
+            aria-current={active ? 'page' : undefined}
             className="flex-1 flex flex-col items-center justify-center gap-0.5 py-3 transition-colors"
           >
             <div className={cn(
@@ -50,6 +51,7 @@ export function MobileBottomNav() {
               <Icon
                 size={18}
                 strokeWidth={active ? 2.2 : 1.6}
+                aria-hidden
                 className={active ? 'text-[var(--color-primary-dark)]' : 'text-[var(--color-ink-muted)]'}
               />
             </div>

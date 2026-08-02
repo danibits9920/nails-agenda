@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { formatCLP } from '@/lib/utils'
 import Link from 'next/link'
 import {
-  Clock, Sparkles, Star, MapPin, Heart,
+  Clock, Sparkles, MapPin,
   AtSign, Phone, CheckCircle2, ChevronRight,
 } from 'lucide-react'
 
@@ -35,17 +35,9 @@ const STEPS = [
   { n: '04', title: 'Confirma y listo',   desc: 'Paga online o presencial. Recibe confirmación por email.' },
 ]
 
-const TESTIMONIALS = [
-  { name: 'Carolina M.',  stars: 5, text: 'Yurany es increíble. El nail art quedó exactamente como lo imaginé. Super limpia y detallista.' },
-  { name: 'Valentina R.', stars: 5, text: 'El gel dura más que con cualquier otra manicurista que he ido. El ambiente es muy acogedor.' },
-  { name: 'Daniela F.',   stars: 5, text: 'Excelente servicio y muy puntual. Ya agendé mi segunda cita. ¡100% recomendada!' },
-]
-
 const STATS = [
-  { value: '+200', label: 'Clientas felices',      color: 'var(--color-primary-dark)' },
-  { value: '5★',   label: 'Valoración Google',      color: 'var(--color-dorado-dark)' },
-  { value: '6+',   label: 'Tipos de servicio',      color: 'var(--color-lavanda-dark)' },
-  { value: '100%', label: 'Materiales premium',     color: 'var(--color-navy)' },
+  { value: '6+',   label: 'Tipos de servicio',  color: 'var(--color-lavanda-dark)' },
+  { value: '100%', label: 'Materiales premium', color: 'var(--color-navy)' },
 ]
 
 export default async function LandingPage() {
@@ -132,12 +124,8 @@ export default async function LandingPage() {
               {/* Trust pills */}
               <div className="flex flex-wrap items-center gap-2 mt-7">
                 <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-[var(--color-border)] rounded-full text-xs font-semibold text-[var(--color-ink-secondary)] shadow-sm">
-                  <Star size={12} className="fill-[var(--color-dorado)] text-[var(--color-dorado)]" />
-                  5.0 valoración
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-[var(--color-border)] rounded-full text-xs font-semibold text-[var(--color-ink-secondary)] shadow-sm">
-                  <Heart size={11} className="fill-[var(--color-primary)] text-[var(--color-primary)]" />
-                  +200 clientas
+                  <Clock size={12} className="text-[var(--color-primary-dark)]" />
+                  Agenda online 24/7
                 </div>
                 <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 backdrop-blur-sm border border-[var(--color-border)] rounded-full text-xs font-semibold text-[var(--color-ink-secondary)] shadow-sm">
                   <MapPin size={12} className="text-[var(--color-primary-dark)]" />
@@ -171,23 +159,13 @@ export default async function LandingPage() {
                     </div>
                   </div>
                 </div>
-                {/* Floating badge — rating */}
-                <div className="absolute -top-3 -right-3 bg-white border border-[var(--color-border)] rounded-2xl px-3 py-2 shadow-lg text-center">
-                  <p className="text-lg font-bold text-[var(--color-navy)] leading-none">5.0</p>
-                  <div className="flex gap-0.5 mt-1 justify-center">
-                    {[1,2,3,4,5].map(i => (
-                      <Star key={i} size={8} className="fill-[var(--color-dorado)] text-[var(--color-dorado)]" />
-                    ))}
-                  </div>
-                  <p className="text-[9px] text-[var(--color-ink-muted)] mt-0.5">Google</p>
-                </div>
-                {/* Floating badge — clientas */}
+                {/* Floating badge — servicios */}
                 <div className="absolute -bottom-3 -left-6 bg-white border border-[var(--color-border)] rounded-2xl px-3 py-2 shadow-lg">
                   <div className="flex items-center gap-1.5">
-                    <Heart size={10} className="fill-[var(--color-primary)] text-[var(--color-primary)]" />
+                    <Sparkles size={10} className="text-[var(--color-primary-dark)]" />
                     <div>
-                      <p className="text-[11px] font-bold text-[var(--color-navy)]">+200 clientas</p>
-                      <p className="text-[9px] text-[var(--color-ink-muted)]">nos eligen</p>
+                      <p className="text-[11px] font-bold text-[var(--color-navy)]">Nail art & gel</p>
+                      <p className="text-[9px] text-[var(--color-ink-muted)]">y mucho más</p>
                     </div>
                   </div>
                 </div>
@@ -334,35 +312,6 @@ export default async function LandingPage() {
               <ChevronRight size={16} />
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* ── Testimonios ──────────────────────────────────────────────── */}
-      <section className="max-w-5xl mx-auto px-5 py-16">
-        <div className="text-center mb-10">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)] mb-1.5">Opiniones</p>
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-navy)] tracking-tight">
-            Lo que dicen mis clientas
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {TESTIMONIALS.map(({ name, stars, text }) => (
-            <div
-              key={name}
-              className="bg-white rounded-2xl border border-[var(--color-border)] p-6 shadow-sm hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <div className="flex gap-0.5 mb-3">
-                {Array.from({ length: stars }).map((_, i) => (
-                  <Star key={i} size={14} className="fill-[var(--color-dorado)] text-[var(--color-dorado)]" />
-                ))}
-              </div>
-              <p className="text-sm text-[var(--color-ink-secondary)] leading-relaxed mb-4 italic">
-                &ldquo;{text}&rdquo;
-              </p>
-              <p className="text-xs font-bold text-[var(--color-navy)]">{name}</p>
-            </div>
-          ))}
         </div>
       </section>
 

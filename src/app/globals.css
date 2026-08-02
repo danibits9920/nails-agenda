@@ -25,8 +25,8 @@
   /* ── Text hierarchy ───────────────────────────────────────── */
   --color-ink:           #1A2040;
   --color-ink-secondary: #4A5270;
-  --color-ink-tertiary:  #8A91AD;
-  --color-ink-muted:     #B8BCCF;
+  --color-ink-tertiary:  #6E7590;  /* AA ~4.5:1 sobre blanco */
+  --color-ink-muted:     #767E9A;  /* ~4.0:1 sobre blanco */
 
   /* ── Borders ──────────────────────────────────────────────── */
   --color-border:         rgba(26,32,64,0.10);
@@ -104,7 +104,7 @@
   --secondary:                  #FEF5F7;
   --secondary-foreground:       #4A5270;
   --muted:                      #FEF5F7;
-  --muted-foreground:           #8A91AD;
+  --muted-foreground:           #6E7590;
   --accent:                     #D4BCEC;
   --accent-foreground:          #1A2040;
   --destructive:                #E57373;
@@ -155,8 +155,8 @@ body {
 }
 
 @theme inline {
-  --font-heading:       var(--font-sans);
-  --font-sans:       var(--font-sans);
+  --font-heading:       var(--font-inter);
+  --font-sans:       var(--font-inter);
   --color-sidebar-ring:       var(--sidebar-ring);
   --color-sidebar-border:       var(--sidebar-border);
   --color-sidebar-accent-foreground:       var(--sidebar-accent-foreground);
@@ -197,39 +197,13 @@ body {
   --radius-4xl:       calc(var(--radius) * 2.6);
 }
 
-.dark {
-  --background:       oklch(0.145 0 0);
-  --foreground:       oklch(0.985 0 0);
-  --card:       oklch(0.205 0 0);
-  --card-foreground:       oklch(0.985 0 0);
-  --popover:       oklch(0.205 0 0);
-  --popover-foreground:       oklch(0.985 0 0);
-  --primary:       oklch(0.922 0 0);
-  --primary-foreground:       oklch(0.205 0 0);
-  --secondary:       oklch(0.269 0 0);
-  --secondary-foreground:       oklch(0.985 0 0);
-  --muted:       oklch(0.269 0 0);
-  --muted-foreground:       oklch(0.708 0 0);
-  --accent:       oklch(0.269 0 0);
-  --accent-foreground:       oklch(0.985 0 0);
-  --destructive:       oklch(0.704 0.191 22.216);
-  --border:       oklch(1 0 0 / 10%);
-  --input:       oklch(1 0 0 / 15%);
-  --ring:       oklch(0.556 0 0);
-  --chart-1:       oklch(0.87 0 0);
-  --chart-2:       oklch(0.556 0 0);
-  --chart-3:       oklch(0.439 0 0);
-  --chart-4:       oklch(0.371 0 0);
-  --chart-5:       oklch(0.269 0 0);
-  --sidebar:       oklch(0.205 0 0);
-  --sidebar-foreground:       oklch(0.985 0 0);
-  --sidebar-primary:       oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground:       oklch(0.985 0 0);
-  --sidebar-accent:       oklch(0.269 0 0);
-  --sidebar-accent-foreground:       oklch(0.985 0 0);
-  --sidebar-border:       oklch(1 0 0 / 10%);
-  --sidebar-ring:       oklch(0.556 0 0);
-}
+/*
+ * Nota: la variante `dark` (@custom-variant arriba) se mantiene porque
+ * los componentes shadcn traen utilidades `dark:` de fábrica. No se define
+ * un tema oscuro real: la marca es clara y `color-scheme` está fijo en light.
+ * Si en el futuro se quiere dark mode, hay que darle variante oscura a los
+ * tokens --color-* de marca, no solo a los tokens grises de shadcn.
+ */
 
 @layer base {
   * {

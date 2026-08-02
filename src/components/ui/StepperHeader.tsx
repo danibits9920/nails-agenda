@@ -37,13 +37,13 @@ export default function StepperHeader({ current }: { current: number }) {
         </div>
 
         {/* Steps */}
-        <div className="flex items-center justify-center pb-4">
+        <ol aria-label="Progreso de la reserva" className="flex items-center justify-center pb-4">
           {STEPS.map((step, i) => {
             const done    = current > step.n
             const active  = current === step.n
             const pending = current < step.n
             return (
-              <div key={step.n} className="flex items-center">
+              <li key={step.n} className="flex items-center" aria-current={active ? 'step' : undefined}>
                 <div className="flex flex-col items-center gap-1.5">
                   <div className={cn(
                     'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300',
@@ -51,7 +51,11 @@ export default function StepperHeader({ current }: { current: number }) {
                     active  && 'bg-[var(--color-navy)] text-white shadow-md ring-4 ring-[var(--color-navy)]/10 scale-110',
                     pending && 'bg-[var(--color-cream)] text-[var(--color-ink-muted)] border border-[var(--color-border)]',
                   )}>
-                    {done ? <Check size={14} strokeWidth={2.5} /> : step.n}
+                    <span className="sr-only">
+                      Paso {step.n} de {STEPS.length}: {step.label}
+                      {done ? ' (completado)' : active ? ' (actual)' : ' (pendiente)'}
+                    </span>
+                    <span aria-hidden>{done ? <Check size={14} strokeWidth={2.5} /> : step.n}</span>
                   </div>
                   <span className={cn(
                     'text-[10px] font-semibold whitespace-nowrap tracking-wide',
@@ -63,15 +67,15 @@ export default function StepperHeader({ current }: { current: number }) {
                   </span>
                 </div>
                 {i < STEPS.length - 1 && (
-                  <div className={cn(
+                  <div aria-hidden className={cn(
                     'w-8 h-0.5 mx-1 mb-5 rounded-full transition-all duration-300',
                     done ? 'bg-[var(--color-primary)]' : 'bg-[var(--color-border)]',
                   )} />
                 )}
-              </div>
+              </li>
             )
           })}
-        </div>
+        </ol>
       </div>
     </div>
   )
