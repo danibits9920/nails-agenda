@@ -1,5 +1,5 @@
 'use server'
-import { createClient } from '@/lib/supabase/server'
+import { requireAdmin } from '@/lib/auth-guard'
 import { revalidatePath } from 'next/cache'
 
 export type DaySchedule = {
@@ -12,7 +12,9 @@ export type DaySchedule = {
 }
 
 export async function saveBusinessHours(schedules: DaySchedule[]) {
-  const supabase = await createClient()
+  const gate = await requireAdmin()
+  if (!gate.ok) return { error: gate.error }
+  const { supabase } = gate
   // Convertir strings vacíos a null en los campos del segundo turno
   const cleaned = schedules.map(s => ({
     ...s,

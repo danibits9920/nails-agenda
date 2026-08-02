@@ -1,5 +1,5 @@
 'use server'
-import { createClient } from '@/lib/supabase/server'
+import { requireAdmin } from '@/lib/auth-guard'
 import { revalidatePath } from 'next/cache'
 
 function toSlug(label: string) {
@@ -10,7 +10,9 @@ function toSlug(label: string) {
 }
 
 export async function createCategory(formData: FormData) {
-  const supabase = await createClient()
+  const gate = await requireAdmin()
+  if (!gate.ok) return { error: gate.error }
+  const { supabase } = gate
   const label = (formData.get('label') as string ?? '').trim()
   if (!label) return { error: 'El nombre es requerido' }
 
@@ -27,7 +29,9 @@ export async function createCategory(formData: FormData) {
 }
 
 export async function updateCategory(formData: FormData) {
-  const supabase = await createClient()
+  const gate = await requireAdmin()
+  if (!gate.ok) return { error: gate.error }
+  const { supabase } = gate
   const id    = formData.get('id') as string
   const label = (formData.get('label') as string ?? '').trim()
   if (!label) return { error: 'El nombre es requerido' }
@@ -45,7 +49,9 @@ export async function updateCategory(formData: FormData) {
 }
 
 export async function deleteCategory(id: string) {
-  const supabase = await createClient()
+  const gate = await requireAdmin()
+  if (!gate.ok) return { error: gate.error }
+  const { supabase } = gate
   const { error } = await supabase
     .from('service_categories')
     .delete()

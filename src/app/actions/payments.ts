@@ -1,10 +1,12 @@
 'use server'
-import { createClient } from '@/lib/supabase/server'
+import { requireAdmin } from '@/lib/auth-guard'
 import { revalidatePath } from 'next/cache'
 import { sendPagoVerificado } from '@/lib/resend/emails'
 
 export async function verifyPayment(paymentId: string, appointmentId: string) {
-  const supabase = await createClient()
+  const gate = await requireAdmin()
+  if (!gate.ok) return { error: gate.error }
+  const { supabase } = gate
   const [{ error: e1 }, { error: e2 }] = await Promise.all([
     supabase.from('payments').update({ status: 'verified' }).eq('id', paymentId),
     supabase.from('appointments').update({ payment_status: 'paid', status: 'confirmed' }).eq('id', appointmentId),
@@ -39,7 +41,9 @@ export async function verifyPayment(paymentId: string, appointmentId: string) {
 }
 
 export async function rejectPayment(paymentId: string) {
-  const supabase = await createClient()
+  const gate = await requireAdmin()
+  if (!gate.ok) return { error: gate.error }
+  const { supabase } = gate
   const { error } = await supabase
     .from('payments')
     .update({ status: 'rejected' })

@@ -1,10 +1,12 @@
 'use server'
-import { createClient } from '@/lib/supabase/server'
+import { requireAdmin } from '@/lib/auth-guard'
 import { revalidatePath } from 'next/cache'
 import type { AppointmentStatus } from '@/types/database'
 
 export async function updateAppointmentStatus(id: string, status: AppointmentStatus) {
-  const supabase = await createClient()
+  const gate = await requireAdmin()
+  if (!gate.ok) return { error: gate.error }
+  const { supabase } = gate
   const { error } = await supabase
     .from('appointments')
     .update({ status })
@@ -16,7 +18,9 @@ export async function updateAppointmentStatus(id: string, status: AppointmentSta
 }
 
 export async function updatePaymentStatus(appointmentId: string, paymentStatus: 'unpaid' | 'pending_verification' | 'paid') {
-  const supabase = await createClient()
+  const gate = await requireAdmin()
+  if (!gate.ok) return { error: gate.error }
+  const { supabase } = gate
   const { error } = await supabase
     .from('appointments')
     .update({ payment_status: paymentStatus })
