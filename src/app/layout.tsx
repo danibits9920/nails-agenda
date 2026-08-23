@@ -35,12 +35,15 @@ export const metadata: Metadata = {
     title: "Nails Art Yurany — Agenda Online",
     description:
       "Reserva tu cita de manicure, pedicure, gel, acrílico y nail art con Yurany. Agenda online 24/7.",
+    // Sin esto, compartir el enlace no mostraba ninguna imagen.
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Nails Art Yurany" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nails Art Yurany — Agenda Online",
     description:
       "Reserva tu cita de manicure, pedicure, gel, acrílico y nail art con Yurany. Agenda online 24/7.",
+    images: ["/og.png"],
   },
 };
 
@@ -49,6 +52,9 @@ export const viewport: Viewport = {
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
+  // Sin esto, env(safe-area-inset-*) devuelve 0 y la navegación inferior del
+  // panel se mete debajo de la barra de inicio del iPhone.
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
-import { AppointmentBadge, PaymentBadge } from '@/components/ui/status-badges'
+import { AppointmentBadge, PaymentBadge, APPOINTMENT_STATUS } from '@/components/ui/status-badges'
 import { formatCLP, formatDate, formatTime } from '@/lib/utils'
 import Link from 'next/link'
 import type { AppointmentStatus } from '@/types/database'
@@ -11,31 +11,39 @@ export default async function CitasPage({ searchParams }: { searchParams: Promis
   const params = await searchParams
   const supabase = await createClient()
 
+  // El conteo se pide aparte del límite: la cifra del encabezado decía
+  // "60 registros encontrados" cuando podía haber trescientas.
+  const LIMITE = 60
   let query = supabase
     .from('appointments')
-    .select('id, date, start_time, end_time, status, payment_status, notes, clients(id, name, phone), services(name, price)')
+    .select('id, date, start_time, end_time, status, payment_status, notes, clients(id, name, phone), services(name, price)',
+            { count: 'exact' })
     .order('date', { ascending: false })
     .order('start_time')
-    .limit(60)
+    .limit(LIMITE)
 
   if (params.status) query = query.eq('status', params.status)
   if (params.fecha)  query = query.eq('date', params.fecha)
 
-  const { data: appointments } = await query
+  const { data: appointments, count: total } = await query
 
   const A = `/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}`
-  const statuses: AppointmentStatus[] = ['pending', 'confirmed', 'in_progress', 'completed', 'cancelled', 'no_show']
-  const statusLabels: Record<string, string> = {
-    pending: 'Pendiente', confirmed: 'Confirmada', in_progress: 'En curso',
-    completed: 'Completada', cancelled: 'Cancelada', no_show: 'No se presentó',
-  }
+  // Las etiquetas salen de la misma tabla que los badges y el calendario.
+  // Esta página tenía la suya y llamaba "No se presentó" a lo que el resto
+  // del panel llama "No asistió": un estado con dos nombres.
+  const statuses = Object.keys(APPOINTMENT_STATUS) as AppointmentStatus[]
 
   return (
     <div className="p-4 md:p-8 space-y-5 md:space-y-6">
       <div>
-        <h1 className="font-display text-2xl md:text-4xl font-bold text-[var(--color-navy)] tracking-tight">Citas</h1>
+        <h1 className="font-display text-page text-[var(--color-navy)]">Citas</h1>
         <p className="text-sm font-semibold text-[var(--color-ink-secondary)] mt-1">
-          {appointments?.length ?? 0} registros encontrados
+          {total === 0
+            ? 'Ninguna cita coincide'
+            : total === 1
+              ? '1 cita'
+              : `${total} citas`}
+          {(total ?? 0) > LIMITE && ` · se muestran las ${LIMITE} más recientes`}
         </p>
       </div>
 
@@ -43,7 +51,7 @@ export default async function CitasPage({ searchParams }: { searchParams: Promis
       <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap scrollbar-none">
         <FilterLink href={`${A}/citas`} active={!params.status} label="Todas" />
         {statuses.map(s => (
-          <FilterLink key={s} href={`${A}/citas?status=${s}`} active={params.status === s} label={statusLabels[s] || s} />
+          <FilterLink key={s} href={`${A}/citas?status=${s}`} active={params.status === s} label={APPOINTMENT_STATUS[s].label} />
         ))}
       </div>
 
@@ -64,7 +72,7 @@ export default async function CitasPage({ searchParams }: { searchParams: Promis
                     {/* Fecha — solo desktop */}
                     <div className="hidden md:block min-w-[120px] shrink-0 pt-0.5">
                       <p className="text-sm font-bold text-[var(--color-navy)]">{formatDate(apt.date)}</p>
-                      <p className="text-xs text-[var(--color-ink-secondary)] font-medium mt-0.5">
+                      <p className="text-xs text-[var(--color-ink-secondary)] font-medium mt-0.5 tabular-nums">
                         {formatTime(apt.start_time)} – {formatTime(apt.end_time)}
                       </p>
                     </div>
@@ -90,7 +98,7 @@ export default async function CitasPage({ searchParams }: { searchParams: Promis
                       <span className="hidden sm:block">
                         <PaymentBadge status={apt.payment_status} />
                       </span>
-                      <StatusChanger appointmentId={apt.id} currentStatus={apt.status as AppointmentStatus} />
+                      <StatusChanger appointmentId={apt.id} currentStatus={apt.status as AppointmentStatus} clientName={client?.name} />
                     </div>
                   </div>
                 </div>
@@ -107,7 +115,7 @@ function FilterLink({ href, active, label }: { href: string; active: boolean; la
   return (
     <Link
       href={href}
-      className={`shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all border whitespace-nowrap ${
+      className={`tap-target shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all border whitespace-nowrap ${
         active
           ? 'bg-[var(--color-navy)] text-white border-[var(--color-navy)] shadow-sm'
           : 'bg-[var(--color-surface)] text-[var(--color-ink-secondary)] border-[var(--color-border)] hover:border-[var(--color-primary-dark)] hover:text-[var(--color-navy)]'

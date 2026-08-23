@@ -3,6 +3,7 @@ import { formatCLP, formatDate, formatTime } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { CheckCircle, CalendarDays, Clock, Scissors } from 'lucide-react'
+import BrandMark from '@/components/ui/BrandMark'
 
 export default async function ConfirmacionPage({ searchParams }: { searchParams: Promise<{ id?: string }> }) {
   const { id } = await searchParams
@@ -27,7 +28,7 @@ export default async function ConfirmacionPage({ searchParams }: { searchParams:
       <nav className="bg-[var(--color-surface)] border-b border-[var(--color-border-soft)]">
         <div className="max-w-2xl mx-auto px-5 h-14 flex items-center">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-lavanda)] shadow-sm" />
+            <BrandMark size={30} />
             <span className="font-display font-bold text-sm text-[var(--color-navy)] tracking-tight">Nails Art Yurany</span>
           </div>
         </div>

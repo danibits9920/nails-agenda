@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import HorarioForm from './HorarioForm'
-import { Clock } from 'lucide-react'
+import { Clock, Info } from 'lucide-react'
 
 const DAY_NAMES = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 
@@ -38,7 +38,7 @@ export default async function HorarioAdminPage() {
       <div>
         <div className="flex items-center gap-3 mb-1">
           <Clock size={22} className="text-[var(--color-primary-dark)]" />
-          <h1 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-navy)] tracking-tight">
+          <h1 className="font-display text-page text-[var(--color-navy)]">
             Horario de atención
           </h1>
         </div>
@@ -51,9 +51,16 @@ export default async function HorarioAdminPage() {
         <HorarioForm schedules={schedules} />
       </div>
 
-      <div className="bg-[var(--color-surface-container-low)] rounded-xl border border-[var(--color-border-soft)] p-4 text-xs text-[var(--color-ink-secondary)] leading-relaxed">
-        <p className="font-semibold text-[var(--color-ink)] mb-1">ℹ️ Cómo funciona</p>
-        <p>Los slots se generan cada 30 minutos dentro de cada turno activo. El Turno 2 es opcional — si no lo necesitas, haz clic en "Añadir turno" solo para los días que lo requieran.</p>
+      <div className="flex gap-3 bg-[var(--color-surface-container-low)] rounded-xl border border-[var(--color-border-soft)] p-4 text-xs text-[var(--color-ink-secondary)] leading-relaxed">
+        <Info size={15} aria-hidden className="shrink-0 mt-0.5 text-[var(--color-primary-dark)]" />
+        <div>
+          <p className="font-semibold text-[var(--color-ink)] mb-1">Cómo funciona</p>
+          <p>
+            Dentro de cada turno abierto, las clientas pueden reservar cada media hora.
+            El turno 2 es opcional: úsalo para los días en que cierras al mediodía y
+            vuelves a abrir por la tarde.
+          </p>
+        </div>
       </div>
     </div>
   )

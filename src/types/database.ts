@@ -284,6 +284,17 @@ export type Database = {
         Args: { p_date: string; p_duration_mins: number }
         Returns: { slot_end: string; slot_start: string }[]
       }
+      get_report_stats: {
+        Args: Record<string, never>
+        Returns: {
+          month_revenue: number
+          year_revenue: number
+          status_counts: Record<string, number>
+          total_appointments: number
+          no_show_count: number
+          top_services: { name: string; count: number }[]
+        }
+      }
     }
     Enums: { [_ in never]: never }
     CompositeTypes: { [_ in never]: never }

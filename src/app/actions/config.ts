@@ -2,6 +2,7 @@
 import { createAdminClient } from '@/lib/supabase/admin'
 import { requireAdmin } from '@/lib/auth-guard'
 import { revalidatePath } from 'next/cache'
+import { mensajeDeError } from '@/lib/errors'
 
 export async function toggleMaintenance(enabled: boolean) {
   // Esta action usa el cliente service-role (bypassa RLS), así que la
@@ -15,7 +16,14 @@ export async function toggleMaintenance(enabled: boolean) {
     .from('site_config')
     .upsert({ key: 'maintenance_mode', value: String(enabled) }, { onConflict: 'key' })
 
-  if (error) return { error: error.message }
+  if (error) {
+    return {
+      error: mensajeDeError(error, enabled
+        ? 'No se pudo activar el modo mantenimiento. El sitio sigue visible.'
+        : 'No se pudo desactivar el modo mantenimiento. El sitio sigue en pausa.'),
+    }
+  }
   revalidatePath('/admin/configuracion')
+  revalidatePath('/', 'layout')
   return { success: true }
 }

@@ -1,4 +1,5 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { Pencil, X, Check, Loader2, Plus } from 'lucide-react'
 import { toast } from 'sonner'
@@ -7,9 +8,8 @@ import ConfirmModal from '@/components/ui/ConfirmModal'
 
 export type Category = { id: string; slug: string; label: string; display_order: number }
 
-const inputCls = 'px-3 py-1.5 rounded-lg border border-[var(--color-border)] bg-white text-sm text-[var(--color-navy)] focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/20 transition-all'
-
 export default function CategoryManager({ categories: initial }: { categories: Category[] }) {
+  const router = useRouter()
   const [categories, setCategories]     = useState(initial)
   const [editingId, setEditingId]       = useState<string | null>(null)
   const [editLabel, setEditLabel]       = useState('')
@@ -66,7 +66,10 @@ export default function CategoryManager({ categories: initial }: { categories: C
       setAdding(false)
       setNewLabel('')
       toast.success('Categoría creada')
-      window.location.reload()
+      // Antes recargaba la página entera: perdía el scroll y cualquier
+      // formulario abierto. router.refresh() vuelve a pedir los datos del
+      // servidor sin tirar el estado del cliente.
+      router.refresh()
     })
   }
 
@@ -85,7 +88,7 @@ export default function CategoryManager({ categories: initial }: { categories: C
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)]">
+            <h2 className="text-eyebrow uppercase text-[var(--color-primary-dark)]">
               Categorías
             </h2>
           </div>
@@ -94,7 +97,7 @@ export default function CategoryManager({ categories: initial }: { categories: C
               onClick={() => setAdding(true)}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-[var(--color-primary-dark)] bg-[var(--color-primary-light)]/20 hover:bg-[var(--color-primary-light)]/40 rounded-full transition-colors"
             >
-              <Plus size={12} /> Nueva
+              <Plus size={12} /> Nueva categoría
             </button>
           )}
         </div>
@@ -106,23 +109,25 @@ export default function CategoryManager({ categories: initial }: { categories: C
                 <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[var(--color-primary-light)]/15 border border-[var(--color-primary)] rounded-full">
                   <input
                     autoFocus
+                    aria-label={`Nuevo nombre para la categoría ${cat.label}`}
+                    maxLength={40}
                     value={editLabel}
                     onChange={e => setEditLabel(e.target.value)}
                     onKeyDown={e => { if (e.key === 'Enter') handleUpdate(cat); if (e.key === 'Escape') cancelEdit() }}
-                    className="w-24 text-xs font-semibold bg-transparent border-none outline-none text-[var(--color-navy)]"
+                    className="w-24 text-base md:text-xs font-semibold bg-transparent border-none text-[var(--color-navy)]"
                   />
                   <button
                     onClick={() => handleUpdate(cat)}
                     disabled={isPending || !editLabel.trim()}
                     aria-label="Guardar categoría"
-                    className="p-1 text-[var(--color-primary-dark)] hover:text-green-600 disabled:opacity-40"
+                    className="tap-target p-1 text-[var(--color-primary-dark)] hover:text-[var(--color-status-completed-text)] disabled:opacity-40"
                   >
                     {isPending ? <Loader2 size={11} className="animate-spin" /> : <Check size={11} />}
                   </button>
                   <button
                     onClick={cancelEdit}
                     aria-label="Cancelar edición"
-                    className="p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-navy)]"
+                    className="tap-target p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-navy)]"
                   >
                     <X size={11} />
                   </button>
@@ -130,12 +135,11 @@ export default function CategoryManager({ categories: initial }: { categories: C
               ) : (
                 <div className="group flex items-center gap-1 px-3 py-1.5 bg-[var(--color-surface-container-low)] border border-[var(--color-border)] rounded-full hover:border-[var(--color-primary)]/50 transition-colors">
                   <span className="text-xs font-semibold text-[var(--color-navy)]">{cat.label}</span>
-                  <span className="text-[10px] text-[var(--color-ink-muted)] ml-1 font-mono">{cat.slug}</span>
                   <button
                     onClick={() => startEdit(cat)}
                     aria-label={`Editar categoría ${cat.label}`}
-                    title="Editar"
-                    className="ml-1 p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] opacity-60 group-hover:opacity-100 transition-opacity"
+                    title={`Editar categoría ${cat.label}`}
+                    className="tap-target ml-1 p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] opacity-60 group-hover:opacity-100 [@media(hover:none)]:opacity-100 transition-opacity"
                   >
                     <Pencil size={10} />
                   </button>
@@ -143,8 +147,8 @@ export default function CategoryManager({ categories: initial }: { categories: C
                     onClick={() => handleDelete(cat)}
                     disabled={isPending}
                     aria-label={`Eliminar categoría ${cat.label}`}
-                    title="Eliminar"
-                    className="p-1 text-[var(--color-ink-muted)] hover:text-red-500 opacity-60 group-hover:opacity-100 transition-opacity disabled:cursor-not-allowed"
+                    title={`Eliminar categoría ${cat.label}`}
+                    className="tap-target p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-error-text)] opacity-60 group-hover:opacity-100 [@media(hover:none)]:opacity-100 transition-opacity disabled:cursor-not-allowed"
                   >
                     <X size={10} />
                   </button>
@@ -157,24 +161,26 @@ export default function CategoryManager({ categories: initial }: { categories: C
             <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[var(--color-primary-light)]/15 border border-[var(--color-primary)] rounded-full">
               <input
                 autoFocus
+                aria-label="Nombre de la nueva categoría"
+                maxLength={40}
                 placeholder="Nombre…"
                 value={newLabel}
                 onChange={e => setNewLabel(e.target.value)}
                 onKeyDown={e => { if (e.key === 'Enter' && newLabel.trim()) handleCreate(); if (e.key === 'Escape') { setAdding(false); setNewLabel('') } }}
-                className="w-28 text-xs font-semibold bg-transparent border-none outline-none text-[var(--color-navy)] placeholder-[var(--color-ink-muted)]"
+                className="w-28 text-base md:text-xs font-semibold bg-transparent border-none text-[var(--color-navy)] placeholder-[var(--color-ink-muted)]"
               />
               <button
                 onClick={handleCreate}
                 disabled={isPending || !newLabel.trim()}
                 aria-label="Crear categoría"
-                className="p-1 text-[var(--color-primary-dark)] hover:text-green-600 disabled:opacity-40"
+                className="tap-target p-1 text-[var(--color-primary-dark)] hover:text-[var(--color-status-completed-text)] disabled:opacity-40"
               >
                 {isPending ? <Loader2 size={11} className="animate-spin" /> : <Check size={11} />}
               </button>
               <button
                 onClick={() => { setAdding(false); setNewLabel('') }}
                 aria-label="Cancelar creación de categoría"
-                className="p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-navy)]"
+                className="tap-target p-1 text-[var(--color-ink-muted)] hover:text-[var(--color-navy)]"
               >
                 <X size={11} />
               </button>
@@ -182,8 +188,8 @@ export default function CategoryManager({ categories: initial }: { categories: C
           )}
         </div>
 
-        <p className="text-[10px] text-[var(--color-ink-muted)] mt-3">
-          El slug se genera automáticamente del nombre y no cambia al editar.
+        <p className="text-micro text-[var(--color-ink-muted)] mt-3">
+          Puedes renombrar una categoría cuando quieras: los servicios que ya la usan siguen igual.
         </p>
       </div>
     </>

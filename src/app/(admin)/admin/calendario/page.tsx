@@ -27,7 +27,7 @@ export default async function CalendarioPage({ searchParams }: { searchParams: P
   return (
     <div className="p-8 h-full flex flex-col space-y-6">
       <div>
-        <h1 className="font-display text-4.5xl font-bold text-[var(--color-navy)] tracking-tight">Calendario</h1>
+        <h1 className="font-display text-page text-[var(--color-navy)]">Agenda semanal</h1>
       </div>
       <CalendarWeek
         weekDates={weekDates}

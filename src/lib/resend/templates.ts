@@ -1,5 +1,10 @@
 // HTML email templates — inline styles para compatibilidad con clientes de correo
 
+// El logotipo se sirve desde el sitio: un email no puede importar un asset,
+// necesita una URL absoluta. Se usa el PNG de 192px porque muchos clientes de
+// correo no entienden WebP y ninguno respeta srcset.
+const LOGO_URL = `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/logo-email.png`
+
 const base = (content: string) => `
 <!DOCTYPE html>
 <html lang="es">
@@ -11,9 +16,8 @@ const base = (content: string) => `
 
         <!-- Header -->
         <tr><td style="background:linear-gradient(135deg,#F5C0C0,#D4BCEC);border-radius:16px 16px 0 0;padding:32px 40px;text-align:center;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.35);display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;">
-            <span style="font-size:20px;">✦</span>
-          </div>
+          <img src="${LOGO_URL}" width="72" height="72" alt="Nails Art Yurany"
+               style="display:block;margin:0 auto 12px;width:72px;height:72px;border:0;outline:none;text-decoration:none;" />
           <h1 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:600;color:#1A2040;letter-spacing:-0.3px;">Nails Art Yurany</h1>
         </td></tr>
 

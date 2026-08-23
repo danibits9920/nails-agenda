@@ -1,25 +1,24 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Calendar, Users, Scissors, Settings, LayoutDashboard, Sparkles } from 'lucide-react'
+import { Calendar, Users, Scissors, Settings, LayoutDashboard } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import BrandMark from '@/components/ui/BrandMark'
 import { ADMIN_BASE } from '@/lib/admin-path'
 
 const bottomItems = [
-  { href: `${ADMIN_BASE}/calendario`,    label: 'Agenda',    icon: Calendar        },
-  { href: `${ADMIN_BASE}/citas`,         label: 'Citas',     icon: LayoutDashboard },
-  { href: `${ADMIN_BASE}/clientes`,      label: 'Clientes',  icon: Users           },
-  { href: `${ADMIN_BASE}/servicios`,     label: 'Servicios', icon: Scissors        },
-  { href: `${ADMIN_BASE}/configuracion`, label: 'Config',    icon: Settings        },
+  { href: `${ADMIN_BASE}/calendario`,    label: 'Agenda semanal', icon: Calendar        },
+  { href: `${ADMIN_BASE}/citas`,         label: 'Citas',          icon: LayoutDashboard },
+  { href: `${ADMIN_BASE}/clientes`,      label: 'Clientes',       icon: Users           },
+  { href: `${ADMIN_BASE}/servicios`,     label: 'Servicios',      icon: Scissors        },
+  { href: `${ADMIN_BASE}/configuracion`, label: 'Ajustes',        icon: Settings        },
 ]
 
 export function MobileTopBar() {
   return (
-    <header className="md:hidden flex items-center justify-between px-4 h-14 bg-[var(--color-navy)] text-white shrink-0">
+    <header className="md:hidden flex items-center justify-between px-4 h-14 pt-safe box-content bg-[var(--color-navy)] text-white shrink-0">
       <div className="flex items-center gap-2">
-        <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-lavanda)] flex items-center justify-center shadow-sm">
-          <Sparkles size={11} className="text-white" />
-        </div>
+        <BrandMark size={30} priority />
         <h1 className="font-display text-sm font-bold leading-tight tracking-tight">
           Nails Art Yurany
         </h1>
@@ -56,7 +55,10 @@ export function MobileBottomNav() {
               />
             </div>
             <span className={cn(
-              'text-[9px] font-bold tracking-wide transition-colors',
+              // Dos líneas de alto reservadas en las cinco celdas: el nombre
+              // completo cabe sin que la fila se descuadre y sin inventar una
+              // abreviatura que sería un segundo nombre para el mismo sitio.
+              'text-micro text-center leading-[1.3] min-h-[2.6em] text-balance px-1 transition-colors',
               active ? 'text-[var(--color-primary-dark)]' : 'text-[var(--color-ink-muted)]',
             )}>
               {label}

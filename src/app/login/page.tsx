@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Loader2 } from 'lucide-react'
+import BrandMark from '@/components/ui/BrandMark'
 
 export default function LoginPage() {
   const [state, action, pending] = useActionState(login, null)
@@ -13,15 +14,16 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[var(--color-cream)] flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
 
-        {/* Marca */}
+        {/* Marca. Aquí el logotipo va solo y a tamaño: es el único sitio del
+            producto con espacio para que se lea, así que carga con el nombre
+            y el h1 se vuelve accesible sin duplicarlo en pantalla. El halo
+            rosado se conserva porque el medallón ya no lo trae dibujado. */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-primary-light)] to-[var(--color-lavanda)] flex items-center justify-center mb-4 shadow-[0_6px_24px_rgba(237,170,181,0.45)]">
-            <span className="text-2xl select-none">✦</span>
+          <div className="mb-4 rounded-full shadow-[0_6px_24px_rgba(237,170,181,0.45)]">
+            <BrandMark size={112} alt="Nails Art Yurany" priority />
           </div>
-          <h1 className="font-display text-2xl font-semibold text-[var(--color-navy)]">
-            Nails Art Yurany
-          </h1>
-          <p className="text-sm text-[var(--color-ink-tertiary)] mt-1">
+          <h1 className="sr-only">Nails Art Yurany</h1>
+          <p className="text-sm text-[var(--color-ink-tertiary)]">
             Panel de administración
           </p>
         </div>

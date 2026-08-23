@@ -1,6 +1,10 @@
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
+import Image from 'next/image'
+import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { formatCLP } from '@/lib/utils'
-import Link from 'next/link'
+import BrandMark from '@/components/ui/BrandMark'
 import {
   Clock, Sparkles, MapPin,
   AtSign, Phone, CheckCircle2, ChevronRight,
@@ -19,8 +23,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   gel:      'Gel',
   acrilico: 'Acrílico',
   nail_art: 'Nail Art',
-  otros:    'Otros',
-}
+  otros:    'Otros' }
 
 const FEATURES = [
   'Materiales de alta calidad y seguros',
@@ -34,6 +37,23 @@ const STEPS = [
   { n: '03', title: 'Tus datos',          desc: 'Ingresa tu nombre y contacto para confirmar la reserva.' },
   { n: '04', title: 'Confirma y listo',   desc: 'Paga online o presencial. Recibe confirmación por email.' },
 ]
+
+/**
+ * La foto del hero.
+ *
+ * Se busca al arrancar el servidor, no en cada render. Si el archivo no está,
+ * el hero conserva la paleta de colores: la página nunca queda con una imagen
+ * rota ni con un hueco esperando un archivo que quizá no llegue.
+ *
+ * El texto alternativo debe describir lo que de verdad se ve. Mientras nadie
+ * haya mirado la foto se queda escueto a propósito, en vez de inventar una
+ * descripción que buscadores y lectores de pantalla darían por buena.
+ */
+const HERO_PHOTO = ['hero.jpg', 'hero.png', 'hero.webp']
+  .map(n => `/fotos/${n}`)
+  .find(p => existsSync(join(process.cwd(), 'public', p))) ?? null
+
+const HERO_PHOTO_ALT = 'Trabajo de manicura realizado por Yurany'
 
 const STATS = [
   { value: '6+',   label: 'Tipos de servicio',  color: 'var(--color-lavanda-dark)' },
@@ -56,9 +76,7 @@ export default async function LandingPage() {
       <nav className="sticky top-0 z-50 bg-[var(--color-cream)]/90 backdrop-blur-xl border-b border-[var(--color-border-soft)]">
         <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-lavanda)] shadow-sm flex items-center justify-center">
-              <Sparkles size={13} className="text-white" />
-            </div>
+            <BrandMark size={36} priority />
             <span className="font-display font-bold text-[15px] text-[var(--color-navy)] tracking-tight">
               Nails Art Yurany
             </span>
@@ -134,12 +152,27 @@ export default async function LandingPage() {
               </div>
             </div>
 
-            {/* Visual decorativo — paleta de colores de uñas */}
+            {/* El visual del hero. Con una foto real en public/fotos/ lleva el
+                trabajo de Yurany dentro del mismo aro dorado del logotipo;
+                mientras no exista, conserva la paleta de colores. Nada aquí
+                inventa una imagen. */}
             <div className="hidden md:flex items-center justify-center mt-8 md:mt-0">
               <div className="relative w-72 h-72">
                 {/* Glow de fondo */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[var(--color-primary)]/30 to-[var(--color-lavanda)]/30 blur-2xl" />
                 {/* Círculo principal */}
+                {HERO_PHOTO ? (
+                  <div className="absolute inset-3 rounded-full overflow-hidden ring-4 ring-[var(--color-dorado)]/70 shadow-[0_20px_60px_rgba(237,170,181,0.35)]">
+                    <Image
+                      src={HERO_PHOTO}
+                      alt={HERO_PHOTO_ALT}
+                      fill
+                      sizes="288px"
+                      priority
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
                 <div className="absolute inset-3 rounded-full bg-white/90 border border-[var(--color-border)] shadow-[0_20px_60px_rgba(237,170,181,0.35)] flex items-center justify-center">
                   <div className="flex flex-col items-center gap-2">
                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-ink-muted)] mb-1">
@@ -152,13 +185,13 @@ export default async function LandingPage() {
                           className="w-10 h-10 rounded-full shadow-md hover:scale-110 transition-transform duration-200 cursor-default"
                           style={{
                             backgroundColor: color,
-                            border: color === '#FFFFFF' ? '2px solid #EDAAB5' : undefined,
-                          }}
+                            border: color === '#FFFFFF' ? '2px solid #EDAAB5' : undefined }}
                         />
                       ))}
                     </div>
                   </div>
                 </div>
+                )}
                 {/* Floating badge — servicios */}
                 <div className="absolute -bottom-3 -left-6 bg-white border border-[var(--color-border)] rounded-2xl px-3 py-2 shadow-lg">
                   <div className="flex items-center gap-1.5">
@@ -346,9 +379,7 @@ export default async function LandingPage() {
             {/* Marca */}
             <div>
               <div className="flex items-center gap-2.5 mb-3">
-                <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-lavanda)] shadow-sm flex items-center justify-center">
-                  <Sparkles size={11} className="text-white" />
-                </div>
+                <BrandMark size={30} />
                 <span className="font-display font-bold text-sm text-[var(--color-navy)]">Nails Art Yurany</span>
               </div>
               <p className="text-xs text-[var(--color-ink-secondary)] leading-relaxed">

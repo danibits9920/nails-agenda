@@ -1,102 +1,146 @@
 'use client'
-import { useState, useTransition } from 'react'
-import { Plus, X, Check, Loader2 } from 'lucide-react'
+import { useId, useState, useTransition } from 'react'
+import { Plus, Check, Loader2 } from 'lucide-react'
 import { upsertService } from '@/app/actions/services'
 import { toast } from 'sonner'
+import {
+  Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle,
+} from '@/components/ui/dialog'
+import type { Category } from './CategoryManager'
 
-const CATEGORIES = [
-  { value: 'manicure', label: 'Manicure' },
-  { value: 'pedicure', label: 'Pedicure' },
-  { value: 'gel',      label: 'Gel'      },
-  { value: 'acrilico', label: 'Acrílico' },
-  { value: 'nail_art', label: 'Nail Art' },
-  { value: 'otros',    label: 'Otros'    },
-]
+const inputClass =
+  'w-full px-3 py-2.5 rounded-lg border border-[var(--color-border)] bg-white text-base md:text-sm text-[var(--color-navy)] focus-visible:border-[var(--color-primary-dark)] transition-all shadow-sm'
+const labelClass = 'block text-xs font-semibold text-[var(--color-ink-secondary)]'
 
-const inputClass = 'w-full px-3 py-2 rounded-lg border border-[var(--color-border)] bg-white text-sm text-[var(--color-navy)] focus:outline-none focus:border-[var(--color-primary-dark)] focus:ring-2 focus:ring-[var(--color-primary)]/25 transition-all shadow-sm'
-
-export default function NewServiceForm() {
-  const [open, setOpen]    = useState(false)
+export default function NewServiceForm({ categories }: { categories: Category[] }) {
+  const [open, setOpen] = useState(false)
   const [isPending, start] = useTransition()
+  const [error, setError] = useState<string | null>(null)
+  const id = useId()
 
   function handleSave(formData: FormData) {
+    setError(null)
     start(async () => {
       const result = await upsertService(formData)
-      if (result?.error) toast.error(result.error)
-      else { toast.success('Servicio creado'); setOpen(false) }
+      if (result?.error) {
+        // El error se queda dentro del formulario además del toast: si el
+        // toast se desvanece, el motivo del fallo no se va con él.
+        setError(result.error)
+        toast.error(result.error)
+        return
+      }
+      toast.success('Servicio creado')
+      setOpen(false)
     })
   }
 
-  if (!open) {
-    return (
-      <button
-        onClick={() => setOpen(true)}
-        className="flex items-center gap-2 px-5 py-2.5 bg-[var(--color-navy)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-navy-light)] hover:scale-105 active:scale-95 transition-all shadow-sm"
-      >
-        <Plus size={16} /> Nuevo servicio
-      </button>
-    )
-  }
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
-      <div className="w-full max-w-md bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] shadow-[var(--shadow-overlay)] p-6">
-        <div className="flex items-center justify-between mb-5">
-          <h2 className="font-display text-xl font-bold text-[var(--color-navy)] tracking-tight">Nuevo servicio</h2>
-          <button
-            onClick={() => { setOpen(false) }}
-            aria-label="Cerrar"
-            className="p-2 rounded-lg text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] hover:bg-[var(--color-surface-container-low)] transition-colors"
-          >
-            <X size={16} />
-          </button>
-        </div>
+    <>
+      <button
+        onClick={() => { setError(null); setOpen(true) }}
+        className="flex items-center gap-2 px-5 py-2.5 min-h-11 bg-[var(--color-navy)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-navy-light)] hover:scale-105 active:scale-95 transition-all shadow-sm"
+      >
+        <Plus size={16} aria-hidden /> Nuevo servicio
+      </button>
 
-        <form action={handleSave} className="space-y-4">
-          <div className="space-y-1">
-            <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Nombre *</label>
-            <input name="name" type="text" required className={inputClass} placeholder="Ej: Manicure Express" />
-          </div>
-          <div className="space-y-1">
-            <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Descripción</label>
-            <textarea name="description" rows={2} className={`${inputClass} resize-none`} placeholder="Descripción del servicio…" />
-          </div>
-          <div className="space-y-1">
-            <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Categoría *</label>
-            <select name="category" defaultValue="manicure" className={inputClass}>
-              {CATEGORIES.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
-            </select>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-1">
-              <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Precio (CLP) *</label>
-              <input name="price" type="number" required min="0" step="500" defaultValue={15000} className={inputClass} />
-            </div>
-            <div className="space-y-1">
-              <label className="block text-xs font-semibold text-[var(--color-ink-secondary)]">Duración (min) *</label>
-              <input name="duration_minutes" type="number" required min="15" step="15" defaultValue={30} className={inputClass} />
-            </div>
-          </div>
+      {/* Diálogo real: role, aria-modal, trampa de foco, cierre con Escape y
+          devolución del foco al botón que lo abrió — todo lo que la versión
+          hecha a mano con `fixed inset-0` no tenía. */}
+      <Dialog
+        open={open}
+        onOpenChange={(o) => { if (!isPending) { setOpen(o); if (!o) setError(null) } }}
+      >
+        <DialogContent className="sm:max-w-md rounded-3xl p-6">
+          <DialogHeader>
+            <DialogTitle>Nuevo servicio</DialogTitle>
+            <DialogDescription>
+              Aparecerá en el catálogo público apenas lo guardes.
+            </DialogDescription>
+          </DialogHeader>
 
-          <div className="flex gap-2 pt-2">
-            <button
-              type="submit"
-              disabled={isPending}
-              className="flex items-center gap-1.5 px-5 py-2.5 bg-[var(--color-navy)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-navy-light)] disabled:opacity-50 transition-all shadow-sm flex-1 justify-center"
-            >
-              {isPending ? <Loader2 size={14} className="animate-spin" /> : <Check size={14} />}
-              {isPending ? 'Creando…' : 'Crear servicio'}
-            </button>
-            <button
-              type="button"
-              onClick={() => { setOpen(false) }}
-              className="px-4 py-2.5 text-sm font-semibold text-[var(--color-ink-secondary)] hover:text-[var(--color-navy)] rounded-full hover:bg-[var(--color-surface-container-low)] transition-colors"
-            >
-              Cancelar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+          <form action={handleSave} className="space-y-4">
+            <div className="space-y-1">
+              <label htmlFor={`${id}-name`} className={labelClass}>
+                Nombre <span className="text-[var(--color-error-text)]" aria-hidden>*</span>
+              </label>
+              <input
+                id={`${id}-name`} name="name" type="text" required
+                maxLength={80} autoComplete="off"
+                className={inputClass} placeholder="Ej: Manicure Express"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <label htmlFor={`${id}-desc`} className={labelClass}>Descripción</label>
+              <textarea
+                id={`${id}-desc`} name="description" rows={2} maxLength={300}
+                className={`${inputClass} resize-none`} placeholder="Descripción del servicio…"
+              />
+            </div>
+
+            <div className="space-y-1">
+              <label htmlFor={`${id}-cat`} className={labelClass}>
+                Categoría <span className="text-[var(--color-error-text)]" aria-hidden>*</span>
+              </label>
+              {/* Las categorías vienen de la base, no de una lista fija: antes
+                  este formulario tenía seis categorías escritas a mano y no veía
+                  las que se creaban desde el gestor de categorías. */}
+              <select id={`${id}-cat`} name="category" required defaultValue={categories[0]?.slug ?? ''} className={inputClass}>
+                {categories.length === 0 && <option value="">Sin categorías — crea una primero</option>}
+                {categories.map(c => <option key={c.slug} value={c.slug}>{c.label}</option>)}
+              </select>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1">
+                <label htmlFor={`${id}-price`} className={labelClass}>
+                  Precio (CLP) <span className="text-[var(--color-error-text)]" aria-hidden>*</span>
+                </label>
+                <input
+                  id={`${id}-price`} name="price" type="number" required
+                  min="0" max="9999999" step="500" defaultValue={15000}
+                  className={inputClass}
+                />
+              </div>
+              <div className="space-y-1">
+                <label htmlFor={`${id}-dur`} className={labelClass}>
+                  Duración (min) <span className="text-[var(--color-error-text)]" aria-hidden>*</span>
+                </label>
+                <input
+                  id={`${id}-dur`} name="duration_minutes" type="number" required
+                  min="15" max="480" step="15" defaultValue={30}
+                  className={inputClass}
+                />
+              </div>
+            </div>
+
+            {error && (
+              <p role="alert" className="text-xs font-semibold text-[var(--color-error-text)] bg-[var(--color-error-bg)] border border-[var(--color-error)]/30 rounded-xl px-3 py-2">
+                {error}
+              </p>
+            )}
+
+            <DialogFooter className="mt-2">
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                disabled={isPending}
+                className="px-4 py-2.5 min-h-11 text-sm font-semibold text-[var(--color-ink-secondary)] hover:text-[var(--color-navy)] rounded-full hover:bg-[var(--color-surface-container-low)] transition-colors disabled:opacity-50"
+              >
+                Cancelar
+              </button>
+              <button
+                type="submit"
+                disabled={isPending || categories.length === 0}
+                className="flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-11 bg-[var(--color-navy)] text-white text-sm font-semibold rounded-full hover:bg-[var(--color-navy-light)] disabled:opacity-50 transition-all shadow-sm"
+              >
+                {isPending ? <Loader2 size={14} className="animate-spin" aria-hidden /> : <Check size={14} aria-hidden />}
+                {isPending ? 'Creando…' : 'Crear servicio'}
+              </button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
+    </>
   )
 }

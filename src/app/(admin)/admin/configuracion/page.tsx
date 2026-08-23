@@ -17,8 +17,8 @@ export default async function ConfiguracionPage() {
       <div className="flex items-center gap-3">
         <Settings size={22} className="text-[var(--color-primary-dark)]" />
         <div>
-          <h1 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-navy)] tracking-tight">
-            Configuración
+          <h1 className="font-display text-page text-[var(--color-navy)]">
+            Ajustes
           </h1>
           <p className="text-sm font-medium text-[var(--color-ink-secondary)]">
             Ajustes generales del sitio
@@ -30,7 +30,7 @@ export default async function ConfiguracionPage() {
         <div className="px-5 py-4 border-b border-[var(--color-border-soft)]">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)]">
+            <h2 className="text-eyebrow uppercase text-[var(--color-primary-dark)]">
               Disponibilidad
             </h2>
           </div>
@@ -39,8 +39,8 @@ export default async function ConfiguracionPage() {
         <div className="px-5 py-5">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-xl bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-                <Wrench size={16} className="text-amber-600" />
+              <div className="w-9 h-9 rounded-xl bg-[var(--color-status-pending-bg)] flex items-center justify-center shrink-0 mt-0.5">
+                <Wrench size={16} className="text-[var(--color-status-pending-text)]" />
               </div>
               <div>
                 <p className="font-semibold text-sm text-[var(--color-navy)]">Modo mantenimiento</p>
@@ -48,7 +48,7 @@ export default async function ConfiguracionPage() {
                   Cuando está activo, los visitantes ven una página de mantenimiento. El panel admin sigue accesible.
                 </p>
                 {isMaintenanceOn && (
-                  <span className="inline-flex items-center gap-1 mt-2 px-2.5 py-1 bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider rounded-full">
+                  <span className="inline-flex items-center gap-1 mt-2 px-2.5 py-1 bg-[var(--color-status-pending-bg)] text-[var(--color-status-pending-text)] border border-[var(--color-status-pending-accent)] text-micro uppercase rounded-full">
                     Activo ahora
                   </span>
                 )}

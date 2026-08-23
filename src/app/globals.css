@@ -12,7 +12,10 @@
   --color-lavanda:       #D4BCEC;
   --color-lavanda-dark:  #B89ED6;
   --color-dorado:        #D4AF37;
-  --color-dorado-dark:   #B8960C;
+  /* Verificado contra las seis superficies del sistema, no solo blanco y
+     crema: en la rampa de contenedores rosados el valor anterior (#8F6E00)
+     bajaba a 3.85:1. El precio es el dato que más importa del producto. */
+  --color-dorado-dark:   #836200;
   --color-navy:          #1A2040;
   --color-navy-light:    #2A3360;
 
@@ -25,8 +28,8 @@
   /* ── Text hierarchy ───────────────────────────────────────── */
   --color-ink:           #1A2040;
   --color-ink-secondary: #4A5270;
-  --color-ink-tertiary:  #6E7590;  /* AA ~4.5:1 sobre blanco */
-  --color-ink-muted:     #767E9A;  /* ~4.0:1 sobre blanco */
+  --color-ink-tertiary:  #5C627D;  /* 5.73:1 sobre crema */
+  --color-ink-muted:     #6A728E;  /* 4.76:1 sobre blanco · 4.54:1 sobre crema */
 
   /* ── Borders ──────────────────────────────────────────────── */
   --color-border:         rgba(26,32,64,0.10);
@@ -43,31 +46,108 @@
   --color-info:       #64B5F6;
   --color-info-bg:    #EFF6FF;
 
-  /* ── Estado de cita (Stitch Design System) ────────────────── */
-  --color-status-pending-bg:     #FFF3CD;
-  --color-status-pending-text:   #856404;
-  --color-status-confirmed-bg:   #EADDF7;
-  --color-status-confirmed-text: #6F42C1;
-  --color-status-progress-bg:    #FCEAEF;
-  --color-status-progress-text:  #EDAAB5;
-  --color-status-completed-bg:   #D4EDDA;
-  --color-status-completed-text: #155724;
-  --color-status-cancelled-bg:   #F8D7DA;
-  --color-status-cancelled-text: #721C24;
-  --color-status-noshow-bg:      #E2E3E5;
-  --color-status-noshow-text:    #383D41;
+  /* Sólidos semánticos: para rellenos y bordes de control (≥3:1 sobre
+     blanco), donde los tonos claros de arriba no se distinguen del papel. */
+  --color-success-strong: #529F58;
+  --color-error-text:     #AF5353;
+  --color-track-off:      #DCDEE5;
+  --color-track-border:   #91949E;
 
-  /* Para compatibilidad */
-  --color-status-pending:     #856404;
-  --color-status-confirmed:   #6F42C1;
-  --color-status-in-progress: #EDAAB5;
-  --color-status-completed:   #155724;
-  --color-status-cancelled:   #721C24;
-  --color-status-no-show:     #383D41;
+  /* Anillo de foco. El sistema lo dibujaba con --ring al 50% de opacidad,
+     que sobre blanco da 1.36:1 — muy por debajo del 3:1 que WCAG 2.4.11
+     exige a un indicador de foco. Este valor conserva el tono de la marca
+     y cumple sobre las seis superficies claras y sobre el navy. */
+  --color-focus: #BB6D7D;
+
+  /* ── Estado de cita ────────────────────────────────────────
+     Tres roles por estado y ninguno más:
+       -bg      rellena la superficie
+       -text    el único color que se escribe encima  (≥6:1 sobre su -bg)
+       -accent  el sólido de puntos, barras y bordes  (≥3:1 sobre blanco y crema)
+     Ningún archivo define colores de estado propios. Si un estado
+     necesita un color nuevo, se agrega aquí o no existe. */
+  --color-status-pending-bg:       #FFEEC7;
+  --color-status-pending-text:     #775300;
+  --color-status-pending-accent:   #B38910;
+
+  --color-status-confirmed-bg:     #F5E5FF;
+  --color-status-confirmed-text:   #6E4397;
+  --color-status-confirmed-accent: #A97AD9;
+
+  --color-status-progress-bg:      #FFE1E7;
+  --color-status-progress-text:    #8A3B4E;
+  --color-status-progress-accent:  #D47287;
+
+  --color-status-completed-bg:     #D9F8DC;
+  --color-status-completed-text:   #266632;
+  --color-status-completed-accent: #589F62;
+
+  --color-status-cancelled-bg:     #FFE3E2;
+  --color-status-cancelled-text:   #903B3E;
+  --color-status-cancelled-accent: #DB6F71;
+
+  /* "No asistió" es el estado neutro, pero neutro aquí significa navy
+     desaturado, nunca gris frío: es la puerta por la que se cuela el
+     dashboard corporativo que este producto rechaza. */
+  --color-status-noshow-bg:        #EAECF5;
+  --color-status-noshow-text:      #525769;
+  --color-status-noshow-accent:    #898FA6;
 
   /* ── Tipografía ───────────────────────────────────────────── */
   --font-display: var(--font-playfair);
   --font-body:    var(--font-inter);
+
+  /* ── Escala por función ────────────────────────────────────
+     Roles con nombre de trabajo, no de tamaño. El panel tenía doce
+     tamaños distintos —incluidos tres que no existían y renderizaban
+     al tamaño del cuerpo— para lo que son seis trabajos reales.
+
+     Cada rol trae su interlineado, su tracking y su peso, así que el
+     sitio de uso escribe `text-page` y no `text-2xl md:text-4xl
+     font-bold tracking-tight`. Es lo que impide que vuelvan a
+     aparecer cinco variantes del mismo título. */
+
+  /* Título de página. Fluido en vez de un salto en `md`: los nueve
+     títulos del panel eran cinco tratamientos distintos. */
+  --text-page: clamp(1.5rem, 1.15rem + 1.6vw, 2.25rem);
+  --text-page--line-height: 1.1;
+  --text-page--letter-spacing: -0.025em;
+  --text-page--font-weight: 700;
+
+  /* Cifra de métrica: dato para leer de un vistazo, no titular. */
+  --text-metric: clamp(1.5rem, 1.3rem + 0.9vw, 1.875rem);
+  --text-metric--line-height: 1.15;
+  --text-metric--letter-spacing: -0.02em;
+  --text-metric--font-weight: 700;
+
+  /* Encabezado de sección dentro de una página. */
+  --text-section: 1.125rem;
+  --text-section--line-height: 1.3;
+  --text-section--letter-spacing: -0.015em;
+  --text-section--font-weight: 700;
+
+  /* La versalita que abre cada bloque. Tracking unificado: convivían
+     0.2em, 0.15em y 0.12em para el mismo rol. */
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.2em;
+  --text-eyebrow--font-weight: 700;
+
+  /* Un rol con nombre existe cuando el tratamiento es compuesto —tamaño,
+     peso, tracking e interlineado juntos—. El cuerpo (text-sm, 14px) y el
+     metadato (text-xs, 12px) son tamaños a secas y se quedan con su clase
+     de Tailwind: dos nombres para un mismo trabajo es justo el desorden
+     que esta escala viene a deshacer.
+
+     El escalón más pequeño que un panel denso justifica: etiqueta de
+     navegación, cabecera de día, riel de horas. Antes eran dos tiers
+     de 9px y 10px separados por un píxel haciendo el mismo trabajo;
+     ahora es uno solo, y el texto más pequeño del panel subió de 9 a
+     10px. Por debajo de esto no hay nada. */
+  --text-micro: 0.625rem;
+  --text-micro--line-height: 1.3;
+  --text-micro--letter-spacing: 0.04em;
+  --text-micro--font-weight: 600;
 
   /* ── Radios ───────────────────────────────────────────────── */
   --radius-xs:   4px;
@@ -104,13 +184,13 @@
   --secondary:                  #FEF5F7;
   --secondary-foreground:       #4A5270;
   --muted:                      #FEF5F7;
-  --muted-foreground:           #6E7590;
+  --muted-foreground:           #5C627D;
   --accent:                     #D4BCEC;
   --accent-foreground:          #1A2040;
-  --destructive:                #E57373;
+  --destructive:                #9C4243;
   --border:                     rgba(26, 32, 64, 0.10);
   --input:                      rgba(26, 32, 64, 0.10);
-  --ring:                       #EDAAB5;
+  --ring:                       #BB6D7D;
   --radius:                     1rem;
   --chart-1:                    #EDAAB5;
   --chart-2:                    #D4BCEC;
@@ -137,6 +217,79 @@ body {
 /* ── Tipografía display ────────────────────────────────────────── */
 .font-display {
   font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* ── Foco ──────────────────────────────────────────────────────
+   Una regla para toda la aplicación en vez de treinta y cinco declaraciones
+   sueltas. Los controles que no traían la suya heredaban el anillo del
+   sistema operativo —azul, ajeno a este mundo cálido— y los que sí la
+   traían la pintaban a un 25–50% de opacidad, demasiado tenue para pasar.
+
+   `:focus-visible` sólo aparece con teclado, así que el ratón no lo ve. */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ── Contexto de entrada ───────────────────────────────────────
+   El panel se parte en dos arquitecturas en `md`, pero el ancho de la
+   pantalla no dice con qué se está tocando: un portátil con pantalla táctil
+   recibía los mismos objetivos de 18px que un ratón. Estas reglas van por
+   tipo de puntero, no por ancho.
+
+   Dos mecanismos, y la diferencia importa:
+
+   `.tap-target` agranda el control de verdad. Es para los que viven en fila
+   junto a otros controles, donde un área invisible ampliada se solaparía con
+   la del vecino y dispararía el botón equivocado — el peor fallo táctil
+   posible, porque el usuario ve que pulsó bien y pasa otra cosa.
+
+   `.tap-halo` deja el tamaño visual intacto y amplía sólo el área sensible.
+   Es para los controles que tienen que seguir siendo pequeños (una equis de
+   20px sobre una miniatura) y que están lo bastante separados como para que
+   los halos no se toquen. */
+@media (pointer: coarse) {
+  .tap-target {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tap-halo { position: relative; }
+  .tap-halo::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(100%, 44px);
+    height: max(100%, 44px);
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* `scrollbar-none` sólo trae `scrollbar-width`, que WebKit ignora: la tira de
+   filtros seguía mostrando barra en Safari y Chrome. */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* Zona segura del teléfono. La navegación inferior del panel se apoyaba en
+   `pb-safe`, que no existe en Tailwind y por tanto no generaba ninguna regla:
+   sobre un iPhone con barra de inicio, los cinco destinos quedaban debajo del
+   indicador. Necesita `viewport-fit=cover` para que env() devuelva algo. */
+.pb-safe { padding-bottom: max(0px, env(safe-area-inset-bottom)); }
+.pt-safe { padding-top: max(0px, env(safe-area-inset-top)); }
+
+/* ── Superficies del navegador ─────────────────────────────────
+   Selección y cursor son parte del diseño: por defecto llegan en el
+   azul del sistema, que es el único color frío que tocaba el panel.
+   El portal público ya lo teñía página por página; aquí vale para todo. */
+::selection {
+  background: var(--color-primary-light);
+  color: var(--color-navy);
+}
+input, textarea, [contenteditable] {
+  caret-color: var(--color-primary-dark);
 }
 
 /* ── Scrollbar discreta ────────────────────────────────────────── */

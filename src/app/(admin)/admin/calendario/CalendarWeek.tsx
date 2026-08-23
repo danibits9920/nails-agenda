@@ -2,59 +2,29 @@
 import { useRouter } from 'next/navigation'
 import { ChevronLeft, ChevronRight, Clock, CalendarX2 } from 'lucide-react'
 import type { AppointmentStatus } from '@/types/database'
+import { todayInBusinessTz } from '@/lib/tz'
+import { APPOINTMENT_STATUS } from '@/components/ui/status-badges'
 
 const A = `/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}`
 
-// Colores según design system Stitch — Nails Art Yurany
-const STATUS_CARD: Record<AppointmentStatus, string> = {
-  pending:     'bg-amber-50     border-l-4 border-amber-400  text-amber-900',
-  confirmed:   'bg-[#D4BCEC]/20 border-l-4 border-[#D4BCEC] text-[var(--color-navy)]',
-  in_progress: 'bg-[#EDAAB5]/20 border-l-4 border-[#EDAAB5] text-[var(--color-navy)]',
-  completed:   'bg-emerald-50   border-l-4 border-emerald-400 text-emerald-900',
-  cancelled:   'bg-gray-100     border-l-4 border-gray-300   text-gray-500',
-  no_show:     'bg-red-50       border-l-4 border-red-300    text-red-800',
-}
-
-const STATUS_DOT: Record<AppointmentStatus, string> = {
-  pending:     'bg-amber-400',
-  confirmed:   'bg-[#D4BCEC]',
-  in_progress: 'bg-[#EDAAB5]',
-  completed:   'bg-emerald-400',
-  cancelled:   'bg-gray-400',
-  no_show:     'bg-red-400',
-}
-
-const STATUS_LABEL: Record<AppointmentStatus, string> = {
-  pending:     'Pendiente',
-  confirmed:   'Confirmada',
-  in_progress: 'En curso',
-  completed:   'Completada',
-  cancelled:   'Cancelada',
-  no_show:     'No asistió',
-}
-
-// Colores compactos para el grid semanal (sin border-l-4)
-const STATUS_GRID: Record<AppointmentStatus, string> = {
-  pending:     'bg-amber-50   border-amber-300  text-amber-900',
-  confirmed:   'bg-[#D4BCEC]/30 border-[#D4BCEC] text-[var(--color-navy)]',
-  in_progress: 'bg-[#EDAAB5]/30 border-[#EDAAB5] text-[var(--color-navy)]',
-  completed:   'bg-emerald-50 border-emerald-300 text-emerald-900',
-  cancelled:   'bg-gray-100   border-gray-300   text-gray-500',
-  no_show:     'bg-red-50     border-red-300    text-red-800',
-}
+// El color de estado viene de status-badges: esta vista no inventa el suyo.
+// Antes vivían aquí tres tablas (tarjeta, punto y bloque) que no coincidían
+// entre sí ni con el badge de la lista de citas.
+const statusOf = (raw: string) =>
+  APPOINTMENT_STATUS[raw as AppointmentStatus] ?? APPOINTMENT_STATUS.no_show
 
 const HOURS = Array.from({ length: 13 }, (_, i) => i + 8) // 08:00–20:00
 const DAYS_ES = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']
 const DAYS_FULL = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
 
 type Apt = {
-  id: string
-  date: string
+ id: string
+ date: string
   start_time: string
   end_time: string
-  status: string
-  clients: { name: string } | null
-  services: { name: string; description: string | null } | null
+ status: string
+ clients: { name: string } | null
+ services: { name: string; description: string | null } | null
 }
 
 function timeToMinutes(t: string) {
@@ -70,11 +40,13 @@ export default function CalendarWeek({
   anchorDate,
 }: {
   weekDates: string[]
-  appointments: Apt[]
+ appointments: Apt[]
   anchorDate: string
 }) {
   const router = useRouter()
-  const today = new Date().toISOString().split('T')[0]
+  // Marca 'hoy' según el salón: con UTC, cada tarde el resaltado saltaba al
+  // día siguiente mientras Yurany seguía trabajando en el actual.
+  const today = todayInBusinessTz()
 
   function navigateWeek(delta: number) {
     const d = new Date(anchorDate + 'T12:00:00')
@@ -106,22 +78,22 @@ export default function CalendarWeek({
           <button
             onClick={() => navigateDay(-1)}
             aria-label="Día anterior"
-            className="p-3 rounded-xl border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
+            className="tap-target p-3 rounded-xl border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
           >
             <ChevronLeft size={18} className="text-[var(--color-navy)]" />
           </button>
           <div className="text-center">
-            <p className="text-[10px] font-bold text-[var(--color-ink-muted)] uppercase tracking-widest">
+            <p className="text-micro text-[var(--color-ink-muted)] uppercase">
               {DAYS_FULL[selectedDayIndex >= 0 ? selectedDayIndex : 0]}
             </p>
-            <p className="text-lg font-bold text-[var(--color-navy)] leading-tight">
+            <p className="text-section text-[var(--color-navy)]">
               {new Date(selectedDate + 'T12:00').toLocaleDateString('es-CL', { day: 'numeric', month: 'long' })}
             </p>
           </div>
           <button
             onClick={() => navigateDay(1)}
             aria-label="Día siguiente"
-            className="p-3 rounded-xl border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
+            className="tap-target p-3 rounded-xl border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
           >
             <ChevronRight size={18} className="text-[var(--color-navy)]" />
           </button>
@@ -135,29 +107,27 @@ export default function CalendarWeek({
                 <CalendarX2 size={24} className="text-[var(--color-ink-muted)]" />
               </div>
               <p className="text-sm font-bold text-[var(--color-ink-secondary)]">Sin citas este día</p>
-              <p className="text-xs text-[var(--color-ink-muted)] mt-1">No hay citas agendadas</p>
+              <p className="text-xs text-[var(--color-ink-muted)] mt-1">Desliza abajo para ver otro día de la semana.</p>
             </div>
           ) : (
             dayAptsMobile.map(apt => {
-              const cardCls = STATUS_CARD[apt.status as AppointmentStatus] ?? 'bg-gray-50 border-l-4 border-gray-300 text-gray-700'
-              const dotCls  = STATUS_DOT[apt.status as AppointmentStatus]  ?? 'bg-gray-400'
-              const label   = STATUS_LABEL[apt.status as AppointmentStatus] ?? apt.status
+              const s = statusOf(apt.status)
               return (
-                <div key={apt.id} className={`rounded-2xl border border-[var(--color-border-soft)] px-4 py-3.5 shadow-sm ${cardCls}`}>
+                <div key={apt.id} className={`rounded-2xl border px-4 py-3.5 shadow-sm ${s.surface}`}>
                   <div className="flex items-start justify-between gap-2 mb-1">
                     <p className="font-bold text-sm leading-tight">{apt.clients?.name ?? 'Cliente'}</p>
-                    <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/70 shrink-0 border border-white/40">
-                      <span className={`w-1.5 h-1.5 rounded-full ${dotCls}`} />
-                      {label}
+                    <span className="flex items-center gap-1 text-micro px-2 py-0.5 rounded-full bg-white/70 shrink-0 border border-white/40">
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ background: s.accent }} />
+                      {s.label}
                     </span>
                   </div>
-                  <p className="text-xs font-semibold opacity-80">{apt.services?.name ?? ''}</p>
+                  <p className="text-xs font-semibold">{apt.services?.name ?? ''}</p>
                   {apt.services?.description && (
-                    <p className="text-[11px] opacity-60 mt-0.5 line-clamp-2 leading-relaxed">
+                    <p className="text-xs mt-0.5 line-clamp-2 leading-relaxed">
                       {apt.services.description}
                     </p>
                   )}
-                  <div className="flex items-center gap-1 mt-2 opacity-70">
+                  <div className="flex items-center gap-1 mt-2">
                     <Clock size={11} />
                     <p className="text-xs font-bold">
                       {apt.start_time.slice(0, 5)} – {apt.end_time.slice(0, 5)}
@@ -174,16 +144,16 @@ export default function CalendarWeek({
           <div className="flex items-center justify-between mb-1.5 px-1">
             <button
               onClick={() => navigateWeek(-1)}
-              className="text-[10px] text-[var(--color-ink-muted)] font-bold hover:text-[var(--color-navy)] transition-colors"
+              className="text-micro text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] transition-colors"
             >
               ← ant.
             </button>
-            <span className="text-[10px] font-bold text-[var(--color-ink-muted)] uppercase tracking-wider">
+            <span className="text-micro text-[var(--color-ink-muted)] uppercase">
               {new Date(weekDates[0]! + 'T12:00').toLocaleDateString('es-CL', { month: 'long', year: 'numeric' })}
             </span>
             <button
               onClick={() => navigateWeek(1)}
-              className="text-[10px] text-[var(--color-ink-muted)] font-bold hover:text-[var(--color-navy)] transition-colors"
+              className="text-micro text-[var(--color-ink-muted)] hover:text-[var(--color-navy)] transition-colors"
             >
               sig. →
             </button>
@@ -198,7 +168,7 @@ export default function CalendarWeek({
                   key={date}
                   onClick={() => router.push(`${A}/calendario?fecha=${date}`)}
                   className={[
-                    'flex flex-col items-center py-1.5 rounded-xl transition-all',
+                    'flex flex-col items-center justify-center py-1.5 min-h-11 rounded-xl transition-all',
                     isSelected
                       ? 'bg-[var(--color-navy)] text-white'
                       : isToday
@@ -206,7 +176,7 @@ export default function CalendarWeek({
                       : 'text-[var(--color-ink-secondary)] hover:bg-white',
                   ].join(' ')}
                 >
-                  <span className="text-[9px] font-bold uppercase tracking-wide">{DAYS_ES[i]}</span>
+                  <span className="text-micro uppercase">{DAYS_ES[i]}</span>
                   <span className="text-sm font-bold leading-tight">{new Date(date + 'T12:00').getDate()}</span>
                   <span className={[
                     'w-1 h-1 rounded-full mt-0.5',
@@ -231,7 +201,7 @@ export default function CalendarWeek({
           <button
             onClick={() => navigateWeek(-1)}
             aria-label="Semana anterior"
-            className="p-2 rounded-[var(--radius-md)] border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
+            className="tap-target p-2 rounded-[var(--radius-md)] border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
           >
             <ChevronLeft size={18} className="text-[var(--color-navy)]" />
           </button>
@@ -243,7 +213,7 @@ export default function CalendarWeek({
           <button
             onClick={() => navigateWeek(1)}
             aria-label="Semana siguiente"
-            className="p-2 rounded-[var(--radius-md)] border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
+            className="tap-target p-2 rounded-[var(--radius-md)] border border-[var(--color-border)] hover:bg-[var(--color-surface-raised)] transition-all"
           >
             <ChevronRight size={18} className="text-[var(--color-navy)]" />
           </button>
@@ -259,10 +229,10 @@ export default function CalendarWeek({
                 key={date}
                 className={`py-3 text-center border-l border-[var(--color-border-soft)] ${isToday ? 'bg-[var(--color-primary-light)]/15' : ''}`}
               >
-                <p className="text-[11px] font-bold text-[var(--color-ink-secondary)] uppercase tracking-[0.12em]">
+                <p className="text-eyebrow text-[var(--color-ink-secondary)] uppercase">
                   {DAYS_ES[i]}
                 </p>
-                <p className={`text-xl font-bold mt-1 ${isToday ? 'text-[var(--color-primary-dark)]' : 'text-[var(--color-navy)]'}`}>
+                <p className={`text-section tabular-nums mt-1 ${isToday ? 'text-[var(--color-primary-dark)]' : 'text-[var(--color-navy)]'}`}>
                   {new Date(date + 'T12:00').getDate()}
                 </p>
               </div>
@@ -284,7 +254,7 @@ export default function CalendarWeek({
                   className="absolute w-full flex items-start justify-end pr-3"
                   style={{ top: `${(h - 8) * CELL_H}px`, height: `${CELL_H}px` }}
                 >
-                  <span className="text-[10px] text-[var(--color-ink-secondary)] font-bold mt-1.5">
+                  <span className="text-micro text-[var(--color-ink-secondary)] mt-1.5">
                     {h}:00
                   </span>
                 </div>
@@ -316,22 +286,22 @@ export default function CalendarWeek({
                       (timeToMinutes(apt.end_time) - timeToMinutes(apt.start_time)) / 60 * CELL_H,
                       44
                     )
-                    const colorCls = STATUS_GRID[apt.status as AppointmentStatus] ?? 'bg-gray-50 border-gray-200 text-gray-700'
+                    const s = statusOf(apt.status)
                     return (
                       <div
                         key={apt.id}
-                        className={`absolute left-1 right-1 rounded-xl border px-2 py-1.5 overflow-hidden cursor-default shadow-sm transition-all hover:shadow-md hover:scale-[1.01] hover:z-10 ${colorCls}`}
+                        className={`absolute left-1 right-1 rounded-xl border px-2 py-1.5 overflow-hidden cursor-default shadow-sm transition-all hover:shadow-md hover:scale-[1.01] hover:z-10 ${s.surface}`}
                         style={{ top: `${top}px`, height: `${height}px` }}
                         title={`${apt.clients?.name ?? ''} — ${apt.services?.name ?? ''}`}
                       >
-                        <p className="text-[11px] font-bold truncate leading-tight">
+                        <p className="text-xs font-bold truncate leading-tight">
                           {apt.clients?.name ?? 'Cliente'}
                         </p>
-                        <p className="text-[10px] font-semibold truncate leading-tight mt-0.5 opacity-80">
+                        <p className="text-micro truncate leading-tight mt-0.5">
                           {apt.services?.name ?? ''}
                         </p>
                         {apt.services?.description && height > 68 && (
-                          <p className="text-[9px] truncate leading-tight mt-0.5 opacity-55">
+                          <p className="text-micro truncate leading-tight mt-0.5">
                             {apt.services.description}
                           </p>
                         )}

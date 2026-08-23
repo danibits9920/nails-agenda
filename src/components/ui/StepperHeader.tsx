@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { ArrowLeft, Check, Sparkles } from 'lucide-react'
+import { ArrowLeft, Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import BrandMark from '@/components/ui/BrandMark'
 
 const STEPS = [
   { n: 1, label: 'Servicio' },
@@ -25,9 +26,7 @@ export default function StepperHeader({ current }: { current: number }) {
           </Link>
 
           <div className="flex items-center gap-1.5">
-            <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-lavanda)] flex items-center justify-center shadow-sm">
-              <Sparkles size={9} className="text-white" />
-            </div>
+            <BrandMark size={28} />
             <span className="font-display text-sm font-semibold text-[var(--color-navy)] tracking-tight">
               Nails Art Yurany
             </span>

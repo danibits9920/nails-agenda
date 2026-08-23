@@ -13,16 +13,23 @@ export default function ToggleActive({ id, isActive }: { id: string; isActive: b
         if (result?.error) toast.error(result.error)
         else toast.success(isActive ? 'Servicio desactivado' : 'Servicio activado')
       })}
-      title={isActive ? 'Desactivar' : 'Activar'}
-      aria-label={isActive ? 'Desactivar servicio' : 'Activar servicio'}
+      role="switch"
+      aria-checked={isActive}
+      aria-label="Servicio disponible para reservar"
+      title={isActive ? 'Desactivar servicio' : 'Activar servicio'}
       className={[
-        'relative shrink-0 w-11 h-6 rounded-full transition-colors duration-200',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--color-dorado)]/50',
+        'tap-halo relative shrink-0 w-11 h-6 rounded-full border transition-colors duration-200',
+        'focus:',
         'disabled:cursor-not-allowed disabled:opacity-50',
-        isActive ? 'bg-[var(--color-dorado)]' : 'bg-gray-200',
+        // El dorado estaba a 2.10:1 sobre blanco y además el oro sólo toca
+        // el dinero: "servicio activo" es afirmativo, no una cifra.
+        isActive
+          ? 'bg-[var(--color-success-strong)] border-transparent'
+          : 'bg-[var(--color-track-off)] border-[var(--color-track-border)]',
       ].join(' ')}
     >
       <span
+        aria-hidden
         className={[
           'pointer-events-none absolute top-[2px] left-[2px]',
           'h-5 w-5 rounded-full bg-white shadow-sm',

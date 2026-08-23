@@ -1,9 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
-import { formatCLP } from '@/lib/utils'
 import Link from 'next/link'
-import { Clock, ArrowLeft, Sparkles } from 'lucide-react'
-import ServiceImageCarousel from './ServiceImageCarousel'
+import { ArrowLeft } from 'lucide-react'
 import ServiciosClient from './ServiciosClient'
+import BrandMark from '@/components/ui/BrandMark'
 
 const CATEGORY_STYLES: Record<string, { pill: string; dot: string }> = {
   manicure: { pill: 'bg-[var(--color-primary-light)]/40 text-[var(--color-primary-dark)]',  dot: 'bg-[var(--color-primary)]'      },
@@ -11,8 +10,7 @@ const CATEGORY_STYLES: Record<string, { pill: string; dot: string }> = {
   nail_art: { pill: 'bg-pink-100 text-pink-700',                                              dot: 'bg-pink-400'                    },
   gel:      { pill: 'bg-amber-100 text-amber-700',                                            dot: 'bg-amber-400'                   },
   acrilico: { pill: 'bg-blue-100 text-blue-600',                                              dot: 'bg-blue-400'                    },
-  otros:    { pill: 'bg-[var(--color-cream)] text-[var(--color-ink-secondary)]',              dot: 'bg-[var(--color-ink-muted)]'    },
-}
+  otros:    { pill: 'bg-[var(--color-cream)] text-[var(--color-ink-secondary)]',              dot: 'bg-[var(--color-ink-muted)]'    } }
 
 export default async function ServiciosPublicosPage() {
   const supabase = await createClient()
@@ -61,8 +59,7 @@ export default async function ServiciosPublicosPage() {
   /* Serializable para el client component */
   const serviceData = (services ?? []).map(s => ({
     ...s!,
-    images: imagesByService[s!.id] ?? [],
-  }))
+    images: imagesByService[s!.id] ?? [] }))
 
   return (
     <div className="min-h-screen bg-[var(--color-cream)] selection:bg-[var(--color-primary-light)]">
@@ -91,9 +88,7 @@ export default async function ServiciosPublicosPage() {
         <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[var(--color-primary)]/10 blur-3xl pointer-events-none" />
         <div className="max-w-4xl mx-auto px-5 py-10 relative z-10">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-lavanda)] flex items-center justify-center shadow-sm">
-              <Sparkles size={11} className="text-white" />
-            </div>
+            <BrandMark size={28} />
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)]">Catálogo completo</p>
           </div>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-[var(--color-navy)] tracking-tight mb-2">

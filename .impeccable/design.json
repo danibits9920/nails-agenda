@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-23T19:35:56.152Z",
+  "title": "Design System: Nails Art Yurany",
+  "extensions": {
+    "colorMeta": {
+      "tinta-medianoche": {
+        "role": "primary",
+        "displayName": "Tinta de Medianoche",
+        "canonical": "#1A2040",
+        "tonalRamp": [
+          "#06091D",
+          "#1B2141",
+          "#384063",
+          "#586186",
+          "#7A84AB",
+          "#9EA9D2",
+          "#C4CFFA",
+          "#E8EEFF"
+        ]
+      },
+      "rosa-empolvado": {
+        "role": "secondary",
+        "displayName": "Rosa Empolvado",
+        "canonical": "#EDAAB5",
+        "tonalRamp": [
+          "#1D0107",
+          "#420E1C",
+          "#652E3A",
+          "#8A4F5A",
+          "#B0727D",
+          "#D796A1",
+          "#FFBCC7",
+          "#FFE5EA"
+        ]
+      },
+      "lila-nacarado": {
+        "role": "tertiary",
+        "displayName": "Lila Nacarado",
+        "canonical": "#D4BCEC",
+        "tonalRamp": [
+          "#11051B",
+          "#2D193E",
+          "#4D385F",
+          "#6E5883",
+          "#927BA8",
+          "#B79FCE",
+          "#DDC5F6",
+          "#F4E9FF"
+        ]
+      },
+      "oro-viejo": {
+        "role": "tertiary",
+        "displayName": "Oro Viejo",
+        "canonical": "#D4AF37",
+        "tonalRamp": [
+          "#1A0500",
+          "#3C1B00",
+          "#5E3B00",
+          "#815E00",
+          "#A58100",
+          "#CBA72B",
+          "#F3CD5A",
+          "#FEEEBF"
+        ]
+      },
+      "papel-crema": {
+        "role": "neutral",
+        "displayName": "Papel Crema",
+        "canonical": "#FFF8F8",
+        "tonalRamp": [
+          "#0D0A0A",
+          "#282323",
+          "#464141",
+          "#676262",
+          "#8B8484",
+          "#AFA9A9",
+          "#D6CFCF",
+          "#F1EDED"
+        ]
+      },
+      "tinta-secundaria": {
+        "role": "neutral",
+        "displayName": "Tinta Secundaria",
+        "canonical": "#4A5270",
+        "tonalRamp": [
+          "#070A1A",
+          "#1C223C",
+          "#39415E",
+          "#596281",
+          "#7C85A5",
+          "#A0A9CB",
+          "#C5D0F3",
+          "#E9EEFE"
+        ]
+      },
+      "rosa-profundo": {
+        "role": "secondary",
+        "displayName": "Rosa Profundo",
+        "canonical": "#D98898"
+      },
+      "oro-profundo": {
+        "role": "tertiary",
+        "displayName": "Oro Profundo",
+        "canonical": "#836200"
+      },
+      "tinta-tenue": {
+        "role": "neutral",
+        "displayName": "Tinta Tenue",
+        "canonical": "#6A728E"
+      },
+      "exito-solido": {
+        "role": "semantic",
+        "displayName": "Verde Afirmativo",
+        "canonical": "#529F58"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Título del hero público. Uno por página."
+      },
+      "page": {
+        "displayName": "Page · text-page",
+        "purpose": "Título de cualquier página. Fluido con clamp(), no por punto de quiebre: los saltos en md fueron cómo llegaron a convivir cinco tratamientos del mismo h1."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Encabezado de sección del sitio público, precedido por su versalita."
+      },
+      "section": {
+        "displayName": "Section · text-section",
+        "purpose": "Título de tarjeta y de bloque dentro de una página."
+      },
+      "metric": {
+        "displayName": "Metric · text-metric",
+        "purpose": "Cifra de métrica. Siempre con tabular-nums."
+      },
+      "body": {
+        "displayName": "Body · text-sm",
+        "purpose": "Lectura por defecto. Párrafos a ~45ch."
+      },
+      "meta": {
+        "displayName": "Meta · text-xs",
+        "purpose": "Hora, fecha, contador, texto de apoyo."
+      },
+      "eyebrow": {
+        "displayName": "Eyebrow · text-eyebrow",
+        "purpose": "La versalita que abre cada bloque, en Rosa Profundo. Tracking unificado en 0.2em."
+      },
+      "micro": {
+        "displayName": "Micro · text-micro",
+        "purpose": "El escalón más pequeño del sistema (10px). Navegación, cabecera de día, riel de horas. Por debajo no hay nada."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0 1px 2px rgba(26,32,64,0.06), 0 1px 3px rgba(26,32,64,0.04)",
+        "purpose": "Reposo de tarjetas. Insinuación de separación, no elevación."
+      },
+      {
+        "name": "raised",
+        "value": "0 2px 6px rgba(26,32,64,0.08), 0 1px 2px rgba(26,32,64,0.06)",
+        "purpose": "Hover de tarjeta y superficies destacadas del flujo de reserva."
+      },
+      {
+        "name": "overlay",
+        "value": "0 8px 24px rgba(26,32,64,0.10), 0 2px 6px rgba(26,32,64,0.06)",
+        "purpose": "Modales y elementos que flotan sobre el contenido."
+      },
+      {
+        "name": "halo-marca",
+        "value": "0 20px 60px rgba(237,170,181,0.35)",
+        "purpose": "Halo rosado bajo el objeto de marca del hero. Uso único."
+      }
+    ],
+    "motion": [
+      {
+        "name": "estado",
+        "value": "150ms",
+        "purpose": "Cambio de estado inmediato: casilla de calendario, chip de horario."
+      },
+      {
+        "name": "superficie",
+        "value": "200ms",
+        "purpose": "Hover de tarjeta, opción y botón. La duración por defecto del sistema."
+      },
+      {
+        "name": "progreso",
+        "value": "300ms",
+        "purpose": "Avance del encabezado de pasos y aparición de la lista de horarios."
+      },
+      {
+        "name": "lift",
+        "value": "translateY(-2px)",
+        "purpose": "El gesto de respuesta del botón primario y de la tarjeta."
+      },
+      {
+        "name": "grow",
+        "value": "scale(1.05) / active scale(0.95)",
+        "purpose": "Gesto alternativo, para chips y botones circulares. Nunca junto con lift."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration: 0.01ms",
+        "purpose": "globals.css anula toda animación bajo prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "El único control que confirma, avanza o envía. Píldora navy sólido.",
+      "html": "<button class=\"ds-btn-primary\">Reserva tu cita →</button>",
+      "css": ".ds-btn-primary { font-family: var(--font-inter), system-ui, sans-serif; font-size: 15px; font-weight: 600; color: #fff; background: var(--color-navy, #1A2040); border: none; border-radius: 9999px; padding: 14px 32px; cursor: pointer; box-shadow: 0 4px 6px rgba(26,32,64,0.10); transition: background .2s, transform .2s, box-shadow .2s; } .ds-btn-primary:hover { background: var(--color-navy-light, #2A3360); transform: translateY(-2px); box-shadow: 0 10px 15px rgba(26,32,64,0.12); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(26,32,64,0.15); }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción alternativa junto al primario. Píldora blanca de borde fino.",
+      "html": "<button class=\"ds-btn-secondary\">Ver servicios</button>",
+      "css": ".ds-btn-secondary { font-family: var(--font-inter), system-ui, sans-serif; font-size: 15px; font-weight: 600; color: var(--color-navy, #1A2040); background: rgba(255,255,255,.7); backdrop-filter: blur(8px); border: 1px solid rgba(26,32,64,0.20); border-radius: 9999px; padding: 14px 32px; cursor: pointer; box-shadow: 0 1px 2px rgba(26,32,64,0.06); transition: border-color .2s, background .2s, transform .2s; } .ds-btn-secondary:hover { border-color: var(--color-navy, #1A2040); background: #fff; transform: translateY(-2px); } .ds-btn-secondary:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(26,32,64,0.15); }"
+    },
+    {
+      "name": "Botón deshabilitado",
+      "kind": "button",
+      "refersTo": "button-disabled",
+      "description": "Bloqueado con la razón escrita en la propia etiqueta, no solo apagado.",
+      "html": "<button class=\"ds-btn-disabled\" disabled>Selecciona un servicio para continuar</button>",
+      "css": ".ds-btn-disabled { font-family: var(--font-inter), system-ui, sans-serif; font-size: 15px; font-weight: 600; color: var(--color-ink-tertiary, #5C627D); background: rgba(118,126,154,.4); border: none; border-radius: 9999px; padding: 14px 32px; width: 100%; cursor: not-allowed; }"
+    },
+    {
+      "name": "Opción de servicio",
+      "kind": "card",
+      "refersTo": "card-option-selected",
+      "description": "Tarjeta clicable con radio circular. Es el patrón de selección de todo el flujo de reserva.",
+      "html": "<button class=\"ds-option ds-option--selected\"><span class=\"ds-option__radio\"></span><span class=\"ds-option__body\"><span class=\"ds-option__name\">Manicure Semipermanente</span><span class=\"ds-option__desc\">Esmaltado de larga duración con gel UV/LED.</span><span class=\"ds-option__meta\"><svg width=\"11\" height=\"11\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polyline points=\"12 6 12 12 16 14\"/></svg> 60 min</span></span><span class=\"ds-option__price\">$12.000</span></button>",
+      "css": ".ds-option { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left; padding: 16px; border-radius: 28.8px; border: 1px solid rgba(26,32,64,0.10); background: #fff; cursor: pointer; font-family: var(--font-inter), system-ui, sans-serif; transition: border-color .2s, background .2s, box-shadow .2s; } .ds-option:hover { border-color: rgba(237,170,181,.6); background: var(--color-surface-container-low, #FEF5F7); box-shadow: 0 1px 2px rgba(26,32,64,0.06); } .ds-option--selected { border-color: var(--color-primary, #EDAAB5); background: rgba(245,192,192,.15); box-shadow: 0 1px 2px rgba(26,32,64,0.06); } .ds-option__radio { width: 20px; height: 20px; border-radius: 9999px; border: 2px solid var(--color-primary-dark, #D98898); background: var(--color-primary-dark, #D98898); flex-shrink: 0; display: flex; align-items: center; justify-content: center; } .ds-option__radio::after { content: \"\"; width: 8px; height: 8px; border-radius: 9999px; background: #fff; } .ds-option__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; } .ds-option__name { font-size: 14px; font-weight: 600; color: var(--color-navy, #1A2040); } .ds-option__desc { font-size: 12px; color: var(--color-ink-secondary, #4A5270); line-height: 1.6; } .ds-option__meta { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; color: var(--color-ink-secondary, #4A5270); margin-top: 6px; } .ds-option__meta svg { color: var(--color-primary-dark, #D98898); } .ds-option__price { font-size: 14px; font-weight: 700; color: var(--color-dorado-dark, #836200); flex-shrink: 0; }"
+    },
+    {
+      "name": "Chip de horario",
+      "kind": "chip",
+      "refersTo": "chip-slot",
+      "description": "La hora disponible dentro de la retícula. Rectángulo blando, no píldora, para que la fila lea como fila.",
+      "html": "<button class=\"ds-slot\">10:30 AM</button>",
+      "css": ".ds-slot { font-family: var(--font-inter), system-ui, sans-serif; font-size: 14px; font-weight: 700; color: var(--color-navy, #1A2040); background: #fff; border: 1px solid rgba(26,32,64,0.10); border-radius: 22.4px; padding: 12px 8px; cursor: pointer; box-shadow: 0 1px 2px rgba(26,32,64,0.06); transition: all .15s; } .ds-slot:hover { border-color: var(--color-primary, #EDAAB5); background: rgba(245,192,192,.15); transform: scale(1.05); box-shadow: 0 2px 6px rgba(26,32,64,0.08); } .ds-slot:active { transform: scale(.95); } .ds-slot:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(237,170,181,.35); }"
+    },
+    {
+      "name": "Etiqueta de estado",
+      "kind": "chip",
+      "refersTo": "badge-eyebrow",
+      "description": "Estado de la cita. Seis tríos bg/text/accent de la tabla única --color-status-*; los estados de pago reutilizan tres de ellos.",
+      "html": "<span class=\"ds-badge ds-badge--pending\">Pendiente</span> <span class=\"ds-badge ds-badge--confirmed\">Confirmada</span> <span class=\"ds-badge ds-badge--progress\">En curso</span> <span class=\"ds-badge ds-badge--completed\">Completada</span> <span class=\"ds-badge ds-badge--cancelled\">Cancelada</span> <span class=\"ds-badge ds-badge--noshow\">No asistió</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; font-family: var(--font-inter), system-ui, sans-serif; font-size: 12px; font-weight: 500; padding: 2px 10px; border-radius: 9999px; border: 1px solid; } .ds-badge--pending { background: #FFEEC7; color: #775300; border-color: #B38910; } .ds-badge--confirmed { background: #F5E5FF; color: #6E4397; border-color: #A97AD9; } .ds-badge--progress { background: #FFE1E7; color: #8A3B4E; border-color: #D47287; } .ds-badge--completed { background: #D9F8DC; color: #266632; border-color: #589F62; } .ds-badge--cancelled { background: #FFE3E2; color: #903B3E; border-color: #DB6F71; } .ds-badge--noshow { background: #EAECF5; color: #525769; border-color: #898FA6; }"
+    },
+    {
+      "name": "Campo de formulario",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo blanco sobre papel crema, con etiqueta encima y el asterisco de requerido en color de error.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field__label\">Nombre completo <em>*</em></span><input class=\"ds-field__input\" type=\"text\" placeholder=\"Tu nombre\" /></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: var(--font-inter), system-ui, sans-serif; } .ds-field__label { font-size: 14px; font-weight: 600; color: var(--color-ink-secondary, #4A5270); } .ds-field__label em { color: var(--color-error, #E57373); font-style: normal; } .ds-field__input { height: 44px; padding: 0 12px; font-size: 14px; color: var(--color-navy, #1A2040); background: #fff; border: 1px solid rgba(26,32,64,0.10); border-radius: 16px; outline: none; transition: border-color .2s, box-shadow .2s; } .ds-field__input::placeholder { color: var(--color-ink-muted, #6A728E); } .ds-field__input:focus-visible { border-color: var(--color-primary, #EDAAB5); box-shadow: 0 0 0 3px rgba(237,170,181,.5); }"
+    },
+    {
+      "name": "Ítem de navegación del panel",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Barra lateral de 240px. El borde izquierdo de 3px es lo que marca el destino activo.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__item ds-nav__item--active\" href=\"#\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/></svg> Calendario</a><a class=\"ds-nav__item\" href=\"#\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\"/><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"/><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"/><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"/></svg> Citas</a></nav>",
+      "css": ".ds-nav { display: flex; flex-direction: column; gap: 2px; width: 240px; padding: 12px; background: var(--color-cream, #FFF8F8); font-family: var(--font-inter), system-ui, sans-serif; } .ds-nav__item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12.8px; border-left: 3px solid transparent; font-size: 14px; font-weight: 500; color: var(--color-ink-secondary, #4A5270); text-decoration: none; transition: background .2s, color .2s; } .ds-nav__item svg { opacity: .6; } .ds-nav__item:hover { background: var(--color-surface-raised, #FEF5F7); color: var(--color-navy, #1A2040); } .ds-nav__item--active { border-left-color: var(--color-primary, #EDAAB5); background: var(--color-surface-raised, #FEF5F7); color: var(--color-navy, #1A2040); } .ds-nav__item--active svg { opacity: 1; color: var(--color-primary-dark, #D98898); }"
+    },
+    {
+      "name": "Etiqueta y título de sección",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "El par que abre cada sección del sitio. La versalita rosa nunca falta antes del título.",
+      "html": "<div class=\"ds-section-head\"><p class=\"ds-eyebrow\">Catálogo</p><h2 class=\"ds-headline\">Nuestros servicios</h2></div>",
+      "css": ".ds-section-head { display: flex; flex-direction: column; gap: 6px; } .ds-eyebrow { margin: 0; font-family: var(--font-inter), system-ui, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .2em; color: var(--color-primary-dark, #D98898); } .ds-headline { margin: 0; font-family: var(--font-playfair), Georgia, serif; font-size: 30px; font-weight: 700; line-height: 1.2; letter-spacing: -.025em; color: var(--color-navy, #1A2040); }"
+    },
+    {
+      "name": "Encabezado de pasos",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "El componente firma del flujo de reserva: lo hecho se vuelve esmalte, lo presente es tinta.",
+      "html": "<ol class=\"ds-stepper\"><li class=\"ds-stepper__step ds-stepper__step--done\"><span class=\"ds-stepper__dot\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span><span class=\"ds-stepper__label\">Servicio</span></li><li class=\"ds-stepper__bar ds-stepper__bar--done\"></li><li class=\"ds-stepper__step ds-stepper__step--active\"><span class=\"ds-stepper__dot\">2</span><span class=\"ds-stepper__label\">Fecha y hora</span></li><li class=\"ds-stepper__bar\"></li><li class=\"ds-stepper__step\"><span class=\"ds-stepper__dot\">3</span><span class=\"ds-stepper__label\">Tus datos</span></li></ol>",
+      "css": ".ds-stepper { display: flex; align-items: center; justify-content: center; gap: 0; list-style: none; margin: 0; padding: 16px 0; font-family: var(--font-inter), system-ui, sans-serif; background: rgba(255,255,255,.95); backdrop-filter: blur(16px); } .ds-stepper__step { display: flex; flex-direction: column; align-items: center; gap: 6px; } .ds-stepper__dot { width: 32px; height: 32px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: var(--color-cream, #FFF8F8); color: var(--color-ink-muted, #6A728E); border: 1px solid rgba(26,32,64,0.10); transition: all .3s; } .ds-stepper__label { font-size: 10px; font-weight: 600; letter-spacing: .02em; color: var(--color-ink-muted, #6A728E); white-space: nowrap; } .ds-stepper__step--done .ds-stepper__dot { background: var(--color-primary, #EDAAB5); color: #fff; border-color: transparent; box-shadow: 0 1px 2px rgba(26,32,64,0.06); } .ds-stepper__step--done .ds-stepper__label { color: var(--color-primary-dark, #D98898); } .ds-stepper__step--active .ds-stepper__dot { background: var(--color-navy, #1A2040); color: #fff; border-color: transparent; transform: scale(1.1); box-shadow: 0 0 0 4px rgba(26,32,64,.1); } .ds-stepper__step--active .ds-stepper__label { color: var(--color-navy, #1A2040); } .ds-stepper__bar { width: 32px; height: 2px; margin: 0 4px 20px; border-radius: 9999px; background: rgba(26,32,64,0.10); } .ds-stepper__bar--done { background: var(--color-primary, #EDAAB5); }"
+    },
+    {
+      "name": "Marca",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "El logotipo real de la marca: un medallón circular opaco que se apoya sobre cualquier fondo. Vive en BrandMark; nadie lo redibuja.",
+      "html": "<div class=\"ds-brand\"><img class=\"ds-brand__mark\" src=\"/logo-yurany.png\" alt=\"\" width=\"36\" height=\"36\"><span class=\"ds-brand__name\">Nails Art Yurany</span></div>",
+      "css": ".ds-brand { display: inline-flex; align-items: center; gap: 10px; } .ds-brand__mark { width: 36px; height: 36px; border-radius: 9999px; flex-shrink: 0; display: block; } .ds-brand__name { font-family: var(--font-playfair), Georgia, serif; font-size: 15px; font-weight: 700; letter-spacing: -.015em; color: var(--color-navy, #1A2040); }"
+    },
+    {
+      "name": "Interruptor",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Control de encendido del panel. El relleno apagado lleva borde propio porque sin él no se percibe contra la tarjeta blanca.",
+      "html": "<div class=\"ds-switches\"><button class=\"ds-switch ds-switch--on\" aria-label=\"Activo\"><span class=\"ds-switch__thumb\"></span></button><button class=\"ds-switch\" aria-label=\"Inactivo\"><span class=\"ds-switch__thumb\"></span></button></div>",
+      "css": ".ds-switches { display: flex; gap: 12px; } .ds-switch { position: relative; width: 44px; height: 24px; flex-shrink: 0; border-radius: 9999px; border: 1px solid var(--color-track-border, #91949E); background: var(--color-track-off, #DCDEE5); cursor: pointer; transition: background .2s, border-color .2s; } .ds-switch--on { background: var(--color-success-strong, #529F58); border-color: transparent; } .ds-switch__thumb { position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 9999px; background: #fff; box-shadow: 0 1px 2px rgba(26,32,64,.2); transition: transform .2s; } .ds-switch--on .ds-switch__thumb { transform: translateX(20px); } .ds-switch:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(82,159,88,.5); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El Esmalte y la Tinta",
+    "overview": "Dos materiales gobiernan este sistema y no se mezclan. El esmalte —rosa empolvado, lila nacarado, oro viejo— es la identidad: aparece en gradientes, halos difusos, etiquetas diminutas, estados seleccionados y la marca misma. Seduce, pero nunca decide. La tinta —un navy casi negro, sólido, sin gradiente— es la autoridad: cada botón que confirma algo, cada título, cada dato que importa. Lo suave invita; lo oscuro confirma.\n\nEl carácter es elegante, preciso y contenido. Elegante por el emparejamiento editorial de Playfair Display con Inter y por la generosidad del aire entre secciones. Preciso porque cada dato que la clienta necesita leer sin equivocarse está compuesto en el alfabeto más neutro disponible y separado del adorno. Contenido porque los materiales más llamativos están racionados: el oro toca únicamente el dinero, el rosa nunca ocupa una superficie grande a plena saturación, y la profundidad solo aparece cuando alguien interactúa.\n\nEl sistema se define contra el dashboard corporativo frío: grises azulados, densidad de datos, cero calidez. Yurany trabaja en un espacio íntimo y su herramienta debe seguir sintiéndose parte de ese espacio, no de una oficina.",
+    "keyCharacteristics": [
+      "Papel crema (#FFF8F8) bajo absolutamente todo; el blanco puro es una elevación, no el fondo.",
+      "Navy sólido para toda acción; rosa, lila y oro exclusivamente para identidad y estado.",
+      "Playfair Display titula, Inter informa — nunca al revés.",
+      "Etiqueta de sección en versalitas de 11px con tracking 0.2em abriendo cada bloque.",
+      "Píldoras para decidir, rectángulos muy blandos (28.8px) para contener.",
+      "Plano en reposo; la sombra y el desplazamiento son respuesta al toque.",
+      "Sin modo oscuro: color-scheme está fijo en claro y la marca es luminosa por definición."
+    ],
+    "rules": [
+      {
+        "name": "La Regla del Esmalte y la Tinta",
+        "section": "colors",
+        "body": "El rosa nunca confirma; la tinta nunca decora. Ningún botón de acción lleva fondo rosado y ningún gradiente lleva navy. Test: si un elemento cambia el estado de una reserva y no es navy sólido, está mal."
+      },
+      {
+        "name": "La Regla del Oro",
+        "section": "colors",
+        "body": "Oro Profundo (#836200) toca únicamente el dinero. En el flujo público esto se cumple sin excepción: los cinco lugares donde aparece un precio son dorados y no hay un sexto uso. El valor debe verificarse contra las seis superficies del sistema, no solo contra blanco: #B8960C daba 2.84:1 y #8F6E00 bajaba a 3.85:1 sobre la superficie más oscura."
+      },
+      {
+        "name": "La Regla de la Tabla Única",
+        "section": "colors",
+        "body": "El estado de una cita se pinta desde --color-status-* y desde ningún otro lugar. Cada estado tiene tres roles: -bg rellena, -text escribe encima (≥6:1 sobre su propio relleno), -accent marca puntos, barras y bordes (≥3:1 sobre blanco y crema). Un componente que define su propia tabla de estado está roto aunque se vea bien."
+      },
+      {
+        "name": "La Regla del Token Único",
+        "section": "colors",
+        "body": "Todo color entra por una variable --color-*. La paleta cruda de Tailwind (amber-100, emerald-500, gray-200) está prohibida: duplica el sistema con valores que nadie puede cambiar desde un solo lugar."
+      },
+      {
+        "name": "La Regla del Rol Único",
+        "section": "typography",
+        "body": "Un texto se compone eligiendo su trabajo, no su tamaño. Cinco roles existen como tokens --text-* y traen tamaño, interlineado, tracking y peso juntos: text-page, text-metric, text-section, text-eyebrow, text-micro. Si una clase de tamaño va acompañada de peso y tracking escritos a mano, falta un rol."
+      },
+      {
+        "name": "La Regla del Suelo Micro",
+        "section": "typography",
+        "body": "El escalón más pequeño del sistema es text-micro (10px). Convivían un tier de 9px y otro de 10px separados por un píxel haciendo el mismo trabajo. Nada se compone por debajo."
+      },
+      {
+        "name": "La Regla de la Cifra Tabular",
+        "section": "typography",
+        "body": "Todo número que se lee en columna —precio, hora, día del calendario, métrica— lleva tabular-nums. Sin eso un 1 ocupa menos que un 8 y las columnas bailan de fila en fila."
+      },
+      {
+        "name": "La Regla de los Dos Alfabetos",
+        "section": "typography",
+        "body": "Playfair titula; Inter informa. Ningún dato que la clienta deba leer con precisión —precio, hora, fecha, duración— se compone en Playfair."
+      },
+      {
+        "name": "La Regla de la Versalita",
+        "section": "typography",
+        "body": "Ninguna sección empieza directamente con su título. Antes va la etiqueta de 11px en versalitas con tracking 0.2em en Rosa Profundo."
+      },
+      {
+        "name": "La Regla del Tracking Negativo",
+        "section": "typography",
+        "body": "Todo Playfair lleva tracking-tight (-0.025em). El serif a tamaño grande abre demasiado por defecto; cerrarlo es lo que lo hace ver compuesto y no escrito."
+      },
+      {
+        "name": "La Regla del Reposo Plano",
+        "section": "elevation",
+        "body": "Las superficies descansan planas o casi planas. Si un elemento tiene sombra visible sin que nadie lo esté tocando, o está mal, o es un overlay."
+      },
+      {
+        "name": "La Regla del Anillo de Foco",
+        "section": "elevation",
+        "body": "El estado activo se marca con un anillo translúcido del propio color (ring-4 ring-[color]/10) más un scale-110, nunca con un borde grueso opaco."
+      },
+      {
+        "name": "La Regla de la Píldora",
+        "section": "shapes",
+        "body": "Todo lo que decide es una píldora. Todo lo que contiene es un rectángulo muy blando. El horario disponible es la única excepción: mantiene 22.4px para que la fila lea como fila."
+      },
+      {
+        "name": "La Regla del Círculo",
+        "section": "shapes",
+        "body": "Lo que representa a una persona, un paso o un día es un círculo perfecto: la marca, el número de paso, la casilla del calendario, el avatar, el radio de selección."
+      },
+      {
+        "name": "La Regla del Medallón",
+        "section": "shapes",
+        "body": "La marca se pinta desde BrandMark y desde ningún otro lugar. Por debajo de 28px el medallón funciona como firma de color, no como nombre legible, así que en navegación va acompañado del nombre en texto. El círculo degradado sigue siendo válido para lo que no es la marca: el avatar de una clienta."
+      }
+    ],
+    "dos": [
+      "Do usar Tinta de Medianoche sólido para cualquier control que confirme, avance o envíe. Es el único color de acción del sistema.",
+      "Do abrir cada sección con la etiqueta de 11px en versalitas y tracking 0.2em sobre Rosa Profundo antes del título.",
+      "Do componer todo dato preciso —precio, hora, fecha, duración— en Inter, y todo título en Playfair con tracking-tight.",
+      "Do dejar las superficies planas en reposo y reservar sombra y desplazamiento para la respuesta al toque.",
+      "Do declarar todo color a través de una variable --color-* de globals.css.",
+      "Do apoyar el papel crema (#FFF8F8) como fondo y tratar el blanco puro como una elevación deliberada.",
+      "Do subir un escalón en la rampa de crema cuando un contenedor necesite presencia sin sombra.",
+      "Do mantener la canaleta de 20px en todos los anchos.",
+      "Do conservar el indicador de foco visible en todo control interactivo; el sistema ya usa anillo translúcido de 3–4px.",
+      "Do describir el estado deshabilitado con palabras, no solo bajando la opacidad.",
+      "Do dar borde propio a todo control de relleno claro (interruptores, pistas): sin él no llega a 3:1 contra la superficie y deja de percibirse.",
+      "Do elegir el rol (text-page, text-section, text-eyebrow, text-micro, text-metric) y dejar que él ponga el peso y el tracking.",
+      "Do usar BrandMark para la marca, en cualquier tamaño y sobre cualquier fondo."
+    ],
+    "donts": [
+      "Don't usar rosa, lila u oro como fondo de un botón de acción. El esmalte no confirma.",
+      "Don't aplicar Oro Profundo a nada que no sea una cifra en pesos.",
+      "Don't introducir colores de la paleta cruda de Tailwind (amber-100, emerald-500, gray-200, red-50). Todo color pasa por un token.",
+      "Don't componer números que la clienta deba leer con exactitud en Playfair Display.",
+      "Don't usar esquinas vivas: el radio mínimo de un contenedor es 22.4px y el de una tarjeta 28.8px.",
+      "Don't pintar bordes ni sombras grises; ambos son navy translúcido.",
+      "Don't pintar un estado de cita con un color escrito a mano: si no sale de --color-status-*, no existe.",
+      "Don't construir un tema oscuro parcial: color-scheme está fijo en claro y las variantes dark: que traen los componentes de base no tienen contraparte de marca.",
+      "Don't combinar -translate-y y scale en el mismo elemento; un botón elige un solo gesto de respuesta.",
+      "Don't enfriar el panel de administración hacia grises azulados y densidad de datos: es la anti-referencia confirmada del proyecto.",
+      "Don't repetir peso o tracking junto a una clase de rol: el rol ya los trae y duplicarlos es como aparecieron tres versiones de la misma versalita."
+    ]
+  }
+}

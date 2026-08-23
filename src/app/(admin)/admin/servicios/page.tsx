@@ -44,13 +44,13 @@ export default async function ServiciosPage() {
         <div>
           <div className="flex items-center gap-3 mb-1">
             <Scissors size={22} className="text-[var(--color-primary-dark)]" />
-            <h1 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-navy)] tracking-tight">Servicios</h1>
+            <h1 className="font-display text-page text-[var(--color-navy)]">Servicios</h1>
           </div>
           <p className="text-sm font-medium text-[var(--color-ink-secondary)] ml-9">
             {totalActive} servicio{totalActive !== 1 ? 's' : ''} activo{totalActive !== 1 ? 's' : ''}
           </p>
         </div>
-        <NewServiceForm />
+        <NewServiceForm categories={categories} />
       </div>
 
       <CategoryManager categories={categories} />
@@ -60,7 +60,7 @@ export default async function ServiciosPage() {
           <div key={category} className="space-y-3">
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-              <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)]">
+              <h2 className="text-eyebrow uppercase text-[var(--color-primary-dark)]">
                 {categoryMap[category] ?? category}
               </h2>
             </div>

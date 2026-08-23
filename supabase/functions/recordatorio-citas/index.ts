@@ -4,6 +4,9 @@ const SUPABASE_URL      = Deno.env.get('SUPABASE_URL')!
 const SERVICE_ROLE_KEY  = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 const RESEND_API_KEY    = Deno.env.get('RESEND_API_KEY')!
 const FROM              = Deno.env.get('RESEND_FROM_EMAIL') ?? 'Nails Art Yurany <no-reply@nailsartyurany.cl>'
+// El recordatorio corre fuera de Next, así que su URL base es propia.
+const SITE_URL          = Deno.env.get('SITE_URL') ?? 'https://nailsartyurany.cl'
+const LOGO_URL          = `${SITE_URL}/logo-email.png`
 
 function tomorrowChile(): string {
   // Chile es UTC-4 (permanente desde 2015). Sumamos 20h para que al correr a las 13:00 UTC
@@ -30,9 +33,8 @@ function htmlRecordatorio(clientName: string, serviceName: string, date: string,
     <tr><td align="center">
       <table width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
         <tr><td style="background:linear-gradient(135deg,#F5C0C0,#D4BCEC);border-radius:16px 16px 0 0;padding:32px 40px;text-align:center;">
-          <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.35);display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;">
-            <span style="font-size:20px;">✦</span>
-          </div>
+          <img src="${LOGO_URL}" width="72" height="72" alt=""
+               style="display:block;margin:0 auto 12px;width:72px;height:72px;border:0;outline:none;text-decoration:none;" />
           <h1 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:600;color:#1A2040;letter-spacing:-0.3px;">Nails Art Yurany</h1>
         </td></tr>
         <tr><td style="background:#FFFFFF;padding:36px 40px;border-left:1px solid #F0E8E8;border-right:1px solid #F0E8E8;">

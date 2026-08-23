@@ -2,20 +2,10 @@
 import { createAdminClient } from '@/lib/supabase/admin'
 import { redirect } from 'next/navigation'
 import { sendConfirmacion } from '@/lib/resend/emails'
+import { todayInBusinessTz, nowTimeInBusinessTz } from '@/lib/tz'
 
-// Zona horaria del negocio. La app está configurada para Chile.
-// Si el negocio opera en Venezuela, cambiar a 'America/Caracas'.
-const BUSINESS_TZ = 'America/Santiago'
-
-// 'YYYY-MM-DD' de hoy en la zona horaria del negocio (no en UTC).
-function todayInBusinessTz(): string {
-  return new Date().toLocaleDateString('en-CA', { timeZone: BUSINESS_TZ })
-}
-
-// 'HH:MM:SS' de la hora actual en la zona horaria del negocio.
-function nowTimeInBusinessTz(): string {
-  return new Date().toLocaleTimeString('en-GB', { timeZone: BUSINESS_TZ, hour12: false })
-}
+// Zona horaria del negocio: vive en @/lib/tz para que el panel y el flujo
+// público no puedan divergir en qué día es "hoy".
 
 const HHMM = (t: string) => t.slice(0, 5)
 
