@@ -163,12 +163,13 @@ export default function HorarioSelector({
               <p className="text-xs text-[var(--color-ink-secondary)] mt-1">Prueba seleccionando otra fecha.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5">
-              {slots.map((slot) => (
+            <div key={selectedFecha} className="stagger grid grid-cols-3 sm:grid-cols-4 gap-2.5">
+              {slots.map((slot, i) => (
                 <button
                   key={slot.slot_start}
+                  style={{ '--i': i } as React.CSSProperties}
                   onClick={() => selectSlot(slot)}
-                  className="py-3 px-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl text-sm font-bold text-[var(--color-navy)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-light)]/15 hover:scale-105 active:scale-95 transition-all duration-150 text-center shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-raised)]"
+                  className="py-3 px-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl text-sm font-bold text-[var(--color-navy)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-light)]/15 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-[transform,border-color,background-color,box-shadow] duration-200 tabular-nums text-center shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-raised)]"
                 >
                   {to12h(slot.slot_start)}
                 </button>

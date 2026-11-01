@@ -55,15 +55,16 @@ export default function ServiceSelector({
               </h2>
             </div>
 
-            <div className="space-y-2.5">
-              {items.map((svc) => {
+            <div className="stagger space-y-2.5">
+              {items.map((svc, i) => {
                 const isSelected = selectedId === svc.id
                 return (
                   <button
                     key={svc.id}
+                    style={{ '--i': i } as React.CSSProperties}
                     onClick={() => selectService(svc.id)}
                     className={[
-                      'w-full flex items-center gap-4 p-4 rounded-2xl border transition-all duration-200 text-left',
+                      'w-full flex items-center gap-4 p-4 rounded-2xl border transition-[border-color,background-color,box-shadow,transform] duration-200 active:scale-[0.99] text-left',
                       isSelected
                         ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)]/15 shadow-[var(--shadow-card)]'
                         : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)]/60 hover:bg-[var(--color-surface-container-low)] hover:shadow-[var(--shadow-card)]',

@@ -94,11 +94,12 @@ export default function ServiciosClient({
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {items.map((svc) => (
+              <div className="stagger grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {items.map((svc, i) => (
                   <div
                     key={svc.id}
-                    className="flex flex-col bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-raised)] hover:-translate-y-0.5 transition-all duration-200"
+                    style={{ '--i': i } as React.CSSProperties}
+                    className="flex flex-col bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-raised)] hover:-translate-y-1 transition-[transform,border-color,box-shadow] duration-300"
                   >
                     <ServiceImageCarousel images={svc.images} serviceName={svc.name} />
 

@@ -33,9 +33,9 @@ colors:
 typography:
   display:
     fontFamily: "Playfair Display, Georgia, serif"
-    fontSize: "clamp(2.25rem, 5vw, 3.75rem)"
+    fontSize: "clamp(2.5rem, 7vw, 4.5rem)"
     fontWeight: 700
-    lineHeight: 1.1
+    lineHeight: 1.05
     letterSpacing: "-0.025em"
   page:
     fontFamily: "Playfair Display, Georgia, serif"
@@ -226,7 +226,7 @@ Cinco de estos roles existen como tokens `--text-*` y se aplican con una sola cl
 
 Esa es la regla de reparto: **un rol con nombre existe cuando el tratamiento es compuesto.** Si sólo cambia el tamaño, no hace falta bautizarlo.
 
-- **Display** (Playfair 700, `clamp(2.25rem, 5vw, 3.75rem)`, 1.1): el título del hero público. Uno por página.
+- **Display** (Playfair 700, `clamp(2.5rem, 7vw, 4.5rem)`, 1.05): el título de la portada, sobre el video a sangre completa. Uno por página.
 - **Page** — `text-page` (Playfair 700, `clamp(1.5rem, 1.15rem + 1.6vw, 2.25rem)`, 1.1): el título de cualquier página del producto. Es fluido en lugar de dar un salto en `md`, porque los saltos por punto de quiebre fue justo como llegaron a convivir cinco tratamientos distintos del mismo título.
 - **Headline** (Playfair 700, 1.875rem, 1.2): encabezado de sección del sitio público, siempre precedido por su versalita.
 - **Section** — `text-section` (Playfair 700, 1.125rem, 1.3): título de tarjeta y de bloque dentro de una página.
@@ -294,6 +294,22 @@ Los bordes son de un solo cabello, siempre navy translúcido, y suben de opacida
 **La Regla del Círculo.** Lo que representa a una persona, un paso o un día es un círculo perfecto: la marca, el número de paso, la casilla del calendario, el avatar, el radio de selección. Nunca un cuadrado redondeado.
 
 **La Regla del Medallón.** La marca se pinta desde `BrandMark` y desde ningún otro lugar; nadie vuelve a dibujarla con un degradado y un icono. Por debajo de 28px el medallón funciona como firma de color, no como nombre legible, así que en navegación va siempre acompañado del nombre en texto — que es el par marca + logotipo, no una repetición. El círculo degradado sigue siendo válido para lo que **no** es la marca: el avatar de una clienta lleva su inicial sobre ese degradado.
+
+## Motion
+
+**Un solo momento con autoría: la portada.** El video de fondo entra desenfocado y se enfoca; el título sube línea a línea desde detrás de su propia máscara; y cuando ya llegó, una pincelada de Rosa Empolvado se pinta bajo "tus uñas" de izquierda a derecha. Es el gesto de aplicar esmalte, y es el único lugar donde el movimiento cuenta algo por sí mismo.
+
+Todo lo demás acompaña y es más corto:
+- **Entradas al hacer scroll** (`data-reveal`): 18px y opacidad, 700–800ms, una sola vez. El contenido es visible si JavaScript no corre.
+- **Listas** (`.stagger`): horarios, servicios del paso 1 y catálogo entran en cascada de 28ms por elemento, con tope.
+- **Cambio de página**: `template.tsx` en reserva y catálogo (`.page-enter`, 420ms, sube 8px); en el panel sólo un fundido de 180ms (`.page-enter-quick`), porque se usa entre clientas.
+- **Toque**: `.press` encoge a 0.97 al presionar; `.sheen` pasa un brillo rosado por los botones de tinta al pasar el cursor. Un solo gesto por control.
+
+**Curva:** `--ease-out` (`cubic-bezier(0.16, 1, 0.3, 1)`) para toda llegada. Nada rebota.
+
+**Movimiento reducido:** sin desplazamientos, desenfoques ni bucles; el video no se reproduce y queda su póster. El video también se pausa fuera de pantalla y con ahorro de datos.
+
+**Medio de portada:** `public/video/portada.{webm,mp4,jpg}` (~0,7 MB). Es provisional, de Mixkit con licencia restringida: debe reemplazarse por material propio de Yurany antes del lanzamiento, con los mismos nombres de archivo.
 
 ## Components
 

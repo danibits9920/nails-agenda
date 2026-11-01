@@ -297,6 +297,125 @@ input, textarea, [contenteditable] {
 ::-webkit-scrollbar-track  { background: transparent; }
 ::-webkit-scrollbar-thumb  { background: var(--color-border-strong); border-radius: 3px; }
 
+/* ── Movimiento ────────────────────────────────────────────────
+   Un solo momento con autoría —la portada: el video entra en foco, el
+   título sube línea a línea y una pincelada de esmalte subraya "tus uñas"—
+   y, alrededor, movimiento que sólo acompaña: entradas suaves al hacer
+   scroll, cambios de paso en la reserva y respuesta al toque.
+
+   Curva única de llegada: desaceleración exponencial, nunca rebote. */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Portada: el medio entra desenfocado y se enfoca. */
+.hero-media {
+  transition: opacity 900ms var(--ease-out), filter 1200ms var(--ease-out), transform 1600ms var(--ease-out);
+}
+.hero-media[data-ready="false"] { opacity: 0; filter: blur(14px); transform: scale(1.06); }
+.hero-media[data-ready="true"]  { opacity: 1; filter: blur(0);    transform: scale(1); }
+img.hero-media { animation: hero-focus 1400ms var(--ease-out) both; }
+@keyframes hero-focus {
+  from { filter: blur(18px) saturate(0.8); transform: scale(1.08); }
+  to   { filter: blur(0) saturate(1);      transform: scale(1); }
+}
+
+/* El medallón aparece primero: gira apenas y se asienta. */
+.logo-pop { animation: logo-pop 1000ms var(--ease-out) 120ms both; }
+@keyframes logo-pop {
+  from { opacity: 0; transform: scale(0.82) rotate(-14deg); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* Título: cada línea sube desde detrás de su propia máscara. */
+.line-mask { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.line-rise {
+  display: inline-block;
+  animation: line-rise 900ms var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 110ms + 250ms);
+}
+@keyframes line-rise {
+  from { transform: translateY(105%); }
+  to   { transform: translateY(0); }
+}
+
+/* La pincelada: se "pinta" de izquierda a derecha cuando el título ya está. */
+.polish-stroke path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: polish-paint 900ms var(--ease-in-out) 1050ms forwards;
+}
+@keyframes polish-paint { to { stroke-dashoffset: 0; } }
+
+/* Resto de la portada: aparece cuando el título termina. */
+.hero-fade {
+  animation: hero-fade 700ms var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 700ms);
+}
+@keyframes hero-fade {
+  from { opacity: 0; transform: translateY(10px); filter: blur(4px); }
+  to   { opacity: 1; transform: none;             filter: blur(0); }
+}
+
+/* Entradas al hacer scroll. Visible por defecto: sólo se oculta cuando
+   RevealObserver confirma que JavaScript está corriendo. */
+.js-reveal [data-reveal]:not([data-inview]) {
+  opacity: 0;
+  transform: translateY(18px);
+}
+[data-reveal] {
+  transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out);
+  transition-delay: calc(min(var(--i, 0), 6) * 70ms);
+}
+
+/* Línea que une los pasos de "¿Cómo agendar?": se dibuja al entrar. */
+.js-reveal [data-reveal] .draw-x { transform: scaleX(0); }
+.draw-x { transform-origin: left; transition: transform 900ms var(--ease-out) 250ms; }
+[data-reveal][data-inview] .draw-x { transform: scaleX(1); }
+
+/* Cambio de paso dentro de la reserva y de páginas públicas. */
+.page-enter { animation: page-enter 420ms var(--ease-out) both; }
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+/* En el panel la transición es casi imperceptible: se usa entre clientas. */
+.page-enter-quick { animation: page-enter-quick 180ms var(--ease-out) both; }
+@keyframes page-enter-quick { from { opacity: 0; } to { opacity: 1; } }
+
+/* Listas que aparecen como lista (horarios, servicios): escalonado corto. */
+.stagger > * {
+  animation: page-enter 380ms var(--ease-out) both;
+  animation-delay: calc(min(var(--i, 0), 12) * 28ms);
+}
+
+/* Respuesta al toque: un solo gesto por control. */
+.press { transition: transform 160ms var(--ease-out), background-color 200ms, box-shadow 200ms, border-color 200ms; }
+.press:active { transform: scale(0.97); }
+
+/* El brillo del esmalte al pasar el cursor por un botón de tinta. */
+.sheen { position: relative; overflow: hidden; isolation: isolate; }
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 35%, rgba(245,192,192,0.28) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 700ms var(--ease-out);
+}
+@media (hover: hover) {
+  .sheen:hover::after { transform: translateX(120%); }
+}
+
+/* Indicador de scroll de la portada. */
+.scroll-cue { animation: scroll-cue 2.2s var(--ease-in-out) 1.8s infinite; }
+@keyframes scroll-cue {
+  0%, 100% { transform: translateY(0);   opacity: 0.55; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+
 /* ── Respeta preferencia de movimiento reducido ──────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -305,6 +424,11 @@ input, textarea, [contenteditable] {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  /* Sin desplazamientos ni desenfoques: el contenido simplemente está. */
+  .js-reveal [data-reveal]:not([data-inview]) { opacity: 1; transform: none; }
+  .js-reveal [data-reveal] .draw-x { transform: none; }
+  .polish-stroke path { stroke-dashoffset: 0; }
+  .scroll-cue { animation: none; }
 }
 
 @theme inline {
