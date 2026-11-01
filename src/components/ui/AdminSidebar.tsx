@@ -29,10 +29,10 @@ export default function AdminSidebar() {
 
       {/* Marca */}
       <div className="px-5 py-5 border-b border-[var(--color-border)]">
-        <div className="flex items-center gap-2.5">
-          <BrandMark size={36} priority />
+        <div className="group flex items-center gap-3">
+          <BrandMark size={48} priority className="transition-transform duration-500 ease-[var(--ease-out)] group-hover:rotate-[-8deg] group-hover:scale-105" />
           <div>
-            <h1 className="font-display text-sm font-bold text-[var(--color-navy)] leading-tight tracking-tight">
+            <h1 className="font-display text-base font-bold text-[var(--color-navy)] leading-tight tracking-tight">
               Nails Art Yurany
             </h1>
             <p className="text-micro text-[var(--color-primary-dark)]">Panel de gestión</p>
@@ -50,7 +50,7 @@ export default function AdminSidebar() {
               href={href}
               aria-current={active ? 'page' : undefined}
               className={cn(
-                'flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-medium border-l-[3px] transition-colors',
+                'press group flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] text-sm font-medium border-l-[3px] transition-[color,background-color,border-color,transform] duration-200',
                 active
                   ? 'border-[var(--color-primary)] bg-[var(--color-surface-raised)] text-[var(--color-navy)]'
                   : 'border-transparent text-[var(--color-ink-secondary)] hover:bg-[var(--color-surface-raised)] hover:text-[var(--color-navy)]'
@@ -58,7 +58,7 @@ export default function AdminSidebar() {
             >
               <Icon
                 size={17}
-                className={active ? 'text-[var(--color-primary-dark)]' : 'opacity-60'}
+                className={cn('transition-transform duration-300 ease-[var(--ease-out)] group-hover:translate-x-0.5', active ? 'text-[var(--color-primary-dark)]' : 'opacity-60')}
               />
               {label}
             </Link>

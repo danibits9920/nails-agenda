@@ -46,28 +46,31 @@ export default async function DashboardPage() {
   const greeting = hour < 12 ? 'Buenos días' : hour < 19 ? 'Buenas tardes' : 'Buenas noches'
 
   return (
-    <div className="p-8 space-y-8">
-      <div>
+    <div className="p-5 md:p-8 space-y-8">
+      {/* Saludo: el mismo gesto de la portada, en pequeño. */}
+      <div className="relative isolate overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-primary)]/20 bg-white px-6 py-7 md:px-8 md:py-9">
+        <div aria-hidden className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-[var(--color-primary-light)]/35 blur-3xl -z-10" />
+        <div aria-hidden className="absolute -bottom-28 right-40 w-64 h-64 rounded-full bg-[var(--color-lavanda)]/25 blur-3xl -z-10" />
         <h1 className="font-display text-page text-[var(--color-navy)]">
-          {greeting}, Yurany
+          <span className="line-mask"><span className="line-rise" style={{ '--i': -1 } as React.CSSProperties}>{greeting}, Yurany</span></span>
         </h1>
-        <p className="mt-1 text-sm font-semibold text-[var(--color-ink-secondary)] capitalize">
+        <p className="hero-fade mt-2 text-sm font-semibold text-[var(--color-ink-secondary)] capitalize" style={{ '--i': -4 } as React.CSSProperties}>
           {longDateInBusinessTz()}
         </p>
       </div>
 
-      <div className="grid grid-cols-2 xl:grid-cols-4 gap-6">
-        <StatCard icon={Calendar}   label="Citas hoy"        value={todayApts?.length ?? 0} accent="primary" />
-        <StatCard icon={Clock}      label="Por confirmar"    value={pendingCount ?? 0}       accent="warning" alert={(pendingCount ?? 0) > 0} />
-        <StatCard icon={CreditCard} label="Ingresos del mes" value={formatCLP(revenue)}      accent="success" />
-        <StatCard icon={Users}      label="Clientes nuevos del mes"  value={newClients ?? 0}         accent="lavanda" />
+      <div className="stagger grid grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
+        <StatCard i={0} icon={Calendar}   label="Citas hoy"        value={todayApts?.length ?? 0} accent="primary" />
+        <StatCard i={1} icon={Clock}      label="Por confirmar"    value={pendingCount ?? 0}       accent="warning" alert={(pendingCount ?? 0) > 0} />
+        <StatCard i={2} icon={CreditCard} label="Ingresos del mes" value={formatCLP(revenue)}      accent="success" />
+        <StatCard i={3} icon={Users}      label="Clientes nuevos del mes"  value={newClients ?? 0}         accent="lavanda" />
       </div>
 
-      <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] overflow-hidden shadow-sm">
+      <div className="page-enter bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] overflow-hidden shadow-[var(--shadow-card)]" style={{ animationDelay: '220ms' }}>
         <div className="px-6 py-5 border-b border-[var(--color-border)] flex items-center justify-between">
           <h2 className="font-display text-section text-[var(--color-navy)]">Citas de hoy</h2>
-          <Link href={`/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}/citas`} className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-navy)] transition-colors">
-            Ver todas →
+          <Link href={`/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}/citas`} className="group inline-flex items-center gap-1 text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-navy)] transition-colors">
+            Ver todas <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         </div>
 
@@ -76,12 +79,12 @@ export default async function DashboardPage() {
             No hay citas programadas para hoy.
           </div>
         ) : (
-          <div className="divide-y divide-[var(--color-border-soft)]">
-            {todayApts.map((apt) => {
+          <div className="stagger divide-y divide-[var(--color-border-soft)]">
+            {todayApts.map((apt, i) => {
               const client = apt.clients as { id: string; name: string } | null
               const service = apt.services as { name: string } | null
               return (
-                <div key={apt.id} className="px-6 py-4.5 flex items-center gap-4 hover:bg-[var(--color-surface-raised)] transition-all">
+                <div key={apt.id} style={{ '--i': i + 4 } as React.CSSProperties} className="px-6 py-4.5 flex items-center gap-4 hover:bg-[var(--color-surface-raised)] transition-colors">
                   <div className="text-center w-14 shrink-0">
                     <p className="text-sm font-bold text-[var(--color-navy)] tabular-nums">{formatTime(apt.start_time)}</p>
                     <p className="text-xs text-[var(--color-ink-secondary)] font-medium tabular-nums">{formatTime(apt.end_time)}</p>
@@ -104,7 +107,8 @@ export default async function DashboardPage() {
   )
 }
 
-function StatCard({ icon: Icon, label, value, accent, alert }: {
+function StatCard({ i, icon: Icon, label, value, accent, alert }: {
+ i: number
  icon: React.ComponentType<{ size?: number; className?: string }>
  label: string
  value: string | number
@@ -118,15 +122,24 @@ function StatCard({ icon: Icon, label, value, accent, alert }: {
  lavanda: 'bg-[var(--color-lavanda)]/40 text-[var(--color-lavanda-dark)]'
   }
   return (
-    <div className={`bg-[var(--color-surface)] rounded-[var(--radius-xl)] border p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm ${alert ? 'border-[var(--color-status-pending-accent)]' : 'border-[var(--color-border)]'}`}>
+    <div style={{ '--i': i } as React.CSSProperties} className={`group bg-[var(--color-surface)] rounded-[var(--radius-xl)] border p-5 md:p-6 transition-[transform,box-shadow] duration-300 ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-raised)] ${alert ? 'border-[var(--color-status-pending-accent)]' : 'border-[var(--color-border)]'}`}>
       <div className="flex items-center justify-between mb-4">
         <span className="text-eyebrow text-[var(--color-ink-secondary)] uppercase">{label}</span>
-        <div className={`w-9 h-9 rounded-[var(--radius-md)] flex items-center justify-center ${iconStyle[accent]}`}>
+        <div className={`w-9 h-9 rounded-[var(--radius-md)] flex items-center justify-center transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-110 group-hover:-rotate-6 ${iconStyle[accent]}`}>
           <Icon size={18} />
         </div>
       </div>
       <p className="text-metric tabular-nums text-[var(--color-navy)]">{value}</p>
-      {alert && <p className="text-xs text-[var(--color-status-pending-text)] mt-1 font-semibold">Esperando tu confirmación</p>}
+      {alert && (
+        <p className="flex items-center gap-1.5 text-xs text-[var(--color-status-pending-text)] mt-1 font-semibold">
+          {/* Punto que late: hay algo esperando a Yurany. */}
+          <span aria-hidden className="relative flex w-2 h-2">
+            <span className="absolute inset-0 rounded-full bg-[var(--color-status-pending-accent)] animate-ping opacity-60" />
+            <span className="relative w-2 h-2 rounded-full bg-[var(--color-status-pending-accent)]" />
+          </span>
+          Esperando tu confirmación
+        </p>
+      )}
     </div>
   )
 }

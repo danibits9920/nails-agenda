@@ -18,7 +18,7 @@ export function MobileTopBar() {
   return (
     <header className="md:hidden flex items-center justify-between px-4 h-14 pt-safe box-content bg-[var(--color-navy)] text-white shrink-0">
       <div className="flex items-center gap-2">
-        <BrandMark size={30} priority />
+        <BrandMark size={38} priority />
         <h1 className="font-display text-sm font-bold leading-tight tracking-tight">
           Nails Art Yurany
         </h1>
@@ -41,17 +41,21 @@ export function MobileBottomNav() {
             key={href}
             href={href}
             aria-current={active ? 'page' : undefined}
-            className="flex-1 flex flex-col items-center justify-center gap-0.5 py-3 transition-colors"
+            className="press flex-1 flex flex-col items-center justify-center gap-0.5 py-3 transition-colors"
           >
             <div className={cn(
-              'w-9 h-7 rounded-xl flex items-center justify-center transition-all duration-200',
-              active ? 'bg-[var(--color-primary-light)]/40' : '',
+              'relative w-9 h-7 rounded-xl flex items-center justify-center',
             )}>
+              {/* La cápsula del destino activo crece desde el centro. */}
+              <span aria-hidden className={cn(
+                'absolute inset-0 rounded-xl bg-[var(--color-primary-light)]/40 transition-[transform,opacity] duration-300 ease-[var(--ease-out)]',
+                active ? 'scale-100 opacity-100' : 'scale-50 opacity-0',
+              )} />
               <Icon
                 size={18}
                 strokeWidth={active ? 2.2 : 1.6}
                 aria-hidden
-                className={active ? 'text-[var(--color-primary-dark)]' : 'text-[var(--color-ink-muted)]'}
+                className={cn('relative transition-colors', active ? 'text-[var(--color-primary-dark)]' : 'text-[var(--color-ink-muted)]')}
               />
             </div>
             <span className={cn(
