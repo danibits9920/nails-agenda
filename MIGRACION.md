@@ -1,5 +1,11 @@
 # Migración a la cuenta nueva de Supabase
 
+> **Estado (2026-11-01): migración suspendida.** El proyecto viejo (`ufmffyytvjrpibbkjdjn`) se
+> reactivó con todos sus datos y la app volvió a usarlo. El proyecto nuevo no respondía.
+> Las claves del nuevo quedaron comentadas en `.env.local` como `NEW_*`. Para que no se vuelva a
+> pausar, `.github/workflows/keep-supabase-awake.yml` consulta la base cada lunes.
+
+
 Proyecto destino: **`ulbgbdoykfkkdfcjiles`** → `https://ulbgbdoykfkkdfcjiles.supabase.co`
 
 ## Por qué se migró
