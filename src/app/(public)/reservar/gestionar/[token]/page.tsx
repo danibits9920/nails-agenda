@@ -8,7 +8,7 @@ import { MIN_HORAS_CANCELAR } from '@/lib/politicas'
 import BrandMark from '@/components/ui/BrandMark'
 import GestionarAcciones from './GestionarAcciones'
 
-export const metadata = { title: 'Mi cita · Nails Art Yurany', robots: { index: false } }
+export const metadata = { title: 'Mi cita', robots: { index: false } }
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 

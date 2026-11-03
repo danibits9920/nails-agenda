@@ -1,3 +1,4 @@
+import { todayInBusinessTz } from '@/lib/tz'
 import { createClient } from '@/lib/supabase/server'
 import CalendarWeek from './CalendarWeek'
 
@@ -5,14 +6,17 @@ export default async function CalendarioPage({ searchParams }: { searchParams: P
   const { fecha } = await searchParams
   const supabase = await createClient()
 
-  const anchor = fecha ? new Date(fecha) : new Date()
-  const day = anchor.getDay()
+  // Todo en UTC a mediodía: así ni la zona del servidor ni la de Chile mueven
+  // la fecha al día anterior (antes un lunes abría la semana previa).
+  const base = /^\d{4}-\d{2}-\d{2}$/.test(fecha ?? '') ? fecha! : todayInBusinessTz()
+  const anchor = new Date(`${base}T12:00:00Z`)
+  const day = anchor.getUTCDay()
   const monday = new Date(anchor)
-  monday.setDate(anchor.getDate() - (day === 0 ? 6 : day - 1))
+  monday.setUTCDate(anchor.getUTCDate() - (day === 0 ? 6 : day - 1))
 
   const weekDates = Array.from({ length: 7 }, (_, i) => {
     const d = new Date(monday)
-    d.setDate(monday.getDate() + i)
+    d.setUTCDate(monday.getUTCDate() + i)
     return d.toISOString().split('T')[0]
   })
 
