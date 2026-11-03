@@ -63,6 +63,10 @@ export async function middleware(request: NextRequest) {
   if (!user && isAdminRoute) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
+    // Recordar a dónde iba (p. ej. el enlace al calendario de un correo)
+    // para devolverla allí después de iniciar sesión.
+    url.search = ''
+    url.searchParams.set('next', path + request.nextUrl.search)
     return NextResponse.redirect(url)
   }
 

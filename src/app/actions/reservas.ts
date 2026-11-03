@@ -1,7 +1,7 @@
 'use server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { redirect } from 'next/navigation'
-import { sendConfirmacion } from '@/lib/resend/emails'
+import { sendConfirmacion, sendAvisoNuevaReserva } from '@/lib/resend/emails'
 import { todayInBusinessTz, nowTimeInBusinessTz } from '@/lib/tz'
 
 // Zona horaria del negocio: vive en @/lib/tz para que el panel y el flujo
@@ -117,7 +117,7 @@ export async function crearReserva(_prevState: { error: string } | null, formDat
       status:         'pending',
       payment_status: payMethod === 'presencial' ? 'unpaid' : 'pending_verification',
     })
-    .select('id')
+    .select('id, manage_token')
     .single()
 
   if (aptError || !apt) {
@@ -150,9 +150,25 @@ export async function crearReserva(_prevState: { error: string } | null, formDat
         startTime:     startTimeValidated,
         price:         service.price,
         paymentStatus: payMethod === 'transfer' ? 'pending_verification' : 'unpaid',
+        manageToken:   apt.manage_token,
       })
     } catch { /* el email no bloquea la confirmación */ }
   }
+
+  // ── 8. Aviso al equipo del panel (tampoco bloquea) ───────────────
+  try {
+    await sendAvisoNuevaReserva({
+      clientName:  name,
+      email,
+      phone,
+      serviceName: service.name,
+      date:        fecha,
+      startTime:   startTimeValidated,
+      price:       service.price,
+      payMethod,
+      notes,
+    })
+  } catch { /* el aviso no bloquea la reserva */ }
 
   redirect(`/reservar/confirmacion?id=${apt.id}`)
 }

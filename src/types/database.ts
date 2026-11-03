@@ -107,6 +107,8 @@ export type Database = {
           id: string
           notes: string | null
           payment_status: string
+          manage_token: string
+          reminder_sent_at: string | null
           service_id: string | null
           start_time: string
           status: string
@@ -119,6 +121,8 @@ export type Database = {
           id?: string
           notes?: string | null
           payment_status?: string
+          manage_token?: string
+          reminder_sent_at?: string | null
           service_id?: string | null
           start_time: string
           status?: string
@@ -131,6 +135,8 @@ export type Database = {
           id?: string
           notes?: string | null
           payment_status?: string
+          manage_token?: string
+          reminder_sent_at?: string | null
           service_id?: string | null
           start_time?: string
           status?: string

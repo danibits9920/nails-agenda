@@ -18,7 +18,11 @@ export async function login(
 
   const adminBase = `/${process.env.NEXT_PUBLIC_ADMIN_PATH ?? 'admin'}`
   revalidatePath(adminBase, 'layout')
-  redirect(`${adminBase}/dashboard`)
+
+  // Sólo se acepta volver a una ruta del propio panel: nunca a otro sitio.
+  const next = (formData.get('next') as string | null) ?? ''
+  const safe = next.startsWith(adminBase + '/') && !next.startsWith('//') && !next.includes('\\')
+  redirect(safe ? next : `${adminBase}/dashboard`)
 }
 
 export async function logout() {

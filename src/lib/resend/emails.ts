@@ -1,5 +1,21 @@
 import { resend, FROM } from './client'
-import { templateConfirmacion, templateRecordatorio, templatePagoVerificado } from './templates'
+import { templateConfirmacion, templateRecordatorio, templatePagoVerificado, templateNuevaReservaAdmin, templateCancelacionAdmin } from './templates'
+import { createAdminClient } from '@/lib/supabase/admin'
+import { ADMIN_BASE } from '@/lib/admin-path'
+
+const APP_URL = () => process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
+
+/** Enlace privado con el que la clienta cancela o cambia su hora. */
+export const manageUrl = (token: string) => `${APP_URL()}/reservar/gestionar/${token}`
+
+const calendarUrl = (date: string) => `${APP_URL()}${ADMIN_BASE}/calendario?fecha=${date}`
+
+const emailOn = () => !!process.env.RESEND_API_KEY && !process.env.RESEND_API_KEY.startsWith('re_XXX')
+
+async function adminEmails(): Promise<string[]> {
+  const { data } = await createAdminClient().auth.admin.listUsers({ perPage: 100 })
+  return (data?.users ?? []).map(u => u.email).filter((e): e is string => !!e)
+}
 import { formatCLP, formatDate, formatTime } from '@/lib/utils'
 
 export async function sendConfirmacion(data: {
@@ -10,6 +26,7 @@ export async function sendConfirmacion(data: {
   startTime: string
   price: number
   paymentStatus: string
+  manageToken: string
 }) {
   if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY.startsWith('re_XXX')) return
 
@@ -24,6 +41,7 @@ export async function sendConfirmacion(data: {
       time:          formatTime(data.startTime),
       price:         formatCLP(data.price),
       paymentStatus: data.paymentStatus,
+      manageUrl:     manageUrl(data.manageToken),
     }),
   })
 }
@@ -34,10 +52,11 @@ export async function sendRecordatorio(data: {
   serviceName: string
   date: string
   startTime: string
+  manageToken: string
 }) {
-  if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY.startsWith('re_XXX')) return
+  if (!emailOn()) return false
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: FROM,
     to: data.to,
     subject: 'Recordatorio: Tu cita es mañana — Nails Art Yurany',
@@ -46,8 +65,10 @@ export async function sendRecordatorio(data: {
       serviceName: data.serviceName,
       date:        formatDate(data.date),
       time:        formatTime(data.startTime),
+      manageUrl:   manageUrl(data.manageToken),
     }),
   })
+  return !error
 }
 
 export async function sendPagoVerificado(data: {
@@ -70,6 +91,71 @@ export async function sendPagoVerificado(data: {
       date:        formatDate(data.date),
       time:        formatTime(data.startTime),
       price:       formatCLP(data.price),
+    }),
+  })
+}
+
+/**
+ * Avisa de una reserva nueva a todas las cuentas del panel.
+ * Las destinatarias son las usuarias de Supabase Auth: quien tenga acceso
+ * al dashboard recibe el aviso, sin lista aparte que mantener.
+ */
+export async function sendAvisoNuevaReserva(data: {
+  clientName: string
+  email: string | null
+  phone: string | null
+  serviceName: string
+  date: string
+  startTime: string
+  price: number
+  payMethod: string
+  notes: string | null
+}) {
+  if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY.startsWith('re_XXX')) return
+
+  const to = await adminEmails()
+  if (to.length === 0) return
+  const payment = data.payMethod === 'transfer' ? 'Transferencia (por verificar)' : 'Presencial'
+
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: `Nueva reserva: ${data.clientName} · ${formatDate(data.date)} ${formatTime(data.startTime)}`,
+    html: templateNuevaReservaAdmin({
+      clientName:    data.clientName,
+      clientContact: [data.email, data.phone].filter(Boolean).join(' · ') || 'Sin datos',
+      serviceName:   data.serviceName,
+      date:          formatDate(data.date),
+      time:          formatTime(data.startTime),
+      price:         formatCLP(data.price),
+      payment,
+      notes:         data.notes,
+      calendarUrl:   calendarUrl(data.date),
+    }),
+  })
+}
+
+/** Avisa al equipo del panel que una clienta canceló desde su enlace. */
+export async function sendAvisoCancelacion(data: {
+  clientName: string
+  serviceName: string
+  date: string
+  startTime: string
+}) {
+  if (!emailOn()) return
+  const to = await adminEmails()
+  if (to.length === 0) return
+
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: `Cancelación: ${data.clientName} · ${formatDate(data.date)} ${formatTime(data.startTime)}`,
+    html: templateCancelacionAdmin({
+      clientName:  data.clientName,
+      serviceName: data.serviceName,
+      date:        formatDate(data.date),
+      time:        formatTime(data.startTime),
+      calendarUrl: calendarUrl(data.date),
     }),
   })
 }

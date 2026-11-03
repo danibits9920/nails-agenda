@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { formatCLP, formatDate, formatTime } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -9,7 +9,7 @@ export default async function ConfirmacionPage({ searchParams }: { searchParams:
   const { id } = await searchParams
   if (!id) notFound()
 
-  const supabase = await createClient()
+  const supabase = createAdminClient()
   const { data: apt } = await supabase
     .from('appointments')
     .select('id, date, start_time, end_time, status, payment_status, notes, clients(name, email, phone), services(name, price)')

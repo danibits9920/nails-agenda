@@ -56,3 +56,19 @@ export function longDateInBusinessTz(): string {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   })
 }
+
+/** 'YYYY-MM-DD' de mañana en la zona del negocio. */
+export function tomorrowInBusinessTz(): string {
+  const [y, m, d] = todayInBusinessTz().split('-').map(Number)
+  return new Date(Date.UTC(y!, m! - 1, d! + 1)).toISOString().slice(0, 10)
+}
+
+/**
+ * Horas que faltan para una cita (fecha 'YYYY-MM-DD' + hora 'HH:MM[:SS]'),
+ * ambas en la hora del negocio. Se comparan como relojes locales, así que el
+ * cambio de horario puede mover el resultado como mucho una hora.
+ */
+export function hoursUntilInBusinessTz(date: string, time: string): number {
+  const asUtc = (d: string, t: string) => Date.parse(`${d}T${t.slice(0, 5)}:00Z`)
+  return (asUtc(date, time) - asUtc(todayInBusinessTz(), nowTimeInBusinessTz())) / 3_600_000
+}

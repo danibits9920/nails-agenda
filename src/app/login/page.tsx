@@ -1,11 +1,17 @@
 'use client'
-import { useActionState } from 'react'
+import { Suspense, useActionState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { login } from '@/app/actions/auth'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Loader2 } from 'lucide-react'
 import BrandMark from '@/components/ui/BrandMark'
+
+function NextField() {
+  const next = useSearchParams().get('next')
+  return next ? <input type="hidden" name="next" value={next} /> : null
+}
 
 export default function LoginPage() {
   const [state, action, pending] = useActionState(login, null)
@@ -31,6 +37,7 @@ export default function LoginPage() {
         {/* Tarjeta */}
         <div className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] border border-[var(--color-border)] p-8 shadow-[var(--shadow-raised)]">
           <form action={action} className="space-y-5">
+            <Suspense fallback={null}><NextField /></Suspense>
 
             <div className="space-y-1.5">
               <Label htmlFor="email" className="text-[var(--color-ink-secondary)]">

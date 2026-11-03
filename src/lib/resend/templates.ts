@@ -51,6 +51,14 @@ const detailRow = (icon: string, label: string, value: string) => `
     </td>
   </tr>`
 
+
+const manageButton = (url: string) => `
+    <table cellpadding="0" cellspacing="0" style="margin:0 auto 20px;">
+      <tr><td style="border:1.5px solid #1A2040;border-radius:999px;">
+        <a href="${url}" style="display:inline-block;padding:12px 26px;font-size:14px;font-weight:600;color:#1A2040;text-decoration:none;">Cancelar o cambiar mi hora</a>
+      </td></tr>
+    </table>`
+
 export function templateConfirmacion(data: {
   clientName: string
   serviceName: string
@@ -58,6 +66,7 @@ export function templateConfirmacion(data: {
   time: string
   price: string
   paymentStatus: string
+  manageUrl: string
 }) {
   const isPendingTransfer = data.paymentStatus === 'pending_verification'
 
@@ -80,7 +89,8 @@ export function templateConfirmacion(data: {
       <p style="margin:0;font-size:13px;color:#4A5270;">Tu cita se confirmará una vez que verifiquemos tu transferencia. Te avisaremos por email.</p>
     </div>` : ''}
 
-    <p style="margin:0;font-size:14px;color:#8A91AD;">Si necesitas cancelar o modificar tu cita, contáctanos con anticipación.</p>
+    ${manageButton(data.manageUrl)}
+    <p style="margin:0;font-size:14px;color:#8A91AD;text-align:center;">Si necesitas cancelar o cambiar tu hora, hazlo con al menos 24 horas de anticipación.</p>
   `
   return base(content)
 }
@@ -90,6 +100,7 @@ export function templateRecordatorio(data: {
   serviceName: string
   date: string
   time: string
+  manageUrl: string
 }) {
   const content = `
     <h2 style="margin:0 0 6px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">Tu cita es mañana ⏰</h2>
@@ -103,7 +114,8 @@ export function templateRecordatorio(data: {
       </table>
     </div>
 
-    <p style="margin:0;font-size:14px;color:#8A91AD;">Si no puedes asistir, por favor avísanos con anticipación. ¡Te esperamos!</p>
+    ${manageButton(data.manageUrl)}
+    <p style="margin:0;font-size:14px;color:#8A91AD;text-align:center;">Si no puedes asistir, avísanos desde el botón de arriba. ¡Te esperamos!</p>
   `
   return base(content)
 }
@@ -129,6 +141,75 @@ export function templatePagoVerificado(data: {
     </div>
 
     <p style="margin:0;font-size:14px;color:#8A91AD;">¡Nos vemos pronto! 💅</p>
+  `
+  return base(content)
+}
+
+const esc = (v: string) =>
+  v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+// Aviso interno para quienes administran el panel. Los datos de la clienta
+// vienen del formulario público, por eso se escapan.
+export function templateNuevaReservaAdmin(data: {
+  clientName: string
+  clientContact: string
+  serviceName: string
+  date: string
+  time: string
+  price: string
+  payment: string
+  notes: string | null
+  calendarUrl: string
+}) {
+  const content = `
+    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#8A91AD;text-transform:uppercase;letter-spacing:0.6px;">Nueva reserva</p>
+    <h2 style="margin:0 0 24px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">${esc(data.clientName)} reservó una cita</h2>
+
+    <div style="background:#FFF8F8;border:1px solid #F0E8E8;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        ${detailRow('✂️', 'Servicio', esc(data.serviceName))}
+        ${detailRow('📅', 'Fecha', data.date)}
+        ${detailRow('🕐', 'Hora', data.time)}
+        ${detailRow('💰', 'Total', data.price)}
+        ${detailRow('💳', 'Pago', data.payment)}
+        ${detailRow('📞', 'Contacto', esc(data.clientContact))}
+        ${data.notes ? detailRow('📝', 'Notas', esc(data.notes)) : ''}
+      </table>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" style="margin:0 auto 8px;">
+      <tr><td style="background:#1A2040;border-radius:999px;">
+        <a href="${data.calendarUrl}" style="display:inline-block;padding:14px 28px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;">Ver en el calendario</a>
+      </td></tr>
+    </table>
+  `
+  return base(content)
+}
+
+// Aviso interno: una clienta canceló desde su enlace.
+export function templateCancelacionAdmin(data: {
+  clientName: string
+  serviceName: string
+  date: string
+  time: string
+  calendarUrl: string
+}) {
+  const content = `
+    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#C0392B;text-transform:uppercase;letter-spacing:0.6px;">Cita cancelada</p>
+    <h2 style="margin:0 0 24px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">${esc(data.clientName)} canceló su cita</h2>
+    <div style="background:#FFF8F8;border:1px solid #F0E8E8;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        ${detailRow('✂️', 'Servicio', esc(data.serviceName))}
+        ${detailRow('📅', 'Fecha', data.date)}
+        ${detailRow('🕐', 'Hora', data.time)}
+      </table>
+    </div>
+    <p style="margin:0 0 20px;font-size:14px;color:#4A5270;">El horario quedó libre y ya se puede volver a reservar.</p>
+    <table cellpadding="0" cellspacing="0" style="margin:0 auto 8px;">
+      <tr><td style="background:#1A2040;border-radius:999px;">
+        <a href="${data.calendarUrl}" style="display:inline-block;padding:14px 28px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;">Ver en el calendario</a>
+      </td></tr>
+    </table>
   `
   return base(content)
 }
