@@ -12,6 +12,15 @@ const calendarUrl = (date: string) => `${APP_URL()}${ADMIN_BASE}/calendario?fech
 
 const emailOn = () => !!process.env.RESEND_API_KEY && !process.env.RESEND_API_KEY.startsWith('re_XXX')
 
+/**
+ * Un correo por persona: si uno de los destinos se rechaza (p. ej. en el
+ * modo de prueba de Resend, que sólo entrega a la dueña de la cuenta),
+ * el resto igual recibe el aviso.
+ */
+async function sendToEach(to: string[], subject: string, html: string) {
+  await Promise.allSettled(to.map(addr => resend.emails.send({ from: FROM, to: addr, subject, html })))
+}
+
 async function adminEmails(): Promise<string[]> {
   const { data } = await createAdminClient().auth.admin.listUsers({ perPage: 100 })
   return (data?.users ?? []).map(u => u.email).filter((e): e is string => !!e)
@@ -117,11 +126,7 @@ export async function sendAvisoNuevaReserva(data: {
   if (to.length === 0) return
   const payment = data.payMethod === 'transfer' ? 'Transferencia (por verificar)' : 'Presencial'
 
-  await resend.emails.send({
-    from: FROM,
-    to,
-    subject: `Nueva reserva: ${data.clientName} · ${formatDate(data.date)} ${formatTime(data.startTime)}`,
-    html: templateNuevaReservaAdmin({
+  await sendToEach(to, `Nueva reserva: ${data.clientName} · ${formatDate(data.date)} ${formatTime(data.startTime)}`, templateNuevaReservaAdmin({
       clientName:    data.clientName,
       clientContact: [data.email, data.phone].filter(Boolean).join(' · ') || 'Sin datos',
       serviceName:   data.serviceName,
@@ -131,8 +136,7 @@ export async function sendAvisoNuevaReserva(data: {
       payment,
       notes:         data.notes,
       calendarUrl:   calendarUrl(data.date),
-    }),
-  })
+    }))
 }
 
 /** Avisa al equipo del panel que una clienta canceló desde su enlace. */
@@ -146,16 +150,11 @@ export async function sendAvisoCancelacion(data: {
   const to = await adminEmails()
   if (to.length === 0) return
 
-  await resend.emails.send({
-    from: FROM,
-    to,
-    subject: `Cancelación: ${data.clientName} · ${formatDate(data.date)} ${formatTime(data.startTime)}`,
-    html: templateCancelacionAdmin({
+  await sendToEach(to, `Cancelación: ${data.clientName} · ${formatDate(data.date)} ${formatTime(data.startTime)}`, templateCancelacionAdmin({
       clientName:  data.clientName,
       serviceName: data.serviceName,
       date:        formatDate(data.date),
       time:        formatTime(data.startTime),
       calendarUrl: calendarUrl(data.date),
-    }),
-  })
+    }))
 }
