@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "helvetica",
+        "createdAt": "2026-11-12T02:07:40.898Z",
+        "reason": "Plantilla de correo: requiere fuentes del sistema"
+      }
+    ]
+  }
+}

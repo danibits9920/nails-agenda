@@ -3,13 +3,18 @@
 // El logotipo se sirve desde el sitio: un email no puede importar un asset,
 // necesita una URL absoluta. Se usa el PNG de 192px porque muchos clientes de
 // correo no entienden WebP y ninguno respeta srcset.
-const LOGO_URL = `${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}/logo-email.png`
+//
+// Un correo enviado desde un computador de desarrollo apuntaría a "localhost",
+// que el lector de correo no puede abrir. En ese caso se usa el sitio publicado.
+const SITIO_PUBLICO = 'https://nails-agenda-three.vercel.app'
+const appUrl = process.env.NEXT_PUBLIC_APP_URL
+const LOGO_URL = `${!appUrl || /localhost|127\.0\.0\.1/.test(appUrl) ? SITIO_PUBLICO : appUrl}/logo-email.png`
 
 const base = (content: string) => `
 <!DOCTYPE html>
 <html lang="es">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#FFF8F8;font-family:'Helvetica Neue',Arial,sans-serif;">
+<body style="margin:0;padding:0;background:#FFF8F8;font-family:system-ui,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#FFF8F8;padding:40px 16px;">
     <tr><td align="center">
       <table width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
@@ -18,18 +23,18 @@ const base = (content: string) => `
         <tr><td style="background:linear-gradient(135deg,#F5C0C0,#D4BCEC);border-radius:16px 16px 0 0;padding:32px 40px;text-align:center;">
           <img src="${LOGO_URL}" width="72" height="72" alt="Nails Art Yurany"
                style="display:block;margin:0 auto 12px;width:72px;height:72px;border:0;outline:none;text-decoration:none;" />
-          <h1 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:600;color:#1A2040;letter-spacing:-0.3px;">Nails Art Yurany</h1>
+          <h1 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:#1A2040;letter-spacing:-0.3px;">Nails Art Yurany</h1>
         </td></tr>
 
         <!-- Body -->
-        <tr><td style="background:#FFFFFF;padding:36px 40px;border-left:1px solid #F0E8E8;border-right:1px solid #F0E8E8;">
+        <tr><td style="background:#FFFFFF;padding:36px 40px;border-left:1px solid #F9E1E5;border-right:1px solid #F9E1E5;">
           ${content}
         </td></tr>
 
         <!-- Footer -->
-        <tr><td style="background:#FEF5F7;border:1px solid #F0E8E8;border-top:none;border-radius:0 0 16px 16px;padding:20px 40px;text-align:center;">
-          <p style="margin:0;font-size:11px;color:#B8BCCF;">Nails Art Yurany · Chile</p>
-          <p style="margin:4px 0 0;font-size:11px;color:#B8BCCF;">Este es un correo automático, no respondas a este mensaje.</p>
+        <tr><td style="background:#FEF5F7;border:1px solid #F9E1E5;border-top:none;border-radius:0 0 16px 16px;padding:20px 40px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#6A728E;">Nails Art Yurany · Chile</p>
+          <p style="margin:4px 0 0;font-size:11px;color:#6A728E;">Este es un correo automático, no respondas a este mensaje.</p>
         </td></tr>
 
       </table>
@@ -44,7 +49,7 @@ const detailRow = (icon: string, label: string, value: string) => `
       <span style="font-size:14px;">${icon}</span>
     </td>
     <td style="padding:8px 12px 8px 8px;vertical-align:top;width:110px;">
-      <span style="font-size:12px;font-weight:600;color:#8A91AD;text-transform:uppercase;letter-spacing:0.5px;">${label}</span>
+      <span style="font-size:12px;font-weight:600;color:#6A728E;text-transform:uppercase;letter-spacing:0.5px;">${label}</span>
     </td>
     <td style="padding:8px 0;vertical-align:top;">
       <span style="font-size:14px;color:#1A2040;font-weight:500;">${value}</span>
@@ -71,10 +76,10 @@ export function templateConfirmacion(data: {
   const isPendingTransfer = data.paymentStatus === 'pending_verification'
 
   const content = `
-    <h2 style="margin:0 0 6px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">¡Tu cita está reservada! 🎉</h2>
-    <p style="margin:0 0 28px;font-size:15px;color:#4A5270;">Hola <strong>${data.clientName}</strong>, recibimos tu reserva con éxito.</p>
+    <h2 style="margin:0 0 6px;font-family:'Playfair Display',Georgia,serif;font-size:24px;color:#1A2040;">¡Tu cita está reservada! 🎉</h2>
+    <p style="margin:0 0 28px;font-size:14px;color:#4A5270;">Hola <strong>${data.clientName}</strong>, recibimos tu reserva con éxito.</p>
 
-    <div style="background:#FFF8F8;border:1px solid #F0E8E8;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+    <div style="background:#FFF8F8;border:1px solid #F9E1E5;border-radius:12.8px;padding:20px 24px;margin-bottom:28px;">
       <table width="100%" cellpadding="0" cellspacing="0">
         ${detailRow('✂️', 'Servicio', data.serviceName)}
         ${detailRow('📅', 'Fecha', data.date)}
@@ -84,13 +89,13 @@ export function templateConfirmacion(data: {
     </div>
 
     ${isPendingTransfer ? `
-    <div style="background:#FFF8F0;border:1px solid #FFD9A0;border-radius:10px;padding:16px 20px;margin-bottom:28px;">
-      <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#E67E00;text-transform:uppercase;letter-spacing:0.5px;">Pago pendiente</p>
-      <p style="margin:0;font-size:13px;color:#4A5270;">Tu cita se confirmará una vez que verifiquemos tu transferencia. Te avisaremos por email.</p>
+    <div style="background:#FFEEC7;border:1px solid #B38910;border-radius:10px;padding:16px 20px;margin-bottom:28px;">
+      <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#775300;text-transform:uppercase;letter-spacing:0.5px;">Pago pendiente</p>
+      <p style="margin:0;font-size:14px;color:#4A5270;">Tu cita se confirmará una vez que verifiquemos tu transferencia. Te avisaremos por email.</p>
     </div>` : ''}
 
     ${manageButton(data.manageUrl)}
-    <p style="margin:0;font-size:14px;color:#8A91AD;text-align:center;">Si necesitas cancelar o cambiar tu hora, hazlo con al menos 24 horas de anticipación.</p>
+    <p style="margin:0;font-size:14px;color:#6A728E;text-align:center;">Si necesitas cancelar o cambiar tu hora, hazlo con al menos 24 horas de anticipación.</p>
   `
   return base(content)
 }
@@ -103,10 +108,10 @@ export function templateRecordatorio(data: {
   manageUrl: string
 }) {
   const content = `
-    <h2 style="margin:0 0 6px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">Tu cita es mañana ⏰</h2>
-    <p style="margin:0 0 28px;font-size:15px;color:#4A5270;">Hola <strong>${data.clientName}</strong>, te recordamos tu cita de mañana.</p>
+    <h2 style="margin:0 0 6px;font-family:'Playfair Display',Georgia,serif;font-size:24px;color:#1A2040;">Tu cita es mañana ⏰</h2>
+    <p style="margin:0 0 28px;font-size:14px;color:#4A5270;">Hola <strong>${data.clientName}</strong>, te recordamos tu cita de mañana.</p>
 
-    <div style="background:#FFF8F8;border:1px solid #F0E8E8;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+    <div style="background:#FFF8F8;border:1px solid #F9E1E5;border-radius:12.8px;padding:20px 24px;margin-bottom:28px;">
       <table width="100%" cellpadding="0" cellspacing="0">
         ${detailRow('✂️', 'Servicio', data.serviceName)}
         ${detailRow('📅', 'Fecha', data.date)}
@@ -115,7 +120,7 @@ export function templateRecordatorio(data: {
     </div>
 
     ${manageButton(data.manageUrl)}
-    <p style="margin:0;font-size:14px;color:#8A91AD;text-align:center;">Si no puedes asistir, avísanos desde el botón de arriba. ¡Te esperamos!</p>
+    <p style="margin:0;font-size:14px;color:#6A728E;text-align:center;">Si no puedes asistir, avísanos desde el botón de arriba. ¡Te esperamos!</p>
   `
   return base(content)
 }
@@ -128,10 +133,10 @@ export function templatePagoVerificado(data: {
   price: string
 }) {
   const content = `
-    <h2 style="margin:0 0 6px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">¡Pago confirmado! ✅</h2>
-    <p style="margin:0 0 28px;font-size:15px;color:#4A5270;">Hola <strong>${data.clientName}</strong>, recibimos y verificamos tu pago. Tu cita está confirmada.</p>
+    <h2 style="margin:0 0 6px;font-family:'Playfair Display',Georgia,serif;font-size:24px;color:#1A2040;">¡Pago confirmado! ✅</h2>
+    <p style="margin:0 0 28px;font-size:14px;color:#4A5270;">Hola <strong>${data.clientName}</strong>, recibimos y verificamos tu pago. Tu cita está confirmada.</p>
 
-    <div style="background:#F1FAF1;border:1px solid #C8E6C9;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+    <div style="background:#D9F8DC;border:1px solid #589F62;border-radius:12.8px;padding:20px 24px;margin-bottom:28px;">
       <table width="100%" cellpadding="0" cellspacing="0">
         ${detailRow('✂️', 'Servicio', data.serviceName)}
         ${detailRow('📅', 'Fecha', data.date)}
@@ -140,7 +145,7 @@ export function templatePagoVerificado(data: {
       </table>
     </div>
 
-    <p style="margin:0;font-size:14px;color:#8A91AD;">¡Nos vemos pronto! 💅</p>
+    <p style="margin:0;font-size:14px;color:#6A728E;">¡Nos vemos pronto! 💅</p>
   `
   return base(content)
 }
@@ -162,10 +167,10 @@ export function templateNuevaReservaAdmin(data: {
   calendarUrl: string
 }) {
   const content = `
-    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#8A91AD;text-transform:uppercase;letter-spacing:0.6px;">Nueva reserva</p>
-    <h2 style="margin:0 0 24px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">${esc(data.clientName)} reservó una cita</h2>
+    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#6A728E;text-transform:uppercase;letter-spacing:0.6px;">Nueva reserva</p>
+    <h2 style="margin:0 0 24px;font-family:'Playfair Display',Georgia,serif;font-size:24px;color:#1A2040;">${esc(data.clientName)} reservó una cita</h2>
 
-    <div style="background:#FFF8F8;border:1px solid #F0E8E8;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+    <div style="background:#FFF8F8;border:1px solid #F9E1E5;border-radius:12.8px;padding:20px 24px;margin-bottom:28px;">
       <table width="100%" cellpadding="0" cellspacing="0">
         ${detailRow('✂️', 'Servicio', esc(data.serviceName))}
         ${detailRow('📅', 'Fecha', data.date)}
@@ -179,7 +184,7 @@ export function templateNuevaReservaAdmin(data: {
 
     <table cellpadding="0" cellspacing="0" style="margin:0 auto 8px;">
       <tr><td style="background:#1A2040;border-radius:999px;">
-        <a href="${data.calendarUrl}" style="display:inline-block;padding:14px 28px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;">Ver en el calendario</a>
+        <a href="${data.calendarUrl}" style="display:inline-block;padding:14px 28px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;">Ver en el calendario</a>
       </td></tr>
     </table>
   `
@@ -195,9 +200,9 @@ export function templateCancelacionAdmin(data: {
   calendarUrl: string
 }) {
   const content = `
-    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#C0392B;text-transform:uppercase;letter-spacing:0.6px;">Cita cancelada</p>
-    <h2 style="margin:0 0 24px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">${esc(data.clientName)} canceló su cita</h2>
-    <div style="background:#FFF8F8;border:1px solid #F0E8E8;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+    <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#903B3E;text-transform:uppercase;letter-spacing:0.6px;">Cita cancelada</p>
+    <h2 style="margin:0 0 24px;font-family:'Playfair Display',Georgia,serif;font-size:24px;color:#1A2040;">${esc(data.clientName)} canceló su cita</h2>
+    <div style="background:#FFF8F8;border:1px solid #F9E1E5;border-radius:12.8px;padding:20px 24px;margin-bottom:28px;">
       <table width="100%" cellpadding="0" cellspacing="0">
         ${detailRow('✂️', 'Servicio', esc(data.serviceName))}
         ${detailRow('📅', 'Fecha', data.date)}
@@ -207,7 +212,7 @@ export function templateCancelacionAdmin(data: {
     <p style="margin:0 0 20px;font-size:14px;color:#4A5270;">El horario quedó libre y ya se puede volver a reservar.</p>
     <table cellpadding="0" cellspacing="0" style="margin:0 auto 8px;">
       <tr><td style="background:#1A2040;border-radius:999px;">
-        <a href="${data.calendarUrl}" style="display:inline-block;padding:14px 28px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;">Ver en el calendario</a>
+        <a href="${data.calendarUrl}" style="display:inline-block;padding:14px 28px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;">Ver en el calendario</a>
       </td></tr>
     </table>
   `
