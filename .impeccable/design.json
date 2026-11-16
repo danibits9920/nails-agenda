@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-08-23T19:35:56.152Z",
-  "title": "Design System: Nails Art Yurany",
+  "title": "Design System: Nails Yurany",
   "extensions": {
     "colorMeta": {
       "tinta-medianoche": {
@@ -312,7 +312,7 @@
       "kind": "custom",
       "refersTo": null,
       "description": "El logotipo real de la marca: un medallón circular opaco que se apoya sobre cualquier fondo. Vive en BrandMark; nadie lo redibuja.",
-      "html": "<div class=\"ds-brand\"><img class=\"ds-brand__mark\" src=\"/logo-yurany.png\" alt=\"\" width=\"36\" height=\"36\"><span class=\"ds-brand__name\">Nails Art Yurany</span></div>",
+      "html": "<div class=\"ds-brand\"><img class=\"ds-brand__mark\" src=\"/logo-yurany.png\" alt=\"\" width=\"36\" height=\"36\"><span class=\"ds-brand__name\">Nails Yurany</span></div>",
       "css": ".ds-brand { display: inline-flex; align-items: center; gap: 10px; } .ds-brand__mark { width: 36px; height: 36px; border-radius: 9999px; flex-shrink: 0; display: block; } .ds-brand__name { font-family: var(--font-playfair), Georgia, serif; font-size: 15px; font-weight: 700; letter-spacing: -.015em; color: var(--color-navy, #1A2040); }"
     },
     {

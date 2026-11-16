@@ -1,6 +1,6 @@
 import { Wrench } from 'lucide-react'
 
-export const metadata = { title: 'En mantenimiento — Nails Art Yurany' }
+export const metadata = { title: 'En mantenimiento — Nails Yurany' }
 
 export default function MantenimientoPage() {
   return (
@@ -12,7 +12,7 @@ export default function MantenimientoPage() {
 
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)] mb-2">
-            Nails Art Yurany
+            Nails Yurany
           </p>
           <h1 className="font-display text-2xl font-bold text-[var(--color-navy)] mb-2 tracking-tight">
             En mantenimiento

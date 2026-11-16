@@ -1,5 +1,5 @@
 -- ═══════════════════════════════════════════════════════════════════════════
--- setup_completo.sql — Nails Art Yurany
+-- setup_completo.sql — Nails Yurany
 --
 -- Consolidado de las migraciones 001–011 para levantar una INSTANCIA NUEVA
 -- de Supabase de una sola pasada. Es idempotente: se puede correr más de una

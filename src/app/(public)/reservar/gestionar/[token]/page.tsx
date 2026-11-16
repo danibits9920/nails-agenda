@@ -36,7 +36,7 @@ export default async function GestionarPage({ params }: { params: Promise<{ toke
       <nav className="bg-[var(--color-surface)] border-b border-[var(--color-border-soft)]">
         <div className="max-w-2xl mx-auto px-5 h-14 flex items-center gap-2.5">
           <BrandMark size={30} />
-          <span className="font-display font-bold text-sm text-[var(--color-navy)] tracking-tight">Nails Art Yurany</span>
+          <span className="font-display font-bold text-sm text-[var(--color-navy)] tracking-tight">Nails Yurany</span>
         </div>
       </nav>
 

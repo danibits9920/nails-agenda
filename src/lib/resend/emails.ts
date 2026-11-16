@@ -2,6 +2,7 @@ import { resend, FROM } from './client'
 import { templateConfirmacion, templateRecordatorio, templatePagoVerificado, templateNuevaReservaAdmin, templateCancelacionAdmin } from './templates'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { ADMIN_BASE } from '@/lib/admin-path'
+import { googleCalendarUrl, icsCita, ICS_FILENAME } from '@/lib/calendario'
 
 const APP_URL = () => process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
 
@@ -33,17 +34,32 @@ export async function sendConfirmacion(data: {
   serviceName: string
   date: string
   startTime: string
+  endTime: string
   price: number
   paymentStatus: string
   manageToken: string
+  appointmentId: string
 }) {
   if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY.startsWith('re_XXX')) return
+
+  const cita = {
+    uid:         data.appointmentId,
+    serviceName: data.serviceName,
+    date:        data.date,
+    startTime:   data.startTime,
+    endTime:     data.endTime,
+    manageUrl:   manageUrl(data.manageToken),
+  }
 
   await resend.emails.send({
     from: FROM,
     to: data.to,
-    subject: '✦ Tu cita está reservada — Nails Art Yurany',
+    subject: '✦ Tu cita está reservada — Nails Yurany',
+    // El .ics adjunto es el camino de iPhone y Outlook; Google usa su enlace.
+    attachments: [{ filename: ICS_FILENAME, content: Buffer.from(icsCita(cita)), contentType: 'text/calendar' }],
     html: templateConfirmacion({
+      googleCalendarUrl: googleCalendarUrl(cita),
+      icsUrl:            `${APP_URL()}/api/calendario/${data.manageToken}`,
       clientName:    data.clientName,
       serviceName:   data.serviceName,
       date:          formatDate(data.date),
@@ -68,7 +84,7 @@ export async function sendRecordatorio(data: {
   const { error } = await resend.emails.send({
     from: FROM,
     to: data.to,
-    subject: 'Recordatorio: Tu cita es mañana — Nails Art Yurany',
+    subject: 'Recordatorio: Tu cita es mañana — Nails Yurany',
     html: templateRecordatorio({
       clientName:  data.clientName,
       serviceName: data.serviceName,
@@ -93,7 +109,7 @@ export async function sendPagoVerificado(data: {
   await resend.emails.send({
     from: FROM,
     to: data.to,
-    subject: '¡Pago confirmado! Tu cita está confirmada — Nails Art Yurany',
+    subject: '¡Pago confirmado! Tu cita está confirmada — Nails Yurany',
     html: templatePagoVerificado({
       clientName:  data.clientName,
       serviceName: data.serviceName,

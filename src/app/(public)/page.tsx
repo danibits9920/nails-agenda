@@ -68,7 +68,7 @@ export default async function LandingPage() {
             <Link href="/" className="group flex items-center gap-3">
               <BrandMark size={48} priority className="transition-transform duration-500 ease-[var(--ease-out)] group-hover:rotate-[-8deg] group-hover:scale-105" />
               <span className="font-display font-bold text-lg text-[var(--color-navy)] tracking-tight">
-                Nails Art Yurany
+                Nails Yurany
               </span>
             </Link>
             <div className="flex items-center gap-4">
@@ -94,7 +94,7 @@ export default async function LandingPage() {
               {/* El medallón en grande: la marca se presenta antes que el título. */}
               <div className="logo-pop relative mb-6 w-20 md:w-28 aspect-square [&>img]:!w-full [&>img]:!h-full">
                 <div className="absolute -inset-3 rounded-full bg-[var(--color-primary-light)]/40 blur-xl" aria-hidden="true" />
-                <BrandMark size={112} alt="Nails Art Yurany" priority className="relative drop-shadow-[0_10px_24px_rgba(26,32,64,0.18)]" />
+                <BrandMark size={112} alt="Nails Yurany" priority className="relative drop-shadow-[0_10px_24px_rgba(26,32,64,0.18)]" />
               </div>
               <div
                 className="hero-fade inline-flex items-center gap-2 px-4 py-1.5 bg-white/85 backdrop-blur-sm border border-[var(--color-primary)]/30 rounded-full text-xs font-semibold text-[var(--color-primary-dark)] mb-6"
@@ -372,7 +372,7 @@ export default async function LandingPage() {
             <div>
               <div className="flex items-center gap-2.5 mb-3">
                 <BrandMark size={30} />
-                <span className="font-display font-bold text-sm text-[var(--color-navy)]">Nails Art Yurany</span>
+                <span className="font-display font-bold text-sm text-[var(--color-navy)]">Nails Yurany</span>
               </div>
               <p className="text-xs text-[var(--color-ink-secondary)] leading-relaxed">
                 Manicurista profesional especializada en nail art, gel y acrílico. Santiago, Chile.
@@ -418,7 +418,7 @@ export default async function LandingPage() {
 
           <div className="border-t border-[var(--color-border-soft)] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-[var(--color-ink-tertiary)] font-medium">
-              © {new Date().getFullYear()} Nails Art Yurany · Hecho con amor en Chile
+              © {new Date().getFullYear()} Nails Yurany · Hecho con amor en Chile
             </p>
             <Link
               href="/reservar"

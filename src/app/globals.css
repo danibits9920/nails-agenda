@@ -172,7 +172,7 @@
 /* ── Base ─────────────────────────────────────────────────────── */
 :root {
   color-scheme: light;
-  /* Nails Art Yurany brand — tokens for shadcn components */
+  /* Nails Yurany brand — tokens for shadcn components */
   --background:                 #FFF8F8;
   --foreground:                 #1A2040;
   --card:                       #FFFFFF;

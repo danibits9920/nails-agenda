@@ -20,7 +20,7 @@ export function MobileTopBar() {
       <div className="flex items-center gap-2">
         <BrandMark size={38} priority />
         <h1 className="font-display text-sm font-bold leading-tight tracking-tight">
-          Nails Art Yurany
+          Nails Yurany
         </h1>
       </div>
       <div className="w-8 h-8 rounded-full bg-white/15 border border-white/20 flex items-center justify-center text-xs font-bold">

@@ -21,9 +21,9 @@ const base = (content: string) => `
 
         <!-- Header -->
         <tr><td style="background:linear-gradient(135deg,#F5C0C0,#D4BCEC);border-radius:16px 16px 0 0;padding:32px 40px;text-align:center;">
-          <img src="${LOGO_URL}" width="72" height="72" alt="Nails Art Yurany"
+          <img src="${LOGO_URL}" width="72" height="72" alt="Nails Yurany"
                style="display:block;margin:0 auto 12px;width:72px;height:72px;border:0;outline:none;text-decoration:none;" />
-          <h1 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:#1A2040;letter-spacing:-0.3px;">Nails Art Yurany</h1>
+          <h1 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:600;color:#1A2040;letter-spacing:-0.3px;">Nails Yurany</h1>
         </td></tr>
 
         <!-- Body -->
@@ -33,7 +33,7 @@ const base = (content: string) => `
 
         <!-- Footer -->
         <tr><td style="background:#FEF5F7;border:1px solid #F9E1E5;border-top:none;border-radius:0 0 16px 16px;padding:20px 40px;text-align:center;">
-          <p style="margin:0;font-size:11px;color:#6A728E;">Nails Art Yurany · Chile</p>
+          <p style="margin:0;font-size:11px;color:#6A728E;">Nails Yurany · Chile</p>
           <p style="margin:4px 0 0;font-size:11px;color:#6A728E;">Este es un correo automático, no respondas a este mensaje.</p>
         </td></tr>
 
@@ -64,7 +64,18 @@ const manageButton = (url: string) => `
       </td></tr>
     </table>`
 
+// Acción principal del correo de confirmación: tinta sólida, como todo botón que decide.
+const calendarButtons = (googleUrl: string, icsUrl: string) => `
+    <table cellpadding="0" cellspacing="0" style="margin:0 auto 12px;">
+      <tr><td style="background:#1A2040;border-radius:999px;">
+        <a href="${googleUrl}" style="display:inline-block;padding:14px 28px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;">📅 Agregar a Google Calendar</a>
+      </td></tr>
+    </table>
+    <p style="margin:0 0 28px;font-size:12px;color:#6A728E;text-align:center;">¿Usas iPhone u Outlook? Abre el archivo adjunto o <a href="${icsUrl}" style="color:#1A2040;font-weight:600;">descárgalo aquí</a>.</p>`
+
 export function templateConfirmacion(data: {
+  googleCalendarUrl: string
+  icsUrl: string
   clientName: string
   serviceName: string
   date: string
@@ -94,6 +105,7 @@ export function templateConfirmacion(data: {
       <p style="margin:0;font-size:14px;color:#4A5270;">Tu cita se confirmará una vez que verifiquemos tu transferencia. Te avisaremos por email.</p>
     </div>` : ''}
 
+    ${calendarButtons(data.googleCalendarUrl, data.icsUrl)}
     ${manageButton(data.manageUrl)}
     <p style="margin:0;font-size:14px;color:#6A728E;text-align:center;">Si necesitas cancelar o cambiar tu hora, hazlo con al menos 24 horas de anticipación.</p>
   `

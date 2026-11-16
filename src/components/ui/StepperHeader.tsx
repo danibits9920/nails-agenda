@@ -28,7 +28,7 @@ export default function StepperHeader({ current }: { current: number }) {
           <div className="flex items-center gap-1.5">
             <BrandMark size={28} />
             <span className="font-display text-sm font-semibold text-[var(--color-navy)] tracking-tight">
-              Nails Art Yurany
+              Nails Yurany
             </span>
           </div>
 

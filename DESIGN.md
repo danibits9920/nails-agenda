@@ -1,5 +1,5 @@
 ---
-name: Nails Art Yurany
+name: Nails Yurany
 description: Papel crema y tinta de medianoche — la agenda de una manicurista, donde lo suave invita y lo oscuro confirma.
 colors:
   tinta-medianoche: "#1A2040"
@@ -156,7 +156,7 @@ components:
     padding: "10px 12px"
 ---
 
-# Design System: Nails Art Yurany
+# Design System: Nails Yurany
 
 ## Overview
 

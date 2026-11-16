@@ -74,7 +74,7 @@ Los seis estados de cita —Pendiente, Confirmada, En curso, Completada, Cancela
 
 ## Brand Commitments
 
-- **Nombre:** Nails Art Yurany.
+- **Nombre:** Nails Yurany.
 - **Logo real:** `public/LOGO YURANY.png` — activo oficial confirmado por la usuaria. Hoy **no se usa en ninguna parte de la interfaz**: la marca se representa con un círculo degradado y un ícono. Pesa 1,4 MB sin optimizar.
 - **Instagram real:** `@nailsartyurany`. Aparece en el footer como texto plano, sin enlace.
 - **WhatsApp / teléfono real:** existe y es publicable. El número todavía no está registrado en el repositorio; el footer solo dice "WhatsApp disponible".

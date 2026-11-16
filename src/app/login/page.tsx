@@ -26,9 +26,9 @@ export default function LoginPage() {
             rosado se conserva porque el medallón ya no lo trae dibujado. */}
         <div className="flex flex-col items-center mb-8">
           <div className="mb-4 rounded-full shadow-[0_6px_24px_rgba(237,170,181,0.45)]">
-            <BrandMark size={112} alt="Nails Art Yurany" priority />
+            <BrandMark size={112} alt="Nails Yurany" priority />
           </div>
-          <h1 className="sr-only">Nails Art Yurany</h1>
+          <h1 className="sr-only">Nails Yurany</h1>
           <p className="text-sm text-[var(--color-ink-tertiary)]">
             Panel de administración
           </p>

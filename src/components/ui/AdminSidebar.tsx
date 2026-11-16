@@ -33,7 +33,7 @@ export default function AdminSidebar() {
           <BrandMark size={48} priority className="transition-transform duration-500 ease-[var(--ease-out)] group-hover:rotate-[-8deg] group-hover:scale-105" />
           <div>
             <h1 className="font-display text-base font-bold text-[var(--color-navy)] leading-tight tracking-tight">
-              Nails Art Yurany
+              Nails Yurany
             </h1>
             <p className="text-micro text-[var(--color-primary-dark)]">Panel de gestión</p>
           </div>

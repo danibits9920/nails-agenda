@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 /**
- * La marca de Nails Art Yurany.
+ * La marca de Nails Yurany.
  *
  * Hasta ahora la marca se dibujaba a mano en ocho sitios: un círculo con
  * degradado rosa→lavanda y un icono de destellos dentro. El logotipo real

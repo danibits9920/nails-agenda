@@ -3,7 +3,7 @@ import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
 const SUPABASE_URL      = Deno.env.get('SUPABASE_URL')!
 const SERVICE_ROLE_KEY  = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 const RESEND_API_KEY    = Deno.env.get('RESEND_API_KEY')!
-const FROM              = Deno.env.get('RESEND_FROM_EMAIL') ?? 'Nails Art Yurany <no-reply@nailsartyurany.cl>'
+const FROM              = Deno.env.get('RESEND_FROM_EMAIL') ?? 'Nails Yurany <no-reply@nailsartyurany.cl>'
 // El recordatorio corre fuera de Next, así que su URL base es propia.
 const SITE_URL          = Deno.env.get('SITE_URL') ?? 'https://nailsartyurany.cl'
 const LOGO_URL          = `${SITE_URL}/logo-email.png`
@@ -35,7 +35,7 @@ function htmlRecordatorio(clientName: string, serviceName: string, date: string,
         <tr><td style="background:linear-gradient(135deg,#F5C0C0,#D4BCEC);border-radius:16px 16px 0 0;padding:32px 40px;text-align:center;">
           <img src="${LOGO_URL}" width="72" height="72" alt=""
                style="display:block;margin:0 auto 12px;width:72px;height:72px;border:0;outline:none;text-decoration:none;" />
-          <h1 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:600;color:#1A2040;letter-spacing:-0.3px;">Nails Art Yurany</h1>
+          <h1 style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:600;color:#1A2040;letter-spacing:-0.3px;">Nails Yurany</h1>
         </td></tr>
         <tr><td style="background:#FFFFFF;padding:36px 40px;border-left:1px solid #F0E8E8;border-right:1px solid #F0E8E8;">
           <h2 style="margin:0 0 6px;font-family:Georgia,serif;font-size:24px;color:#1A2040;">Tu cita es mañana ⏰</h2>
@@ -62,7 +62,7 @@ function htmlRecordatorio(clientName: string, serviceName: string, date: string,
           <p style="margin:0;font-size:14px;color:#8A91AD;">Si no puedes asistir, por favor avísanos con anticipación. ¡Te esperamos!</p>
         </td></tr>
         <tr><td style="background:#FEF5F7;border:1px solid #F0E8E8;border-top:none;border-radius:0 0 16px 16px;padding:20px 40px;text-align:center;">
-          <p style="margin:0;font-size:11px;color:#B8BCCF;">Nails Art Yurany · Chile</p>
+          <p style="margin:0;font-size:11px;color:#B8BCCF;">Nails Yurany · Chile</p>
           <p style="margin:4px 0 0;font-size:11px;color:#B8BCCF;">Este es un correo automático, no respondas a este mensaje.</p>
         </td></tr>
       </table>
@@ -115,7 +115,7 @@ serve(async () => {
       body: JSON.stringify({
         from:    FROM,
         to:      email,
-        subject: 'Recordatorio: Tu cita es mañana — Nails Art Yurany',
+        subject: 'Recordatorio: Tu cita es mañana — Nails Yurany',
         html:    htmlRecordatorio(
           apt.clients!.name,
           apt.services?.name ?? 'Servicio',

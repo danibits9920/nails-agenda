@@ -21,8 +21,8 @@ const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Nails Art Yurany — Agenda Online",
-    template: "%s · Nails Art Yurany",
+    default: "Nails Yurany — Agenda Online",
+    template: "%s · Nails Yurany",
   },
   description:
     "Reserva tu cita de manicure, pedicure, gel, acrílico y nail art con Yurany. Agenda online 24/7 en Santiago, Chile.",
@@ -31,16 +31,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CL",
     url: siteUrl,
-    siteName: "Nails Art Yurany",
-    title: "Nails Art Yurany — Agenda Online",
+    siteName: "Nails Yurany",
+    title: "Nails Yurany — Agenda Online",
     description:
       "Reserva tu cita de manicure, pedicure, gel, acrílico y nail art con Yurany. Agenda online 24/7.",
     // Sin esto, compartir el enlace no mostraba ninguna imagen.
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Nails Art Yurany" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Nails Yurany" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nails Art Yurany — Agenda Online",
+    title: "Nails Yurany — Agenda Online",
     description:
       "Reserva tu cita de manicure, pedicure, gel, acrílico y nail art con Yurany. Agenda online 24/7.",
     images: ["/og.png"],

@@ -148,7 +148,9 @@ export async function crearReserva(_prevState: { error: string } | null, formDat
         serviceName:   service.name,
         date:          fecha,
         startTime:     startTimeValidated,
+        endTime:       endTimeValidated,
         price:         service.price,
+        appointmentId: apt.id,
         paymentStatus: payMethod === 'transfer' ? 'pending_verification' : 'unpaid',
         manageToken:   apt.manage_token,
       })

@@ -2,8 +2,10 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { formatCLP, formatDate, formatTime } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { CheckCircle, CalendarDays, Clock, Scissors } from 'lucide-react'
+import { CheckCircle, CalendarDays, CalendarPlus, Clock, Scissors } from 'lucide-react'
 import BrandMark from '@/components/ui/BrandMark'
+import { googleCalendarUrl } from '@/lib/calendario'
+import { manageUrl } from '@/lib/resend/emails'
 
 export default async function ConfirmacionPage({ searchParams }: { searchParams: Promise<{ id?: string }> }) {
   const { id } = await searchParams
@@ -12,7 +14,7 @@ export default async function ConfirmacionPage({ searchParams }: { searchParams:
   const supabase = createAdminClient()
   const { data: apt } = await supabase
     .from('appointments')
-    .select('id, date, start_time, end_time, status, payment_status, notes, clients(name, email, phone), services(name, price)')
+    .select('id, date, start_time, end_time, status, manage_token, payment_status, notes, clients(name, email, phone), services(name, price)')
     .eq('id', id)
     .single()
 
@@ -21,6 +23,14 @@ export default async function ConfirmacionPage({ searchParams }: { searchParams:
   const client  = apt.clients  as { name: string; email: string | null; phone: string | null } | null
   const service = apt.services as { name: string; price: number } | null
   const firstName = client?.name?.split(' ')[0] ?? null
+  const googleUrl = googleCalendarUrl({
+    uid:         apt.id,
+    serviceName: service?.name ?? 'Tu cita',
+    date:        apt.date,
+    startTime:   apt.start_time,
+    endTime:     apt.end_time,
+    manageUrl:   manageUrl(apt.manage_token),
+  })
 
   return (
     <div className="min-h-screen bg-[var(--color-cream)] flex flex-col selection:bg-[var(--color-primary-light)]">
@@ -29,7 +39,7 @@ export default async function ConfirmacionPage({ searchParams }: { searchParams:
         <div className="max-w-2xl mx-auto px-5 h-14 flex items-center">
           <div className="flex items-center gap-2.5">
             <BrandMark size={30} />
-            <span className="font-display font-bold text-sm text-[var(--color-navy)] tracking-tight">Nails Art Yurany</span>
+            <span className="font-display font-bold text-sm text-[var(--color-navy)] tracking-tight">Nails Yurany</span>
           </div>
         </div>
       </nav>
@@ -100,6 +110,29 @@ export default async function ConfirmacionPage({ searchParams }: { searchParams:
             )}
           </div>
 
+          {/* Agregar al calendario: el teléfono de la clienta se encarga del aviso */}
+          <div className="mb-6">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)] text-center mb-3">Que no se te pase</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a
+                href={googleUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface)] text-sm font-semibold text-[var(--color-navy)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-raised)] active:translate-y-0 transition-all"
+              >
+                <CalendarPlus size={16} aria-hidden="true" />
+                Google Calendar
+              </a>
+              <a
+                href={`/api/calendario/${apt.manage_token}`}
+                className="flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface)] text-sm font-semibold text-[var(--color-navy)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-raised)] active:translate-y-0 transition-all"
+              >
+                <CalendarPlus size={16} aria-hidden="true" />
+                iPhone u Outlook
+              </a>
+            </div>
+          </div>
+
           <Link
             href="/"
             className="block w-full py-3.5 bg-[var(--color-navy)] text-white text-center text-[15px] font-semibold rounded-full hover:bg-[var(--color-navy-light)] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md"
@@ -108,7 +141,7 @@ export default async function ConfirmacionPage({ searchParams }: { searchParams:
           </Link>
 
           <p className="text-center text-xs text-[var(--color-ink-muted)] mt-4 font-medium">
-            © {new Date().getFullYear()} Nails Art Yurany · Hecho con amor
+            © {new Date().getFullYear()} Nails Yurany · Hecho con amor
           </p>
         </div>
       </div>
